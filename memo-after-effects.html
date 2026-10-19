@@ -243,6 +243,82 @@ table.sc{width:100%;border-collapse:collapse;font-size:.94rem}
 .next{border:1px solid var(--ink);background:transparent;border-radius:999px;padding:6px 16px}
 .src{font-size:.88rem;color:var(--muted);display:flex;flex-direction:column;gap:6px}
 .src ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:3px}
+
+/* ---------- Novice : en clair, exercices, verrous ---------- */
+.enclair{display:flex;gap:12px;align-items:flex-start;background:var(--add-bg);color:var(--add-ink);border-radius:10px;padding:12px 14px;font-size:1rem}
+.enclair b{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding-top:4px;flex-shrink:0}
+.objectif{font-size:.92rem;color:var(--muted)}
+.objectif b{color:var(--ink)}
+.kbmode{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.8rem}
+.kbmode button{border:0;background:transparent;padding:3px 10px}
+.kbmode button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.exs{display:flex;flex-direction:column;gap:14px;border-top:2px solid var(--ink);padding-top:16px}
+.exhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.exhead h3{font-size:1.2rem}
+.pips{display:flex;gap:6px;align-items:center;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.pip{width:14px;height:14px;transform:rotate(45deg);border:2px solid var(--line);background:transparent}
+.pip.on{background:var(--ok);border-color:var(--ok)}
+.ex{border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:12px;background:var(--surface)}
+.ex.done{border-color:var(--ok);box-shadow:inset 4px 0 0 var(--ok)}
+.ex .exq{display:flex;gap:10px;align-items:baseline}
+.ex .exn{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);flex-shrink:0}
+.ex .exq p{font-weight:700;max-width:none}
+.exfb{font-size:.93rem;border-radius:8px;padding:9px 12px;display:none}
+.exfb.ok{display:block;background:var(--upd-bg);color:var(--upd-ink)}
+.exfb.ko{display:block;background:var(--warn-bg);color:var(--warn-ink)}
+.exbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:999px;padding:6px 16px;font-weight:700;font-size:.9rem}
+.btn.ghost{background:transparent;color:var(--ink);font-weight:400}
+.btn:disabled{opacity:.4;cursor:default}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chipb{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:8px 12px;text-align:left;font-size:.93rem;display:inline-flex;align-items:center;gap:8px}
+.chipb:hover:not(:disabled){border-color:var(--ink)}
+.chipb.good{border-color:var(--ok);background:var(--upd-bg);color:var(--upd-ink)}
+.chipb.bad{border-color:var(--bad);color:var(--bad)}
+.chipb.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.chipb:disabled{cursor:default}
+.chipb svg{flex-shrink:0}
+.orderout{display:flex;flex-direction:column;gap:6px;min-height:40px;border:1px dashed var(--line);border-radius:8px;padding:8px}
+.orderout .it{display:flex;gap:10px;align-items:baseline;font-size:.93rem}
+.orderout .it i{font-style:normal;font-family:var(--mono);font-size:.8rem;color:var(--muted);min-width:1.6em}
+.orderout:empty::before{content:"Cliquez les étapes dans l'ordre ↓";color:var(--muted);font-size:.88rem}
+.pairs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pairs .col{display:flex;flex-direction:column;gap:6px}
+.pairs .chipb{width:100%}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px}
+.form label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--muted)}
+.form input,.form select{font:inherit;font-size:.95rem;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 8px;min-width:0}
+.form .wrong input,.form .wrong select{border-color:var(--bad)}
+.form .right input,.form .right select{border-color:var(--ok)}
+.sim{display:flex;flex-direction:column;gap:10px}
+.sim svg{width:100%;height:auto;display:block;background:var(--bg);border:1px solid var(--line);border-radius:8px;touch-action:none;user-select:none;-webkit-user-select:none}
+.sim svg text{font-family:var(--mono);font-size:12px;fill:var(--muted)}
+.sim svg text.b{fill:var(--ink);font-weight:700}
+.sim svg .hd{cursor:grab}
+.sim svg .hd:active{cursor:grabbing}
+.simrow{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;font-size:.92rem}
+.simrow label{display:flex;align-items:center;gap:8px}
+.simrow input[type=range]{width:160px;accent-color:var(--accent)}
+.simrow select{font:inherit;font-size:.92rem;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+.simrow output,.mono{font-family:var(--mono);font-size:.85rem}
+.tlval{font-family:var(--mono);font-weight:700;color:var(--accent);text-decoration:underline dotted;cursor:ew-resize;padding:0 2px;touch-action:none;user-select:none}
+.tlrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:.92rem}
+.tlrow input{width:72px;font:inherit;font-family:var(--mono);font-size:.88rem;color:var(--accent);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:2px 6px}
+.chrono{width:28px;height:28px;border-radius:50%;border:2px solid var(--ink);background:transparent;position:relative;padding:0;flex-shrink:0}
+.chrono::after{content:"";position:absolute;left:50%;top:4px;width:2px;height:9px;background:currentColor;transform:translateX(-50%)}
+.chrono[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.blendbox{position:relative;border-radius:8px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/8;isolation:isolate}
+.blendbox>*{position:absolute;inset:0;width:100%;height:100%}
+.chlock{display:flex;flex-direction:column;gap:12px;align-items:flex-start;background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:18px}
+.ch .lock{font-size:.8rem;opacity:.7}
+.ch .ok{color:var(--ok);font-weight:700;font-size:.85rem}
+.ch.locked .nm{opacity:.55}
+.teach{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.chnav .next:not(:disabled){background:var(--ok);border-color:var(--ok);color:#fff;font-weight:700}
+@media (max-width:600px){.pairs{grid-template-columns:1fr 1fr;gap:6px}.pairs .chipb{font-size:.84rem;padding:7px 8px}.simrow input[type=range]{width:120px}}
+a.btn{text-decoration:none;display:inline-block}
+@media (max-width:600px){.ex .exq{flex-direction:column;gap:2px}.ex{padding:12px}.sim.wide{overflow-x:auto;padding-bottom:4px}.sim.wide svg{min-width:540px}}
+
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important}}
 </style>
 
@@ -253,7 +329,8 @@ table.sc{width:100%;border-collapse:collapse;font-size:.94rem}
     <div class="intro">
       <span class="eyebrow">Support de cours · d'après Stéphane Prince, Vidéodesign Formation</span>
       <h1>Mémo After Effects</h1>
-      <p class="lead">Les 23 chapitres du mémo, complétés par huit chapitres sur ce que d'autres formations enseignent et mis à jour pour After Effects 2026. Le tout est organisé en un parcours de sept modules, avec exercices, ateliers et suivi de progression.</p>
+      <p class="lead">Un parcours pensé pour ceux qui n'ont jamais ouvert After Effects. 31 étapes expliquées avec des mots simples, chacune validée par 3 exercices interactifs avant de passer à la suivante. D'après le mémo de Stéphane Prince, complété et mis à jour pour After Effects 2026.</p>
+      <div class="controls"><a class="btn" href="#chapitres">Commencer le parcours →</a><a class="btn ghost" href="memo-after-effects.html" download="Memo-After-Effects.html">⤓ Télécharger le mémo (utilisable hors ligne)</a></div>
     </div>
     <div class="facts" aria-label="Repères historiques">
       <div class="fact"><b>1993</b><span>Naissance du logiciel, développé par la société Cosa</span></div>
@@ -263,10 +340,10 @@ table.sc{width:100%;border-collapse:collapse;font-size:.94rem}
     </div>
   </div>
   <div class="howto">
-    <div><b>1. Suivre un module</b><span>Objectifs, chapitres à lire et exercice guidé.</span></div>
-    <div><b>2. Lire les chapitres</b><span>Le mémo, ses mises à jour et les compléments.</span></div>
-    <div><b>3. Manipuler</b><span>Sept ateliers interactifs pour les notions abstraites.</span></div>
-    <div><b>4. Se tester</b><span>Cocher « Je sais faire » et passer le quiz.</span></div>
+    <div><b>1. Lire « En clair »</b><span>Chaque étape commence par une image simple de la notion.</span></div>
+    <div><b>2. Suivre les explications</b><span>Pas à pas, avec les schémas et les raccourcis de votre clavier.</span></div>
+    <div><b>3. Valider 3 exercices</b><span>Manipuler, associer, remettre en ordre : l'étape suivante se débloque.</span></div>
+    <div><b>4. Pratiquer</b><span>Les modules proposent un exercice à refaire dans After Effects.</span></div>
   </div>
 </header>
 
@@ -284,9 +361,10 @@ table.sc{width:100%;border-collapse:collapse;font-size:.94rem}
 </section>
 
 <section class="sec" id="chapitres" aria-labelledby="h-ch">
-  <span class="eyebrow">31 chapitres · 23 du mémo + 8 compléments</span>
-  <h2 id="h-ch">Explorer les chapitres</h2>
-  <p class="lead">Les blocs colorés sont à l'échelle des pages du mémo. Un point vert dans la liste signale un chapitre mis à jour pour la version actuelle.</p>
+  <span class="eyebrow">31 étapes · 3 exercices chacune</span>
+  <h2 id="h-ch">Le parcours pas à pas</h2>
+  <p class="lead">Les étapes sont rangées dans l'ordre d'apprentissage. Validez les 3 exercices d'une étape pour débloquer la suivante. Votre progression est gardée dans ce navigateur.</p>
+  <div class="progress-top" id="stepbar"></div>
   <div class="partsrow"><div class="parts" id="parts"></div><button class="addbtn" id="addbtn"><b>Compléments</b><span>8 chapitres ajoutés</span></button></div>
   <div class="legend-scale" style="max-width:calc(100% - 160px)"><span>p. 2</span><span>p. 48</span></div>
   <div class="explorer">
@@ -472,9 +550,11 @@ const CH=[
 "<b>Avant tout, il faut un calque.</b> Une image clé appartient toujours au paramètre d'un calque précis : une composition vide n'a rien à animer. Créez d'abord un élément, par exemple un cercle (outil Ellipse, <kbd>Q</kbd>, sans aucun calque sélectionné), un texte (<kbd>Cmd+Alt+Maj+T</kbd>) ou une image glissée du panneau Projet dans la timeline.",
 "<b>Où trouver les paramètres ?</b> Dans la timeline, dépliez le calque avec sa petite flèche, puis le groupe <i>Transformer</i> : Point d'ancrage, Position, Échelle, Rotation, Opacité. Plus rapide : sélectionnez le calque et tapez <kbd>P</kbd> (position), <kbd>S</kbd> (échelle), <kbd>R</kbd> (rotation), <kbd>T</kbd> (opacité) ou <kbd>A</kbd> (ancrage).",
 "<b>Trois façons de modifier le même paramètre.</b> Prenons la position du cercle. Les trois gestes donnent le même résultat ; on choisit selon le besoin :",
-"<b>① À la souris, dans la fenêtre Composition.</b> Avec l'outil Sélection (<kbd>V</kbd>), faites glisser le cercle. C'est sa Position qui change. Idéal pour placer « à l'œil ».",
+"<b>① À la souris, dans la fenêtre Composition</b> (la grande image au centre de l'écran). 1. Prenez l'outil Sélection, la flèche noire en haut à gauche de la barre d'outils (<kbd>V</kbd>). 2. Cliquez à l'intérieur du cercle, gardez le bouton enfoncé et déplacez la souris. 3. Relâchez : dans la timeline, les chiffres de la Position du calque ont changé (par exemple de 960, 540 à 1200, 540). Vous avez modifié le paramètre sans toucher aux chiffres. Idéal pour placer « à l'œil ».",
 "<b>② Par la glissière, dans la timeline.</b> Survolez le chiffre bleu de la Position : le curseur devient une main avec une double flèche. Cliquez-glissez à gauche ou à droite : la valeur défile et le cercle bouge en direct. Idéal pour un réglage progressif.",
 "<b>③ Au clavier, dans la timeline.</b> Cliquez sur le chiffre bleu, tapez une valeur exacte (par exemple 1200), validez avec Entrée. Idéal pour un placement précis.",
+"<b>Le lien avec les images clés.</b> Tant que le chronomètre de Position est éteint, modifier la Position (par l'un des trois gestes) déplace le cercle pour toute la durée de la composition, sans animation. Dès que le chronomètre est allumé, chaque modification crée (ou corrige) une image clé à l'instant où se trouve l'indicateur de temps : le glisser à la souris ① est alors la façon la plus intuitive d'animer un déplacement.",
+"<b>Les pièges du glisser.</b> Si l'outil Ellipse ou la Plume est resté actif, vous dessinez une nouvelle forme au lieu de déplacer le cercle : repassez sur <kbd>V</kbd>. Si vous attrapez un des petits carrés du contour, vous redimensionnez au lieu de déplacer : prenez le cercle par le milieu. Gardez <kbd>Maj</kbd> enfoncée pour rester bien à l'horizontale ou à la verticale.",
 "<b>Poser la première image clé.</b> Placez l'indicateur de temps (la ligne bleue verticale) au début, puis cliquez sur le chronomètre à gauche de « Position ». Un losange apparaît : la valeur du moment est mémorisée à cet instant.",
 "<b>Poser les suivantes.</b> 1. Déplacez l'indicateur de temps plus loin (par exemple à 2 s). 2. Modifiez la position par l'une des trois façons. 3. Un deuxième losange apparaît tout seul. After Effects calcule le mouvement entre les deux.",
 "Déplacer des images clés : les entourer au lasso puis les faire glisser. Une image clé sélectionnée est bleue.",
@@ -734,9 +814,800 @@ _BOX(20,95,110,50,'Projet AE','p6','ib')+
 };
 
 const figs=(k,end)=>[].concat(ILL[k]||[]).filter(f=>!!f.at===!!end).map(f=>`<figure class="ill"><div class="scr"><svg viewBox="0 0 560 ${f.h||240}" role="img" aria-label="${f.c.replace(/"/g,'&quot;')}">${f.s}</svg></div><figcaption>${f.c}</figcaption></figure>`).join('');
+/* =====================================================================
+   Contenu « novice » : ordre d'apprentissage, textes simples, exercices
+   ===================================================================== */
+const ORDER=["c1","c2","c3","m1","m2","m3","c4","m5","m6","m7","m8","m9","c5","m4","m10","m11","m12","m13","m14","m16","c7","m15","c6","m17","m18","m19","m20","m21","m22","m23","c8"];
+const NV={
+c1:{intro:"After Effects ressemble à un atelier : une étagère pour ranger vos fichiers, un écran pour voir l'image, et une table de travail en bas pour régler le temps.",
+obj:"reconnaître les quatre zones de l'écran et savoir où cliquer.",
+pts:[
+"<b>Le panneau Projet</b> (en haut à gauche) est l'étagère. Tout ce que vous importez y est rangé : images, vidéos, sons, et aussi vos compositions. Un fichier rangé ici n'apparaît pas encore dans la vidéo.",
+"<b>La fenêtre Composition</b> (au centre) est l'écran. Elle montre l'image que vous fabriquez, telle qu'elle sera exportée, à l'instant choisi.",
+"<b>Le panneau Montage</b>, qu'on appelle aussi la <b>timeline</b> (en bas), est la table de travail. À gauche : la liste des <b>calques</b> empilés comme des feuilles transparentes. À droite : le temps qui défile de gauche à droite.",
+"<b>L'indicateur de temps</b> est la ligne bleue verticale dans la timeline. L'image affichée au centre est toujours celle de l'instant où se trouve cette ligne.",
+"<b>Le panneau Effets et paramètres prédéfinis</b> (à droite) est la boîte à outils d'effets : on fait glisser un effet sur un calque.",
+"<b>La barre d'outils</b> (tout en haut) : la flèche de Sélection <kbd>V</kbd> pour attraper et déplacer, la main <kbd>H</kbd> pour se promener dans l'image, la loupe <kbd>Z</kbd>, les formes <kbd>Q</kbd>, la plume <kbd>G</kbd> et le texte <kbd>Ctrl+T</kbd>.",
+"Vous avez tout déplacé par erreur ? Menu <i>Fenêtre &gt; Espace de travail &gt; Réinitialiser « Standard »</i> remet l'écran comme au premier jour."],
+ex:[
+{t:'clic',s:'ui',a:'projet',q:"Cliquez sur l'étagère où sont rangés les fichiers importés.",e:"C'est le panneau Projet."},
+{t:'clic',s:'ui',a:'cti',q:"Cliquez sur l'indicateur de temps, la ligne qui montre l'instant affiché.",e:"Faites-la glisser pour voyager dans le temps de votre animation."},
+{t:'paires',q:"Associez chaque zone de l'écran à son rôle : cliquez à gauche, puis à droite.",p:[["Projet","Ranger les fichiers importés"],["Composition","Voir l'image fabriquée"],["Timeline","Empiler les calques et régler le temps"],["Effets","Ajouter un effet à un calque"]],e:"Vous connaissez les quatre zones principales."}]},
+
+c2:{intro:"Une vidéo est une suite d'images fixes qui défilent très vite, comme un folioscope (un carnet qu'on feuillette avec le pouce).",
+obj:"choisir la taille, la cadence et la durée d'une vidéo, et lire un timecode.",
+pts:[
+"<b>Image</b> : une photo de la vidéo. <b>Cadence</b> : le nombre d'images par seconde, noté <i>i/s</i>. En France, on travaille en <b>25 i/s</b> : une seconde de vidéo = 25 images.",
+"<b>Résolution</b> : la taille de l'image en pixels (les petits carrés qui la composent), notée largeur × hauteur. Full HD = <b>1920 × 1080</b>. 4K = 3840 × 2160.",
+"<b>Format</b> : la forme du cadre. <b>16:9</b> horizontal (YouTube, télévision), <b>9:16</b> vertical (Instagram, TikTok, stories) : en Full HD, 1080 de large sur 1920 de haut. <b>1:1</b> carré.",
+"<b>Timecode</b> : la façon d'écrire un instant. <code>0:00:05:12</code> se lit « 0 heure, 0 minute, 5 secondes et 12 images ». Le dernier nombre compte des images, pas des centièmes.",
+"<b>Couche alpha</b> : la transparence. Chaque image a quatre couches : rouge, vert, bleu (les couleurs) et alpha (ce qui est visible ou transparent). Le damier gris et blanc représente la transparence.",
+"<b>Codec</b> : la façon de compresser un fichier vidéo. Pour travailler : ProRes ou DNxHR (lourds mais propres). Pour diffuser sur Internet : H.264 (léger)."],
+ex:[
+{t:'vals',q:"Réglez une vidéo verticale pour Instagram, en Full HD, à la cadence française.",f:[{l:"Largeur",a:1080,u:"px"},{l:"Hauteur",a:1920,u:"px"},{l:"Cadence",o:["24","25","30","60"],a:"25",u:"i/s"}],hint:"Vertical : la hauteur est plus grande que la largeur.",e:"1080 × 1920 à 25 i/s : le format vertical standard."},
+{t:'qcm',q:"Combien d'images contient une animation de 4 secondes à 25 i/s ?",o:["25","29","100","4"],a:2,why:{0:"25, c'est une seule seconde.",1:"On ne fait pas une addition : on multiplie.",3:"4, c'est le nombre de secondes."},e:"4 × 25 = 100 images."},
+{t:'qcm',q:"Que signifie le timecode 0:00:02:10 ?",o:["2 minutes et 10 secondes","2 secondes et 10 images","2 heures et 10 minutes","210 images"],a:1,e:"Le dernier nombre compte toujours les images."}]},
+
+c3:{intro:"Comme en cuisine : on prépare et on range ses ingrédients avant d'allumer le feu. Un projet rangé fait gagner des heures.",
+obj:"démarrer un projet propre, importer des fichiers et l'enregistrer en versions.",
+pts:[
+"<b>Avant d'ouvrir le logiciel</b> : écrivez l'idée en une phrase, puis dessinez un <b>storyboard</b>, une suite de petites cases qui montrent les moments clés, comme une bande dessinée.",
+"<b>Créer et enregistrer</b> le projet tout de suite : <i>Fichier &gt; Enregistrer sous</i>, avec un nom clair, par exemple <code>generique_v01</code>.",
+"<b>Importer</b> des fichiers : <i>Fichier &gt; Importer &gt; Fichier</i> (<kbd>Ctrl+I</kbd>), ou double-clic dans une zone vide du panneau Projet. Les fichiers restent sur votre disque : After Effects ne fait que les « pointer ».",
+"<b>Ranger</b> dans le panneau Projet avec des dossiers (icône dossier en bas du panneau) : Médias, Compos, Précomps, Solides.",
+"<b>Nommer les calques</b> : sélectionnez un calque, touche <kbd>Entrée</kbd>, tapez le nom, <kbd>Entrée</kbd>.",
+"<b>Enregistrer en versions</b> : <kbd>Ctrl+Alt+Maj+S</kbd> enregistre une copie numérotée (v02, v03…). Si une version se casse, la précédente est intacte.",
+"<b>Transmettre ou archiver</b> : <i>Fichier &gt; Dépendances &gt; Rassembler les fichiers</i> copie le projet et tous ses médias dans un seul dossier."],
+warn:"Ne déplacez pas ou ne renommez pas vos médias sur le disque après l'import : After Effects ne les retrouve plus et les affiche en barres de couleur.",
+ex:[
+{t:'ordre',q:"Remettez dans l'ordre le démarrage d'un projet.",items:["Écrire l'idée et dessiner le storyboard","Créer le projet et l'enregistrer (generique_v01)","Créer les dossiers dans le panneau Projet","Importer les médias (Ctrl+I)","Ranger chaque fichier dans son dossier"],e:"Préparer, enregistrer, ranger, importer : dans cet ordre, rien ne se perd."},
+{t:'paires',q:"Dans quel dossier du panneau Projet range-t-on…",p:[["Vidéos, photos, sons","Médias"],["Les compositions principales","Compos"],["Les compositions imbriquées","Précomps"],["Les aplats de couleur créés dans After Effects","Solides"]]},
+{t:'qcm',q:"Vous envoyez le projet à un collègue, avec toutes les images. Quelle commande utiliser ?",o:["Fichier > Enregistrer sous","Envoyer seulement le fichier .aep","Fichier > Dépendances > Rassembler les fichiers","Exporter en H.264"],a:2,why:{1:"Le .aep ne contient pas les médias : votre collègue verrait des fichiers manquants."},e:"Rassembler les fichiers copie le projet ET tous les médias dans un dossier."}]},
+
+m1:{intro:"Une composition, c'est une toile vide qui a une taille, une durée et une vitesse. Tout ce que vous animez se passe à l'intérieur.",
+obj:"créer une composition aux bons réglages, de deux façons.",
+pts:[
+"<b>Méthode 1, partir de rien</b> : menu <i>Composition &gt; Nouvelle composition</i> (<kbd>Ctrl+N</kbd>). Une fenêtre de réglages s'ouvre.",
+"Dans cette fenêtre : un <b>nom</b> (par exemple « Générique »), un <b>préréglage</b> (<i>HDTV 1080 25</i> = 1920 × 1080 à 25 i/s), une <b>durée</b> et une <b>couleur d'arrière-plan</b>. Cliquez OK : la composition s'ouvre, vide.",
+"<b>Méthode 2, partir d'une vidéo</b> : faites glisser une vidéo du panneau Projet sur l'icône <i>Nouvelle composition</i> (en bas du panneau Projet). La composition prend exactement la taille, la durée et la cadence de la vidéo. Idéal pour truquer un plan.",
+"<b>Changer d'avis</b> : <i>Composition &gt; Paramètres de la composition</i> (<kbd>Ctrl+K</kbd>) rouvre la même fenêtre.",
+"Une composition apparaît à deux endroits : dans le panneau Projet (comme un fichier) et ouverte dans la timeline (pour travailler dedans).",
+"Si la composition commence à un timecode étrange (par exemple 01:00:00:00, hérité d'un montage), remettez le début à 0 dans <kbd>Ctrl+K</kbd>."],
+ex:[
+{t:'vals',q:"Remplissez la fenêtre pour un générique Full HD horizontal de 10 secondes, à la cadence française.",f:[{l:"Largeur",a:1920,u:"px"},{l:"Hauteur",a:1080,u:"px"},{l:"Cadence",o:["24","25","29,97","30"],a:"25",u:"i/s"},{l:"Durée",a:10,u:"secondes"}],e:"C'est le réglage le plus courant : HDTV 1080 25."},
+{t:'qcm',q:"Votre composition est créée, mais vous voulez changer sa durée. Quel raccourci rouvre ses réglages ?",o:["<kbd>Ctrl+N</kbd>","<kbd>Ctrl+K</kbd>","<kbd>Ctrl+I</kbd>","<kbd>Ctrl+S</kbd>"],a:1,why:{0:"Ctrl+N crée une nouvelle composition.",2:"Ctrl+I importe un fichier.",3:"Ctrl+S enregistre le projet."},e:"Ctrl+K : paramètres de la composition."},
+{t:'qcm',q:"Vous faites glisser une vidéo 4K de 12 secondes sur l'icône Nouvelle composition. Que se passe-t-il ?",o:["Une compo Full HD de 10 s est créée","Une compo 3840 × 2160 de 12 s est créée","La vidéo est exportée","Rien, il faut d'abord Ctrl+N"],a:1,e:"La composition copie la taille, la durée et la cadence de la vidéo."}]},
+
+m2:{intro:"Animer, c'est dire à After Effects : « à cet instant, le cercle est ici ; à cet autre instant, il est là-bas ». Ces repères s'appellent des images clés. Le logiciel calcule tout ce qui se passe entre les deux.",
+obj:"modifier un paramètre de trois façons et poser deux images clés.",
+pts:[
+"<b>Avant tout, il faut un calque.</b> Une image clé appartient toujours au paramètre d'un calque précis : une composition vide n'a rien à animer. Créez d'abord un élément, par exemple un cercle avec l'outil Ellipse (<kbd>Q</kbd>), sans aucun calque sélectionné.",
+"<b>Où sont les paramètres ?</b> Dans la timeline, dépliez le calque avec sa petite flèche, puis <i>Transformer</i> : Point d'ancrage, Position, Échelle, Rotation, Opacité. Plus rapide : sélectionnez le calque et tapez <kbd>P</kbd> (position), <kbd>S</kbd> (échelle), <kbd>R</kbd> (rotation), <kbd>T</kbd> (opacité).",
+"<b>Trois façons de modifier le même paramètre</b>, ici la Position :",
+"<b>① À la souris</b> : avec l'outil Sélection (<kbd>V</kbd>), faites glisser le cercle dans la fenêtre Composition. Les chiffres de la Position changent tout seuls.",
+"<b>② Par la glissière</b> : survolez un chiffre bleu dans la timeline, le curseur devient une main avec une double flèche ; glissez à gauche ou à droite.",
+"<b>③ Au clavier</b> : cliquez sur le chiffre bleu, tapez une valeur exacte, validez avec <kbd>Entrée</kbd>.",
+"<b>Le chronomètre</b> (petite horloge à gauche du nom du paramètre) : éteint, une modification vaut pour toute la durée, sans animation. Allumé, chaque modification crée une image clé (un losange) à l'instant de l'indicateur de temps.",
+"<b>Poser deux images clés</b> : 1. indicateur au début, cliquez le chronomètre (1er losange). 2. Déplacez l'indicateur (par exemple à 2 s). 3. Déplacez le cercle : le 2e losange apparaît tout seul.",
+"Déplacer des images clés : entourez-les au lasso puis faites-les glisser. <kbd>U</kbd> affiche tous les paramètres qui ont des images clés."],
+warn:"Un second clic sur le chronomètre l'éteint et efface toutes les images clés de ce paramètre (<kbd>Ctrl+Z</kbd> pour annuler).",
+ex:[
+{t:'sim',s:'pos',o:{mode:'drag',target:[1500,300]},q:"① À la souris : faites glisser le cercle orange dans l'anneau « cible ». Regardez les chiffres de la Position changer.",e:"Vous avez modifié la Position sans toucher aux chiffres."},
+{t:'sim',s:'pos',o:{mode:'scrub',target:[400,800]},q:"② Par la glissière : cette fois, ne touchez pas au cercle. Glissez les chiffres bleus pour l'amener dans la cible.",hint:"Le premier chiffre règle la gauche-droite (X), le second le haut-bas (Y). Visez environ 400, 800.",e:"La glissière permet des réglages progressifs."},
+{t:'sim',s:'keys',o:{start:[300,540],A:[300,540],B:[1600,540],tB:2},q:"Animez le cercle de A (à 0 s) à B (à 2 s) : allumez le chronomètre à 0 s, avancez l'indicateur à 2 s, puis déplacez le cercle sur B. Cliquez ▶ Lire pour voir le résultat.",hint:"L'indicateur doit être à 0 s quand vous cliquez le chronomètre. Faites glisser la ligne bleue de la timeline jusqu'à 2 s avant de bouger le cercle.",e:"Deux images clés, et After Effects calcule tout le mouvement entre les deux."}]},
+
+m3:{intro:"Avant de pouvoir vous montrer l'animation, After Effects doit « cuisiner » chaque image. La barre verte montre les images déjà prêtes.",
+obj:"délimiter la partie à regarder et prévisualiser de façon fluide.",
+pts:[
+"<b>Barre d'espace</b> : lance ou arrête la prévisualisation. La première fois, la lecture est lente : le logiciel calcule chaque image et la garde en mémoire vive (RAM).",
+"<b>La barre verte</b> au-dessus de la timeline grandit à mesure que les images sont prêtes. Quand elle couvre tout, la lecture devient fluide, en temps réel.",
+"<b>La zone de travail</b> limite ce qui est prévisualisé (et exporté). Placez l'indicateur de temps, puis <kbd>B</kbd> pour le <b>début</b>, <kbd>N</kbd> pour la <b>fin</b>. On regarde seulement le passage sur lequel on travaille.",
+"<b>Aller plus vite</b> : en bas de la fenêtre Composition, baissez la résolution d'affichage (par exemple Demi). L'image est moins nette, mais le calcul est beaucoup plus rapide.",
+"Les images calculées restent aussi dans un <b>cache disque</b> : elles sont encore prêtes après avoir fermé et rouvert le projet."],
+warn:"Le panneau Info affiche la cadence pendant la lecture. Si elle est en rouge, la lecture n'est pas en temps réel : réduisez la zone de travail ou la résolution.",
+ex:[
+{t:'sim',s:'work',o:{a:1.2,b:2.6,label:'le saut'},q:"Vous voulez revoir seulement « le saut » (bloc orange). Placez l'indicateur, puis réglez le début (B) et la fin (N) de la zone de travail. Testez avec Espace.",hint:"Faites glisser la ligne bleue au début du bloc orange, cliquez B ; puis à la fin du bloc, cliquez N.",e:"Prévisualiser un petit passage est beaucoup plus rapide que tout recalculer."},
+{t:'qcm',q:"La barre verte n'avance pas jusqu'au bout et la lecture saccade. Que faire ?",o:["Redémarrer l'ordinateur","Réduire la zone de travail ou la résolution d'affichage","Exporter la vidéo pour la voir","Supprimer la barre verte"],a:1,e:"Moins d'images ou des images plus petites : le calcul tient en mémoire."},
+{t:'paires',q:"Associez chaque touche ou signe à son rôle.",p:[["<kbd>Espace</kbd>","Lancer ou arrêter la prévisualisation"],["<kbd>B</kbd>","Début de la zone de travail"],["<kbd>N</kbd>","Fin de la zone de travail"],["Barre verte","Images déjà prêtes en mémoire"]]}]},
+
+c4:{intro:"Le point d'ancrage, c'est la punaise qui fixe le calque sur le tableau : le calque tourne et grandit autour d'elle.",
+obj:"placer le point d'ancrage avant d'animer, et créer solides et calques de forme.",
+pts:[
+"<b>Le point d'ancrage</b> est le petit viseur au centre du calque. Toutes les rotations et les changements d'échelle se font autour de lui.",
+"<b>Le déplacer</b> : outil <i>Déplacement arrière</i> (<kbd>Y</kbd>), puis faites glisser le viseur. Le calque, lui, ne bouge pas.",
+"<b>Le recentrer</b> sur le contenu : <kbd>Ctrl+Alt+Origine</kbd>.",
+"<b>Les cinq paramètres de tout calque</b>, avec leur touche : <kbd>A</kbd> point d'ancrage, <kbd>P</kbd> position, <kbd>S</kbd> échelle, <kbd>R</kbd> rotation, <kbd>T</kbd> opacité.",
+"<b>Solide</b> (<kbd>Ctrl+Y</kbd>) : un rectangle de couleur unie, de la taille de la composition. Il sert de fond ou de support à des effets et des masques.",
+"<b>Calque de forme</b> : dessinez avec l'outil Rectangle ou Ellipse (<kbd>Q</kbd>) <b>sans aucun calque sélectionné</b>. Il est vectoriel : il reste net même agrandi, et il a un fond et un contour réglables.",
+"<b>Orientation automatique</b> (<kbd>Ctrl+Alt+O</kbd>) : un calque (une flèche, un avion) s'oriente tout seul dans le sens de sa trajectoire."],
+warn:"Un point d'ancrage mal placé fait tourner un objet autour d'un mauvais centre. Placez-le toujours avant d'animer.",
+ex:[
+{t:'sim',s:'anchor',o:{start:[240,150],target:[240,40],box:[200,40,80,180],shape:`<rect x="235" y="40" width="10" height="140" style="fill:var(--ink)"/><circle cx="240" cy="190" r="28" style="fill:var(--p2)"/>`,decor:`<rect x="180" y="26" width="120" height="8" style="fill:var(--p5)"/><circle cx="240" cy="40" r="5" style="fill:var(--bad)"/><text x="252" y="22">le clou</text>`},q:"Ce pendule doit se balancer accroché au clou rouge. Placez le point d'ancrage au bon endroit.",e:"Le pendule se balance autour du clou, comme un vrai."},
+{t:'sim',s:'anchor',o:{spin:true,start:[200,90],target:[300,150],box:[230,80,140,140],shape:`<g transform="translate(300,150)"><ellipse rx="62" ry="13" style="fill:var(--p1)"/><ellipse rx="13" ry="62" style="fill:var(--p1)"/><circle r="12" style="fill:var(--ink)"/></g>`},q:"L'hélice doit tourner sur elle-même. Déplacez le point d'ancrage pour qu'elle tourne autour de son moyeu (le rond noir).",e:"En pratique, Ctrl+Alt+Origine centre le point d'ancrage en un geste."},
+{t:'paires',q:"Associez chaque touche au paramètre qu'elle affiche.",p:[["<kbd>A</kbd>","Point d'ancrage"],["<kbd>P</kbd>","Position"],["<kbd>S</kbd>","Échelle"],["<kbd>R</kbd>","Rotation"],["<kbd>T</kbd>","Opacité"]],e:"A, P, S, R, T : les cinq transformations de tout calque."}]},
+
+m5:{intro:"Interpoler, c'est inventer ce qui se passe entre deux images clés. L'interpolation « spatiale » décide du chemin : une ligne droite ou une courbe.",
+obj:"voir la trajectoire, et la rendre droite ou courbe.",
+pts:[
+"Quand un calque a des images clés de Position, sa <b>trajectoire</b> apparaît dans la fenêtre Composition : une ligne pointillée. Chaque petit point = la position à une image. Les <b>carrés</b> sont les images clés.",
+"<b>Points écartés</b> = l'objet va vite. <b>Points serrés</b> = il va lentement.",
+"<b>Linéaire</b> : la trajectoire fait un angle net au point clé, comme une balle qui rebondit sur un mur.",
+"<b>Bézier</b> : deux <b>poignées</b> (tangentes) sortent du point clé et arrondissent le passage, comme une voiture qui prend un virage.",
+"Passer de l'un à l'autre : <kbd>Ctrl+Alt</kbd> + clic sur le carré du point clé.",
+"Régler la courbe : tirez l'extrémité d'une poignée avec l'outil Sélection. Plus la poignée est longue, plus la courbe est ample.",
+"Pour casser la symétrie (poignées indépendantes) : <kbd>Ctrl+Alt</kbd> + glisser l'extrémité d'une poignée."],
+upd:"Selon les préférences, After Effects arrondit souvent la trajectoire automatiquement (Bézier auto). Pour une ligne droite, faites Ctrl+Alt+clic sur le point.",
+ex:[
+{t:'sim',s:'spatial',o:{goal:'curve'},q:"La balle doit passer dans les deux anneaux verts. Transformez le sommet en Bézier, puis tirez une poignée bleue pour arrondir la trajectoire.",hint:"Une poignée longue et horizontale donne une belle courbe en arche.",e:"Une trajectoire courbe paraît naturelle : rares sont les objets qui vont en ligne droite."},
+{t:'sim',s:'spatial',o:{goal:'linear'},q:"Ici, la balle doit rebondir sur un plafond invisible : la trajectoire doit faire un angle net au sommet. Repassez le point en linéaire.",e:"Un angle net = un choc, un rebond, un changement de direction brutal."},
+{t:'qcm',q:"Sur la trajectoire, les petits points sont écartés au début puis très serrés à la fin. Que fait l'objet ?",o:["Il accélère","Il ralentit","Il va à vitesse constante","Il s'arrête net"],a:1,e:"Points serrés = moins de distance parcourue à chaque image = l'objet ralentit."}]},
+
+m6:{intro:"L'interpolation « temporelle » règle la vitesse. Même chemin, même durée, mais l'objet peut partir doucement, freiner, ou sauter d'un coup.",
+obj:"choisir entre linéaire, lissage et maintien en regardant le mouvement.",
+pts:[
+"<b>Commencez toujours par le timing</b> : la distance entre deux images clés et le temps entre elles. Les interpolations ne font qu'affiner un mouvement déjà juste.",
+"<b>Linéaire</b> (par défaut) : vitesse constante, comme un tapis roulant. Démarrage et arrêt sont brusques, ce qui paraît mécanique.",
+"<b>Lissage de vitesse</b> (<kbd>F9</kbd>) : l'objet démarre doucement et freine en arrivant, comme une voiture. C'est le réglage le plus utilisé.",
+"<b>Bézier auto</b> (<kbd>Ctrl</kbd>+clic sur l'image clé) : adoucit un changement de vitesse au milieu d'une animation à plusieurs images clés.",
+"<b>Maintien</b> (<kbd>Ctrl+Alt+H</kbd>) : la valeur reste figée jusqu'à l'image clé suivante, puis saute d'un coup, comme l'aiguille d'une horloge ou un texte qui change.",
+"<b>Comment appliquer</b> : sélectionnez les images clés (losanges) dans la timeline, puis <kbd>F9</kbd>, ou clic droit &gt; <i>Assistant d'image clé &gt; Lissage de vitesse</i>."],
+ex:[
+{t:'sim',s:'interp',o:{k1:'ease',k2:'ease'},q:"La balle grise du modèle démarre doucement et freine en arrivant. Choisissez l'interpolation de vos deux images clés pour que la balle orange bouge pareil.",e:"Lissage sur les deux images clés : départ et arrivée en douceur. Voyez la forme en sablier dans la timeline."},
+{t:'sim',s:'interp',o:{k1:'hold',k2:'lin'},q:"Cette fois, la balle du modèle reste immobile puis saute d'un coup à l'arrivée. Reproduisez ce mouvement.",e:"Maintien : la valeur est figée jusqu'à l'image clé suivante. L'image clé devient carrée."},
+{t:'sim',s:'interp',o:{k1:'lin',k2:'ease'},q:"Le modèle part d'un coup, à pleine vitesse, puis freine doucement en arrivant. À vous.",hint:"Regardez les points : réguliers au début, serrés à la fin.",e:"Départ linéaire, arrivée lissée : parfait pour un objet lancé qui s'arrête."}]},
+
+m7:{intro:"L'éditeur de graphiques remplace les losanges par des courbes : on voit la vitesse comme un dessin, et on la modifie à la main.",
+obj:"ouvrir l'éditeur, lire une courbe de vitesse et tirer les poignées.",
+pts:[
+"<b>L'ouvrir</b> : bouton en forme de courbe en haut de la timeline, ou <kbd>Maj+F3</kbd>. Sélectionnez d'abord le paramètre (par exemple Position) pour voir sa courbe.",
+"<b>Courbe des valeurs</b> : la valeur du paramètre au fil du temps. Une pente raide = ça change vite ; un plat = ça ne bouge plus.",
+"<b>Courbe de vitesse</b> : la vitesse au fil du temps. <b>En haut = rapide, en bas = lent</b>, tout en bas = immobile.",
+"Chaque image clé a des <b>poignées d'influence</b> (petites tiges jaunes). En les étirant, on garde plus longtemps la vitesse lente au départ ou à l'arrivée : le mouvement devient plus doux.",
+"Les boutons en bas de l'éditeur reprennent les commandes : maintien, linéaire, Bézier auto, lissage."],
+ex:[
+{t:'sim',s:'graph',o:{goal:'slowStart'},q:"Faites démarrer la balle très lentement puis arriver vite, comme un objet qui tombe. Tirez les poignées jaunes de la courbe des valeurs.",hint:"La poignée de gauche doit rester basse et partir vers la droite.",e:"Courbe de vitesse qui part du bas et finit en haut : une accélération."},
+{t:'sim',s:'graph',o:{goal:'slowEnd'},q:"Maintenant l'inverse : un départ vif et une arrivée tout en douceur, comme un frein.",hint:"C'est la poignée de droite qui doit s'étirer vers la gauche, en restant en haut.",e:"Courbe de vitesse qui part du haut et finit en bas : une décélération."},
+{t:'qcm',q:"Dans la courbe de vitesse, la ligne est tout en bas au début, monte en cloche au milieu, puis redescend. Quand l'objet va-t-il le plus vite ?",o:["Au début","Au milieu","À la fin","Toujours à la même vitesse"],a:1,e:"Le sommet de la cloche = la vitesse maximale. C'est la signature du lissage de vitesse."}]},
+
+m8:{intro:"On lit les courbes comme un relief en randonnée : une montée, un plateau, une descente. Chaque forme raconte un mouvement.",
+obj:"reconnaître un mouvement à la forme de sa courbe et repérer un à-coup.",
+pts:[
+"<b>Vitesse constante</b> : la courbe des valeurs est une droite ; la courbe de vitesse est un plateau plat.",
+"<b>Accélération</b> : la courbe des valeurs se creuse vers le haut ; la courbe de vitesse monte.",
+"<b>Lissage</b> (<kbd>F9</kbd>) : la courbe des valeurs fait un S ; la courbe de vitesse fait une cloche.",
+"<b>Arrêt</b> : la courbe des valeurs devient horizontale (un plateau) ; la courbe de vitesse touche le bas.",
+"<b>À-coup</b> : la courbe de vitesse fait une marche d'escalier à une image clé. À l'écran, l'objet a un sursaut. On le supprime en rendant la vitesse continue (Bézier auto, ou en alignant les poignées)."],
+ex:[
+{t:'paires',q:"Associez chaque forme de courbe de VITESSE au mouvement qu'elle produit.",p:[["Ligne plate","Vitesse constante"],["Cloche","Démarre doucement, freine en arrivant"],["Monte sans cesse","Accélère"],["Marche d'escalier","Un à-coup brutal"]]},
+{t:'qcm',q:"La courbe des VALEURS d'une position monte, puis devient parfaitement horizontale pendant une seconde, puis remonte. Que voit-on ?",o:["L'objet accélère","L'objet s'arrête un moment puis repart","L'objet tourne sur lui-même","L'objet disparaît"],a:1,e:"Valeur qui ne change pas = objet immobile."},
+{t:'qcm',q:"La courbe de vitesse fait une marche brutale au niveau d'une image clé du milieu. Quelle interpolation la rend continue ?",o:["Maintien","Linéaire","Bézier auto","Aucune, il faut supprimer l'image clé"],a:2,why:{0:"Le maintien crée au contraire un saut.",1:"Linéaire garde la cassure."},e:"Bézier auto égalise la vitesse avant et après l'image clé."}]},
+
+m9:{intro:"Dans la timeline, la forme de chaque image clé vous dit comment l'objet arrive et repart. Moitié gauche = l'arrivée, moitié droite = le départ.",
+obj:"lire la forme d'une image clé d'un coup d'œil.",
+pts:[
+"<b>Losange</b> : linéaire des deux côtés.",
+"<b>Sablier</b> : lissage des deux côtés (<kbd>F9</kbd>).",
+"<b>Carré</b> : maintien.",
+"<b>Rond</b> : Bézier auto.",
+"<b>Formes mixtes</b> : chaque moitié peut être différente. La moitié gauche décrit l'<b>approche</b> (comment on arrive), la moitié droite l'<b>éloignement</b> (comment on repart).",
+"Résumé des gestes : <kbd>Ctrl</kbd>+clic bascule linéaire ↔ Bézier auto · <kbd>F9</kbd> lissage · <kbd>Ctrl+Alt+H</kbd> maintien."],
+upd:"Depuis la version d'octobre 2022, Maj+J et Maj+K sautent uniquement entre les images clés des calques et propriétés sélectionnés.",
+ex:[
+{t:'paires',q:"Associez chaque forme à son interpolation.",p:[[`<svg width="22" height="22" viewBox="-11 -11 22 22"><path d="M0,-9 L-9,0 L0,9 L9,0 Z" style="fill:var(--key)"/></svg> Losange`,"Linéaire"],[`<svg width="22" height="22" viewBox="-11 -11 22 22"><path d="M0,-5 L-8,-8 Q-3.6,0 -8,8 L0,5 L8,8 Q3.6,0 8,-8 Z" style="fill:var(--key)"/></svg> Sablier`,"Lissage de vitesse"],[`<svg width="22" height="22" viewBox="-11 -11 22 22"><rect x="-7.5" y="-7.5" width="15" height="15" style="fill:var(--key)"/></svg> Carré`,"Maintien"],[`<svg width="22" height="22" viewBox="-11 -11 22 22"><circle r="8" style="fill:var(--key)"/></svg> Rond`,"Bézier auto"]]},
+{t:'qcm',q:`Une image clé a la moitié gauche en sablier et la moitié droite en losange <svg width="22" height="22" viewBox="-11 -11 22 22" style="vertical-align:middle"><path d="M0,-5 L-8,-8 Q-3.6,0 -8,8 L0,5 Z" style="fill:var(--key)"/><path d="M0,-9 L9,0 L0,9 Z" style="fill:var(--key)"/></svg>. Que fait l'objet ?`,o:["Il arrive en douceur et repart d'un coup","Il arrive d'un coup et repart en douceur","Il reste figé","Il va toujours à la même vitesse"],a:0,e:"Gauche = arrivée (lissée), droite = départ (linéaire)."},
+{t:'qcm',q:"Quel raccourci transforme une image clé en maintien (valeur figée) ?",o:["<kbd>F9</kbd>","<kbd>Ctrl+Alt+H</kbd>","<kbd>Ctrl+K</kbd>","<kbd>Maj+F3</kbd>"],a:1,why:{0:"F9 applique le lissage de vitesse.",2:"Ctrl+K ouvre les réglages de la composition.",3:"Maj+F3 ouvre l'éditeur de graphiques."},e:"L'image clé devient carrée."}]},
+
+c5:{intro:"Les dessinateurs de dessins animés ont trouvé des « recettes » pour rendre un mouvement vivant. Elles marchent aussi pour animer un logo ou un texte.",
+obj:"appliquer quelques principes d'animation et activer le flou de mouvement.",
+pts:[
+"<b>Ralentir au départ et à l'arrivée</b> : presque rien ne démarre ou ne s'arrête d'un coup. C'est le lissage de vitesse (<kbd>F9</kbd>).",
+"<b>Écrasement et étirement</b> : une balle s'écrase en touchant le sol et s'étire en tombant. Cela donne du poids et de la souplesse.",
+"<b>Anticipation</b> : un petit mouvement en sens inverse avant l'action, comme on plie les genoux avant de sauter.",
+"<b>Décalage</b> : ne faites pas tout démarrer à la même image ; décalez les calques de quelques images, l'ensemble paraît plus naturel.",
+"<b>Trajectoires en arc</b> : les êtres vivants bougent en courbes, rarement en ligne droite (étape « Interpolations spatiales »).",
+"<b>Flou de mouvement</b> : un objet rapide paraît flou, comme sur une photo. Il faut activer <b>deux</b> interrupteurs : celui du calque (colonne des options) et le bouton général en haut de la timeline."],
+tip:"Règle d'or du mémo : réglez d'abord le timing (en linéaire), ensuite seulement les courbes.",
+ex:[
+{t:'sim',s:'mblur',q:"La balle file à toute vitesse. Activez le flou de mouvement pour qu'elle paraisse rapide.",e:"Les deux interrupteurs sont nécessaires : un oubli fréquent !"},
+{t:'paires',q:"Associez chaque principe à son exemple.",p:[["Ralentir au départ et à l'arrivée","Une voiture qui démarre et freine"],["Écrasement et étirement","Une balle qui s'aplatit au sol"],["Anticipation","Plier les genoux avant de sauter"],["Décalage","Des lettres qui arrivent l'une après l'autre"]]},
+{t:'qcm',q:"Vous animez un logo. Dans quel ordre travailler ?",o:["D'abord les courbes de vitesse, puis le timing","D'abord le timing en linéaire, puis les courbes","D'abord le flou de mouvement, puis le reste","L'ordre n'a pas d'importance"],a:1,e:"Un bon timing en linéaire, c'est 80 % du travail. Les courbes affinent."}]},
+
+m4:{intro:"Un masque, c'est un pochoir découpé dans un calque : on garde ce qui est à l'intérieur, le reste devient transparent.",
+obj:"dessiner un masque, l'ajuster, l'inverser et adoucir son bord.",
+pts:[
+"<b>Sélectionnez d'abord le calque</b> à découper (clic sur son nom dans la timeline). Sans calque sélectionné, l'outil de forme crée un nouveau calque de forme au lieu d'un masque.",
+"<b>Dessiner</b> : outils de forme (<kbd>Q</kbd> : rectangle, ellipse, polygone, étoile) en cliquant-glissant sur l'image, ou outil Plume (<kbd>G</kbd>) en cliquant point par point.",
+"<b>Fermer le tracé</b> avec la plume : recliquez sur le premier point (un petit rond apparaît sous le curseur). Un masque non fermé n'a aucun effet.",
+"<b>Le résultat</b> : l'intérieur reste visible, l'extérieur devient transparent (le damier).",
+"<b>Ajuster</b> : avec l'outil Sélection, faites glisser un sommet. Pour transformer tout le masque d'un coup : double-clic sur le tracé (une boîte apparaît), double-clic ailleurs pour valider.",
+"<b>Les réglages</b> sont dans la timeline, sous le calque &gt; Masques &gt; Masque 1 : la case <b>Inverser</b> garde l'extérieur au lieu de l'intérieur ; le <b>Contour progressif</b> (touche <kbd>F</kbd>) adoucit le bord.",
+"<b>Détourer avec précision</b> : double-cliquez sur le calque pour ouvrir la <i>fenêtre de calque</i>, et zoomez."],
+warn:"",
+upd:"Pour un sujet qui bouge, le roto-pinceau et le cache d'objet optimisé par l'IA (version 26.2) évitent souvent de redessiner le masque image par image. Voir l'étape « Suivi, stabilisation et détourage ».",
+ex:[
+{t:'sim',s:'mask',o:{goal:'cover'},q:"Détourez le soleil : déplacez les 4 sommets du masque pour que seul le soleil (et un peu de ciel autour) reste visible.",hint:"Rapprochez les quatre carrés bleus pour former un petit carré autour du soleil.",e:"Tout ce qui est hors du masque est devenu transparent : c'est le damier."},
+{t:'sim',s:'mask',o:{goal:'invert'},q:"Cette fois, faites disparaître le soleil en gardant tout le reste du paysage.",e:"Inverser : le masque garde l'extérieur. Pratique pour effacer un élément."},
+{t:'sim',s:'mask',o:{goal:'feather'},q:"Le bord du masque est trop dur. Adoucissez-le avec un contour progressif d'au moins 20 px.",e:"Un bord adouci s'intègre beaucoup mieux, surtout sur des éléments naturels."}]},
+
+m10:{intro:"Un fichier Photoshop peut contenir plusieurs calques (ciel, maison, arbre). After Effects peut les garder séparés pour les animer un par un.",
+obj:"importer un fichier à calques de la bonne façon.",
+pts:[
+"<b>Importer</b> : <kbd>Ctrl+I</kbd>, choisissez le fichier .psd (ou .ai d'Illustrator). Une fenêtre demande comment l'importer.",
+"<b>Importer en Métrage</b> : tous les calques sont fusionnés en une seule image. Impossible d'animer chaque élément.",
+"<b>Importer en Composition</b> : chaque calque devient un calque After Effects, à sa place, dans une nouvelle composition. C'est le choix pour animer.",
+"<b>Taille du document</b> : chaque calque a la taille de l'image entière (beaucoup de vide autour).",
+"<b>Taille du calque</b> : chaque calque a la taille de ce qu'il contient. Le point d'ancrage tombe au centre de l'objet : idéal pour faire tourner ou grandir.",
+"Après l'import, double-cliquez la composition créée dans le panneau Projet pour l'ouvrir."],
+tip:"Préparez votre fichier Photoshop avec des calques bien nommés : ce sont ces noms que vous retrouverez dans la timeline.",
+ex:[
+{t:'qcm',q:"Vous voulez faire tourner séparément le soleil de votre fichier Photoshop. Comment l'importer ?",o:["Métrage","Composition – taille du document","Composition – taille du calque","Peu importe"],a:2,why:{0:"En métrage, tout est fusionné : pas de soleil séparé.",1:"Possible, mais le point d'ancrage serait au centre de l'image entière, pas du soleil."},e:"Chaque calque a la taille de son contenu : le soleil tourne autour de son propre centre."},
+{t:'paires',q:"Associez chaque option d'import à son résultat.",p:[["Métrage","Une seule image, tout fusionné"],["Composition – taille du document","Calques séparés, aussi grands que l'image entière"],["Composition – taille du calque","Calques séparés, à la taille de leur contenu"]]},
+{t:'ordre',q:"Remettez l'import d'un fichier Photoshop dans l'ordre.",items:["Ctrl+I et choisir le fichier .psd","Importer en : Composition – taille du calque","Cliquer OK","Double-cliquer la composition créée dans le panneau Projet"]}]},
+
+m11:{intro:"Précomposer, c'est ranger des calques dans une boîte. La boîte devient un seul calque, mais on peut toujours l'ouvrir pour modifier l'intérieur.",
+obj:"précomposer des calques et comprendre l'ordre de calcul.",
+pts:[
+"<b>Précomposer</b> : sélectionnez un ou plusieurs calques, puis <i>Calque &gt; Précomposition</i> (<kbd>Ctrl+Maj+C</kbd>). Ils sont remplacés par un seul calque : une composition qui les contient.",
+"<b>Pourquoi ?</b> Pour animer plusieurs calques ensemble, leur appliquer un effet d'un coup, ou ranger une composition trop chargée.",
+"<b>L'ordre de calcul</b> : dans un calque, After Effects applique toujours d'abord les <b>masques</b>, puis les <b>effets</b>, puis les <b>transformations</b> (position, échelle, rotation). Précomposer permet de changer cet ordre.",
+"<b>Option « Transférer tous les attributs »</b> (la plus utile) : la précompo a la taille de la composition principale et emporte les animations.",
+"<b>Ouvrir</b> une précomposition : double-clic sur son calque. Revenir : onglet de la composition principale, ou touche <kbd>Tab</kbd> pour le mini-organigramme."],
+ex:[
+{t:'ordre',q:"Dans quel ordre After Effects calcule-t-il un calque ?",items:["Les masques","Les effets","Les transformations (position, échelle, rotation…)"],e:"Masques → effets → transformations. Retenez-le : il explique beaucoup de surprises."},
+{t:'qcm',q:"Quel raccourci précompose les calques sélectionnés ?",o:["<kbd>Ctrl+Maj+C</kbd>","<kbd>Ctrl+C</kbd>","<kbd>Ctrl+D</kbd>","<kbd>Ctrl+K</kbd>"],a:0,why:{1:"Ctrl+C copie.",2:"Ctrl+D duplique.",3:"Ctrl+K ouvre les réglages de la composition."}},
+{t:'qcm',q:"Une banane traverse l'écran. Vous ajoutez l'effet Écho pour une traînée, mais rien ne se passe : la banane s'éclaircit seulement. Pourquoi, et que faire ?",o:["L'effet est cassé : réinstaller","L'écho est calculé avant le déplacement : précomposer la banane, puis mettre l'écho sur la précompo","Il faut mettre l'écho sur le fond","Il faut plus d'images clés"],a:1,e:"Effets avant transformations : dans la précompo, le mouvement est déjà fait quand l'écho est calculé."}]},
+};
+
+Object.assign(NV,{
+m12:{intro:"Un mode de fusion décide comment un calque se mélange avec ce qui est en dessous, comme superposer deux diapositives ou deux calques de peinture.",
+obj:"choisir le bon mode pour supprimer un fond noir ou un fond blanc.",
+pts:[
+"<b>Où ?</b> Dans la colonne <i>Mode</i> de la timeline. Si elle est cachée : <kbd>F4</kbd>, ou le petit bouton en bas à gauche de la timeline.",
+"<b>Normal</b> : le calque du dessus cache ce qui est dessous (sauf ses parties transparentes).",
+"<b>Famille Produit</b> (assombrir) : le blanc disparaît, les couleurs foncées restent. Idéal pour un dessin à l'encre scanné sur papier blanc, ou une ombre.",
+"<b>Famille Écran / Addition</b> (éclaircir) : le noir disparaît, la lumière s'ajoute. Idéal pour du feu, des étincelles, des reflets filmés sur fond noir.",
+"<b>Famille Incrustation</b> (contraste) : renforce les contrastes, utile pour poser une texture.",
+"<b>Différence</b> : soustrait les couleurs ; surtout utilisé pour vérifier que deux images sont parfaitement alignées.",
+"Comment ça marche ? Pixel par pixel, After Effects fait un calcul entre les couleurs du dessus et celles du dessous. En Addition, on additionne les valeurs (plafonnées au blanc)."],
+ex:[
+{t:'sim',s:'blend',o:{top:`<svg viewBox="0 0 400 200" preserveAspectRatio="none"><defs><radialGradient id="fire" cx=".3" cy=".55" r=".4"><stop offset="0" stop-color="#fff6c8"/><stop offset=".35" stop-color="#ffb02e"/><stop offset=".7" stop-color="#d4380d"/><stop offset="1" stop-color="#000"/></radialGradient></defs><rect width="400" height="200" fill="#000"/><ellipse cx="120" cy="110" rx="90" ry="80" fill="url(#fire)"/></svg>`,a:['Écran','Addition'],what:'le fond noir'},q:"Ce feu a été filmé sur fond noir. Choisissez un mode de fusion pour faire disparaître le noir et garder seulement la lumière.",e:"Écran ou Addition : le noir n'ajoute rien, la lumière s'ajoute au décor."},
+{t:'sim',s:'blend',o:{top:`<svg viewBox="0 0 400 200" preserveAspectRatio="none"><rect width="400" height="200" fill="#fbfaf5"/><g fill="none" stroke="#1d1d1d" stroke-width="5" stroke-linecap="round"><path d="M60,150 C80,60 140,60 160,150"/><path d="M200,60 l40,90 l40,-90"/><circle cx="330" cy="100" r="40"/></g></svg>`,a:['Produit'],what:'le papier blanc'},q:"Ce dessin à l'encre a été scanné sur du papier blanc. Choisissez le mode qui fait disparaître le blanc et garde le trait noir.",e:"Produit : le blanc devient transparent, le noir reste. Le trait se pose sur le décor comme de l'encre."},
+{t:'qcm',q:"La colonne Mode n'est pas visible dans votre timeline. Quelle touche l'affiche ?",o:["<kbd>F9</kbd>","<kbd>F4</kbd>","<kbd>M</kbd>","<kbd>Tab</kbd>"],a:1,why:{0:"F9 applique le lissage de vitesse.",2:"M affiche le tracé des masques.",3:"Tab ouvre le mini-organigramme."}}]},
+
+m13:{intro:"Un calque d'effet est une vitre teintée posée sur la pile : tout ce qui est en dessous est vu à travers elle.",
+obj:"appliquer un effet à plusieurs calques d'un coup, au bon endroit de la pile.",
+pts:[
+"<b>Créer</b> un calque d'effet : <kbd>Ctrl+Alt+Y</kbd> (menu <i>Calque &gt; Nouveau &gt; Calque d'effets</i>). Il apparaît en haut de la pile, vide.",
+"<b>Ajouter un effet</b> dessus, par exemple un flou ou une correction de couleur : l'effet s'applique à <b>tous les calques situés en dessous</b>.",
+"Les calques <b>au-dessus</b> du calque d'effet ne sont pas touchés. On le place donc juste au-dessus de ce qu'on veut modifier.",
+"Tout calque peut devenir calque d'effet : cochez sa case dans la colonne des options du calque (icône demi-cercle).",
+"Son contenu est invisible, mais sa forme compte : avec un masque sur le calque d'effet, l'effet ne s'applique que dans le masque."],
+ex:[
+{t:'qcm',q:"Pile de calques, de haut en bas : Titre, Calque d'effet (flou), Photo, Fond. Quels calques seront flous ?",o:["Tous","Titre seulement","Photo et Fond","Aucun"],a:2,e:"L'effet touche tout ce qui est SOUS le calque d'effet."},
+{t:'qcm',q:"Vous voulez flouter le fond mais garder le titre net. Où placez-vous le calque d'effet ?",o:["Tout en haut de la pile","Sous le titre, au-dessus du fond","Tout en bas","Dans le panneau Projet"],a:1},
+{t:'ordre',q:"Remettez dans l'ordre l'ajout d'un flou général avec un calque d'effet.",items:["Créer un calque d'effet (Ctrl+Alt+Y)","Le placer juste au-dessus des calques à flouter","Faire glisser l'effet Flou gaussien dessus","Régler la force du flou"]}]},
+
+m14:{intro:"La parenté attache un calque à un autre, comme une remorque à une voiture : quand le parent bouge, l'enfant suit.",
+obj:"créer un lien de parenté et utiliser un calque nul comme poignée invisible.",
+pts:[
+"<b>Colonne Parent</b> de la timeline : chaque calque a un menu « Aucun ». Choisissez le calque qui sera son parent. Colonne cachée ? Clic droit sur l'en-tête des colonnes &gt; Colonnes &gt; Parent et lien.",
+"<b>Ou</b> faites glisser l'icône en spirale (le « zigouigoui ») de l'enfant vers le calque parent.",
+"<b>Ce qui est transmis</b> : position, échelle et rotation du parent. L'opacité, elle, n'est pas transmise.",
+"<b>L'enfant garde ses propres animations</b> : une roue peut tourner sur elle-même tout en suivant la voiture.",
+"<b>Le calque nul</b> (<kbd>Ctrl+Alt+Maj+Y</kbd>) : un calque invisible qui sert de poignée. Faites-en le parent de plusieurs calques, puis animez seulement le nul."],
+tip:"Quand un calque devient enfant, ses chiffres de position changent mais pas son aspect : il se repère désormais par rapport à son parent.",
+ex:[
+{t:'sim',s:'parent',q:"Seule la carrosserie est animée. Choisissez le bon parent pour que les deux roues suivent la voiture.",e:"Chaque roue suit la carrosserie et continue de tourner sur elle-même."},
+{t:'qcm',q:"Le parent tourne de 30°. Que fait l'enfant ?",o:["Rien","Il tourne aussi, autour du point d'ancrage du parent","Il tourne autour de son propre centre","Il disparaît"],a:1,e:"L'enfant est « accroché » au parent : il pivote avec lui."},
+{t:'qcm',q:"Quel calque invisible sert souvent de poignée pour piloter plusieurs calques ?",o:["Un solide noir","Un calque nul","Un calque d'effet","Une précomposition"],a:1,e:"Ctrl+Alt+Maj+Y crée un calque nul."}]},
+
+m16:{intro:"Un cache de piste, c'est une fenêtre découpée : un calque (souvent un texte) sert de forme, et l'image n'apparaît qu'à travers cette forme.",
+obj:"faire apparaître une image à l'intérieur d'un texte, ou tout autour.",
+pts:[
+"Il faut <b>deux calques</b> : l'image à montrer (une photo, une vidéo) et la forme qui sert de cache (un texte, une forme).",
+"Sur le calque <b>image</b>, colonne <i>Cache de piste</i> (<kbd>F4</kbd> si elle est cachée), choisissez le calque qui sert de cache.",
+"<b>Cache alpha</b> : l'image n'apparaît que là où le cache est opaque (dans les lettres).",
+"<b>Cache alpha inversé</b> : l'image apparaît partout sauf dans les lettres.",
+"<b>Cache luminance</b> : le cache agit selon la clarté (blanc = visible, noir = invisible).",
+"Le calque cache devient automatiquement invisible : il ne sert plus que de forme."],
+upd:"Le mémo décrit l'ancien fonctionnement : le cache devait être juste au-dessus du calque. Depuis la version d'octobre 2022, n'importe quel calque peut servir de cache, où qu'il soit dans la pile, et plusieurs calques peuvent partager le même cache.",
+ex:[
+{t:'sim',s:'matte',o:{a:1,what:'seulement dans les lettres'},q:"Faites apparaître la photo à rayures uniquement à l'intérieur du mot TITRE.",e:"Cache alpha : la photo ne se voit qu'à travers les lettres."},
+{t:'sim',s:'matte',o:{a:2,what:'partout sauf dans les lettres'},q:"Maintenant l'inverse : la photo partout, et les lettres découpées dans la photo.",e:"Cache alpha inversé : les lettres deviennent des trous."},
+{t:'qcm',q:"Dans les versions récentes, le calque qui sert de cache doit-il être juste au-dessus de l'image ?",o:["Oui, obligatoirement","Non, il peut être n'importe où dans la pile","Il doit être tout en bas","Il doit être dans une autre composition"],a:1,e:"Depuis 2022, on choisit le cache dans un menu, quelle que soit sa place."}]},
+
+c7:{intro:"Ces outils font travailler After Effects à votre place : suivre un objet qui bouge, calmer une image qui tremble, découper une personne.",
+obj:"choisir le bon outil selon le problème.",
+pts:[
+"<b>Suivi de mouvement</b> : After Effects suit un détail de la vidéo (un coin de panneau, une lampe) image par image, puis y accroche un texte ou un logo.",
+"<b>Les étapes</b> : sélectionnez la vidéo, <i>Animation &gt; Suivre le mouvement</i>. Placez le carré de suivi sur un détail net et contrasté, lancez l'analyse vers l'avant, puis <i>Modifier la cible</i> (le calque à accrocher) et <i>Appliquer</i>.",
+"<b>Stabilisation</b> : l'effet <i>Stabilisation de déformation</i> calme un plan filmé à la main qui tremble.",
+"<b>Suivi de la caméra 3D</b> : reconstitue le mouvement de la caméra de tournage pour poser des éléments dans le décor.",
+"<b>Roto-pinceau</b> (<kbd>Alt+W</kbd>) : on peint sur la personne à détourer, After Effects propage la sélection d'image en image.",
+"<b>Cache d'objet optimisé par l'IA</b> (version 26.2) : détoure un objet entier en quelques clics.",
+"<b>Fond vert</b> : l'effet <i>Keylight</i> supprime la couleur verte ; on affine ensuite le cache."],
+ex:[
+{t:'paires',q:"Associez chaque problème au bon outil.",p:[["Coller un texte sur un panneau qui bouge","Suivi de mouvement"],["Un plan filmé à la main qui tremble","Stabilisation de déformation"],["Détourer une personne qui marche","Roto-pinceau"],["Remplacer un fond vert","Keylight"]]},
+{t:'ordre',q:"Remettez dans l'ordre un suivi de mouvement.",items:["Sélectionner le calque vidéo","Animation > Suivre le mouvement","Placer le carré de suivi sur un détail contrasté","Analyser vers l'avant","Modifier la cible : choisir le calque texte","Appliquer"]},
+{t:'qcm',q:"Où placer le carré de suivi pour un bon résultat ?",o:["Sur un ciel uni","Sur un détail net et contrasté qui reste visible","Au centre de l'image, toujours","Sur une zone floue"],a:1,e:"Le logiciel a besoin d'un repère reconnaissable sur chaque image."}]},
+
+m15:{intro:"Les animateurs de texte animent chaque lettre séparément : une vague, une machine à écrire, des lettres qui grossissent une à une.",
+obj:"utiliser le sélecteur de plage pour choisir quelles lettres sont transformées.",
+pts:[
+"Dépliez le calque texte, puis menu <i>Animer</i> &gt; choisissez un paramètre (Échelle, Opacité, Couleur…). Un groupe <i>Animation 1</i> apparaît, avec un <b>sélecteur de plage</b>.",
+"Réglez la valeur du paramètre (par exemple Échelle 200 %) : c'est l'<b>état B</b>. Le texte d'origine est l'<b>état A</b>.",
+"Le <b>sélecteur de plage</b> choisit les lettres qui passent en état B : <b>Début</b> et <b>Fin</b> délimitent la plage, le <b>Décalage</b> la fait glisser sur le texte.",
+"<b>On anime le Décalage</b> (images clés), pas l'échelle : la plage glisse et les lettres changent une à une.",
+"Dans les options avancées : la <b>forme</b> (carré, triangle, arrondi…) et le <b>lissage</b>. Lissage à 0 % : effet machine à écrire."],
+warn:"Ne mettez pas d'image clé sur l'Échelle de l'animateur, mais sur le Décalage du sélecteur. Et ne confondez pas avec l'Échelle du groupe Transformer, qui agit sur tout le calque.",
+ex:[
+{t:'sim',s:'text',o:{sel:[1,1,1,0,0,0]},q:"Faites passer en état B (grandes lettres bleues) seulement les trois premières lettres : B, A, N.",hint:"Gardez Début à 0 et baissez la Fin jusqu'à la moitié.",e:"Début et Fin délimitent la plage."},
+{t:'sim',s:'text',o:{sel:[0,0,0,0,0,0]},q:"Remettez tout le texte en état A (aucune lettre agrandie) en utilisant seulement le curseur Décalage.",hint:"Poussez le décalage tout au bout, d'un côté ou de l'autre.",e:"Animer le décalage de −100 % à 0 % fait apparaître les lettres une à une."},
+{t:'qcm',q:"Pour animer les lettres qui grossissent une à une, sur quoi pose-t-on les images clés ?",o:["Sur l'Échelle de l'animateur","Sur l'Échelle du groupe Transformer","Sur le Décalage du sélecteur de plage","Sur l'Opacité du calque"],a:2,e:"L'état B reste fixe ; c'est la plage qui se déplace."}]},
+
+c6:{intro:"Une expression est une petite formule qui calcule une valeur à votre place, comme dans une feuille de calcul. Plus besoin de poser des dizaines d'images clés.",
+obj:"ajouter une expression simple et la régler.",
+pts:[
+"<b>Ajouter</b> une expression : <kbd>Alt</kbd>+clic sur le chronomètre d'un paramètre. Une zone de texte apparaît dans la timeline ; tapez la formule, puis cliquez ailleurs.",
+"<code>wiggle(2, 30)</code> : un tremblement au hasard, 2 fois par seconde, jusqu'à 30 pixels d'écart. Idéal pour une caméra portée ou un objet nerveux.",
+"<code>loopOut(\"cycle\")</code> : répète en boucle les images clés existantes. <code>loopOut(\"pingpong\")</code> : en aller-retour.",
+"<code>time * 90</code> sur une Rotation : 90° par seconde, pour toujours, sans image clé.",
+"<b>Lier deux paramètres</b> : faites glisser la spirale de l'expression vers un autre paramètre ; le premier copiera le second.",
+"Si l'expression contient une erreur, une barre orange s'affiche : lisez le message, souvent une parenthèse ou un guillemet oublié."],
+tip:"L'assistant IA d'After Effects (bêta) peut expliquer une expression, en écrire une à partir d'une phrase, ou trouver une erreur.",
+ex:[
+{t:'sim',s:'wiggle',o:{f:[1,3],a:[5,20],what:'un léger tremblement de caméra portée'},q:"Le carré tremble comme un marteau-piqueur. Réglez wiggle pour un léger tremblement de caméra portée : lent et discret.",e:"Une fréquence basse et une petite amplitude imitent une caméra tenue à la main."},
+{t:'qcm',q:"Quelle expression fait tourner une roue sans fin, à 90° par seconde ?",o:["<code>wiggle(90, 1)</code>","<code>time * 90</code>","<code>loopOut(90)</code>","<code>90 + time</code>"],a:1,why:{0:"wiggle tremble au hasard.",3:"90 + time ajoute 1° par seconde seulement."},e:"time = le temps en secondes. Multiplié par 90 : 90° chaque seconde."},
+{t:'qcm',q:"Comment ajoute-t-on une expression à un paramètre ?",o:["Clic droit sur le calque > Expression","<kbd>Alt</kbd>+clic sur le chronomètre du paramètre","Double-clic sur le calque","Dans le panneau Effets"],a:1}]},
+
+m17:{intro:"After Effects peut placer des calques dans l'espace, en profondeur, et les filmer avec une caméra virtuelle, comme un décor de théâtre.",
+obj:"comprendre ce que fait la 3D d'After Effects et comment l'activer.",
+pts:[
+"Ce n'est pas de la « fausse 3D » : tout logiciel 3D finit par produire des pixels sur un écran plat. After Effects est rapide et très précis pour le motion design.",
+"Dans After Effects, les calques restent souvent <b>plats</b>, comme des cartes à jouer, mais on peut les placer et les tourner dans l'espace.",
+"<b>Activer la 3D</b> sur un calque : cochez sa case 3D (icône cube) dans la timeline. Il gagne un troisième axe, Z : la profondeur.",
+"En 2D on peut tricher ; en 3D, la moindre caméra révèle les incohérences.",
+"<b>Attention aux vues</b> : en perspective, un objet petit et proche ressemble à un objet grand et lointain. Les <b>vues de projection</b> (Haut, Devant, Gauche…) montrent la réalité, mais il en faut au moins deux."],
+upd:"Le mémo cite les moteurs Cinema 4D et Lancé de rayon. Aujourd'hui, on choisit entre 3D classique, Cinema 4D et 3D avancé. Ce dernier, basé sur la carte graphique, importe des modèles 3D (GLTF, GLB, OBJ, FBX), extrude texte et formes et éclaire avec des images HDRI.",
+ex:[
+{t:'qcm',q:"Comment passer un calque en 3D ?",o:["Le précomposer","Cocher sa case 3D (icône cube) dans la timeline","Ajouter l'effet 3D","Créer une caméra"],a:1},
+{t:'qcm',q:"Pourquoi faut-il regarder la scène dans plusieurs vues ?",o:["Pour aller plus vite","Parce qu'en perspective, taille et distance se confondent","Parce que la caméra est obligatoire","Ce n'est pas utile"],a:1,e:"Un objet petit et proche ressemble à un objet grand et loin. Les vues de projection lèvent le doute."},
+{t:'paires',q:"Associez chaque moteur 3D à son usage.",p:[["3D classique","Des calques plats dans l'espace, le plus simple"],["3D avancé","Modèles 3D, éclairage HDRI, calcul par la carte graphique"],["Cinema 4D","Ancien moteur pour extruder textes et formes"]]}]},
+
+m18:{intro:"Pour placer des objets en 3D sans se tromper, on travaille comme un architecte : un plan vu de haut, et une vue de ce que voit la caméra.",
+obj:"organiser l'écran en deux vues et passer un calque en 3D.",
+pts:[
+"En bas de la fenêtre Composition, choisissez la disposition <b>2 vues</b>.",
+"Dans la vue de gauche, choisissez une <b>vue de projection</b>, par exemple <i>Haut</i>. Dans celle de droite, <i>Caméra active</i> : c'est ce qui sera exporté.",
+"<b>Passer un calque en 3D</b> : case cube dans la timeline. Il gagne trois flèches de couleur, ses axes.",
+"<b>En vue de Haut</b>, un calque plat se voit par la tranche : un simple trait.",
+"On <b>déplace</b> les calques dans la vue de projection, et on <b>regarde</b> le résultat dans la vue Caméra active."],
+warn:"On déplace les calques dans les vues de projection, jamais dans la vue Caméra active : on y perd vite ses repères.",
+ex:[
+{t:'clic',s:'ui',a:'cube',q:"Cliquez sur la case qui passe un calque en 3D.",e:"La case cube : le calque gagne un axe Z, la profondeur."},
+{t:'qcm',q:"En vue de Haut, à quoi ressemble un calque plat posé face à la caméra ?",o:["Un rectangle","Un trait","Un cube","Il est invisible"],a:1,e:"Vu de dessus, une feuille de papier n'est qu'un trait."},
+{t:'qcm',q:"Dans quelle vue déplace-t-on les calques ?",o:["Dans la vue Caméra active","Dans une vue de projection (Haut, Devant…)","Dans le panneau Projet","Peu importe"],a:1}]},
+
+m19:{intro:"Un calque 3D a trois flèches, comme les trois directions d'une pièce : gauche-droite, haut-bas, devant-derrière.",
+obj:"déplacer un calque selon un seul axe, sans tomber dans le piège du centre.",
+pts:[
+"<b>X (rouge)</b> : gauche-droite. <b>Y (vert)</b> : haut-bas. <b>Z (bleu)</b> : profondeur, plus près ou plus loin de la caméra.",
+"<b>Bouger selon un seul axe</b> : approchez le curseur d'une flèche, une petite lettre (X, Y ou Z) apparaît à côté du curseur, puis faites glisser.",
+"<b>Bouger librement</b> dans le plan de la vue : désélectionnez tout (<kbd>Ctrl+Maj+A</kbd>), puis attrapez le calque n'importe où.",
+"Besoin de l'axe perpendiculaire à l'écran ? Changez de vue : en vue de Haut, la profondeur Z devient une direction visible."],
+warn:"Ne cliquez pas au centre du calque quand ses axes sont visibles : c'est « l'axe maudit », perpendiculaire à la vue. Le calque bouge sans que rien ne change à l'écran.",
+ex:[
+{t:'clic',s:'axes',a:'z',q:"Cliquez sur la flèche qui éloigne le calque de la caméra (la profondeur).",e:"Z, la flèche bleue : la profondeur."},
+{t:'clic',s:'axes',a:'y',q:"Cliquez sur la flèche qui fait monter le calque.",e:"Y, la flèche verte : haut-bas."},
+{t:'qcm',q:"Vous attrapez le calque par son centre, vous le déplacez… et rien ne change à l'écran. Que se passe-t-il ?",o:["Le logiciel a planté","Vous l'avez déplacé sur l'axe perpendiculaire à la vue (l'axe maudit)","Le calque est verrouillé","La caméra est éteinte"],a:1,e:"Changez de vue pour voir ce déplacement, ou prenez une flèche."}]},
+
+m20:{intro:"La caméra virtuelle filme vos calques 3D comme une vraie caméra : on choisit son objectif et on la déplace pour faire des travellings.",
+obj:"créer une caméra, choisir sa focale et son type.",
+pts:[
+"<b>Créer</b> : <kbd>Ctrl+Alt+Maj+C</kbd> (menu <i>Calque &gt; Nouveau &gt; Caméra</i>). Deux réglages principaux : le type et la focale.",
+"<b>La focale</b>, en millimètres. <b>50 mm</b> : proche de l'œil humain. Petite focale (15–35 mm) : <b>grand-angle</b>, on voit large. Grande focale (85–200 mm) : <b>téléobjectif</b>, on voit serré, comme avec des jumelles.",
+"<b>Caméra à 1 nœud</b> : se manipule comme un calque, on la déplace et on la tourne. Pour les travellings et les panoramiques.",
+"<b>Caméra à 2 nœuds</b> : elle vise toujours son <b>point ciblé</b>. Pour tourner autour d'un objet en le gardant au centre.",
+"<b>Profondeur de champ</b> : activez-la dans les options de la caméra, réglez la distance de mise au point, puis l'ouverture (plus elle est grande, plus le flou est fort)."],
+warn:"Ne confondez pas la pellicule de 35 mm (le format) et une focale de 35 mm (l'objectif). Dans After Effects, le format de la « pellicule » est la taille de la composition.",
+upd:"Depuis la version 26.3 (juin 2026), le moteur 3D avancé gère aussi la profondeur de champ.",
+ex:[
+{t:'sim',s:'cam',q:"Cadrez le personnage : il doit être entier et assez grand, et on ne doit pas voir les bords noirs du décor. Réglez la focale.",hint:"Commencez à 24 mm : on voit les bords. Augmentez petit à petit.",e:"Une focale moyenne : le décor remplit l'image et le personnage est bien présent."},
+{t:'qcm',q:"Quelle caméra choisir pour tourner autour d'une statue en la gardant toujours au centre ?",o:["Caméra à 1 nœud","Caméra à 2 nœuds (avec point ciblé)","Une lumière","Un calque nul"],a:1},
+{t:'qcm',q:"Une focale de 15 mm donne…",o:["Un téléobjectif, image très serrée","Un grand-angle, image très large","La même image que l'œil","Une image floue"],a:1}]},
+
+m21:{intro:"Les lumières éclairent vos calques 3D comme des projecteurs sur une scène de théâtre, et peuvent créer des ombres.",
+obj:"choisir un type de lumière et obtenir une ombre.",
+pts:[
+"<b>Créer</b> : <kbd>Ctrl+Alt+Maj+L</kbd> (menu <i>Calque &gt; Nouveau &gt; Lumière</i>). Les lumières n'éclairent que les calques 3D.",
+"<b>Ponctuelle</b> : une ampoule, qui éclaire dans toutes les directions. La plus utilisée.",
+"<b>Concentrée</b> : une lampe de bureau ou un projecteur, avec un cône.",
+"<b>Parallèle</b> : le soleil, des rayons tous parallèles.",
+"<b>Ambiante</b> : une lumière générale, sans direction ni ombre, pour déboucher les zones trop sombres.",
+"<b>Pour une ombre, il faut trois choses</b> : une lumière réglée sur <i>Projette une ombre : Oui</i>, un calque qui projette (<i>Projette une ombre : Oui</i> dans ses options) et un calque qui reçoit (<i>Reçoit les ombres : Oui</i>)."],
+upd:"Avec le moteur 3D avancé s'ajoutent les éclairages d'environnement (images HDRI) et, depuis la version 26.2, les ombres portées par les éclairages.",
+ex:[
+{t:'multi',q:"Cochez les trois conditions nécessaires pour obtenir une ombre.",o:["Une lumière qui projette des ombres","Un calque qui projette une ombre","Un calque qui reçoit les ombres","Une caméra à 2 nœuds","Un calque d'effet"],a:[0,1,2],e:"Lumière, calque qui projette, calque qui reçoit : oubliez-en une et l'ombre n'apparaît pas."},
+{t:'paires',q:"Associez chaque lumière à son équivalent réel.",p:[["Ponctuelle","Une ampoule nue"],["Concentrée","Une lampe de bureau"],["Parallèle","Le soleil"],["Ambiante","Une lumière douce partout, sans ombre"]]},
+{t:'qcm',q:"Vous créez une lumière, mais un calque reste noir et non éclairé. Pourquoi ?",o:["La lumière est trop faible","Le calque n'est pas en 3D","Il faut une caméra","Il faut précomposer"],a:1,e:"Les lumières n'agissent que sur les calques 3D."}]},
+
+m22:{intro:"Exporter (faire le « rendu »), c'est demander à After Effects de calculer toutes les images et de les enregistrer dans un fichier vidéo.",
+obj:"exporter une vidéo pour Internet et un élément transparent.",
+pts:[
+"<b>Ajouter à la file d'attente de rendu</b> : sélectionnez la composition puis <kbd>Ctrl+M</kbd> (menu <i>Composition &gt; Ajouter à la file d'attente de rendu</i>).",
+"<b>Paramètres de rendu</b> : laissez <i>Rendu optimal</i>. Vérifiez la durée : par défaut, seule la zone de travail est exportée.",
+"<b>Module de sortie</b> : le format du fichier. <b>H.264</b> pour YouTube, les réseaux sociaux ou un e-mail. <b>ProRes 4444</b> ou <b>séquence PNG</b> avec les couches <b>RVB + Alpha</b> pour un élément transparent.",
+"<b>Destination</b> : cliquez sur le nom en bleu pour choisir le dossier et le nom du fichier.",
+"<b>Rendu</b> : cliquez le bouton Rendu. La barre bleue avance ; un son signale la fin.",
+"<b>Media Encoder</b> (<i>Composition &gt; Ajouter à la file d'attente Adobe Media Encoder</i>) : utile pour exporter plusieurs fichiers d'un coup tout en continuant à travailler."],
+upd:"Le mémo réserve le H.264 à Media Encoder. Depuis la version d'octobre 2022, on choisit H.264 directement dans la file d'attente de rendu.",
+ex:[
+{t:'vals',q:"Vous exportez une vidéo pour YouTube. Choisissez le format et les couches.",f:[{l:"Format",o:["H.264","QuickTime ProRes 4444","Séquence PNG"],a:"H.264"},{l:"Couches",o:["RVB","RVB + Alpha"],a:"RVB"}],e:"H.264 est léger et lisible partout. Pas besoin de transparence pour YouTube."},
+{t:'vals',q:"Un monteur vous demande votre logo animé sur fond transparent, à incruster sur ses images.",f:[{l:"Format",o:["H.264","QuickTime ProRes 4444","Séquence PNG"],a:["QuickTime ProRes 4444","Séquence PNG"]},{l:"Couches",o:["RVB","RVB + Alpha"],a:"RVB + Alpha"}],hint:"Le H.264 ne sait pas garder la transparence.",e:"ProRes 4444 ou PNG, avec la couche alpha : le fond reste transparent."},
+{t:'ordre',q:"Remettez l'export dans l'ordre.",items:["Sélectionner la composition et faire Ctrl+M","Choisir le format dans le module de sortie","Choisir le dossier et le nom (destination)","Cliquer sur Rendu"]}]},
+
+m23:{intro:"Les raccourcis clavier font gagner un temps énorme. Inutile de tout apprendre : commencez par ceux de cette page, ils reviennent sans cesse.",
+obj:"retenir les raccourcis essentiels.",
+pts:[
+"<b>Affichage des paramètres</b> : <kbd>P</kbd> position, <kbd>S</kbd> échelle, <kbd>R</kbd> rotation, <kbd>T</kbd> opacité, <kbd>A</kbd> ancrage, <kbd>U</kbd> tout ce qui est animé.",
+"<b>Temps</b> : <kbd>Espace</kbd> prévisualiser, <kbd>B</kbd> / <kbd>N</kbd> zone de travail, <kbd>J</kbd> / <kbd>K</kbd> image clé précédente / suivante, <kbd>Origine</kbd> / <kbd>Fin</kbd> début / fin de la composition.",
+"<b>Images clés</b> : <kbd>F9</kbd> lissage, <kbd>Ctrl+Alt+H</kbd> maintien.",
+"<b>Fichiers</b> : <kbd>Ctrl+N</kbd> nouvelle composition, <kbd>Ctrl+K</kbd> ses réglages, <kbd>Ctrl+I</kbd> importer, <kbd>Ctrl+M</kbd> exporter.",
+"<b>Outils</b> : <kbd>V</kbd> sélection, <kbd>Q</kbd> formes, <kbd>G</kbd> plume, <kbd>Y</kbd> point d'ancrage, <kbd>Ctrl+T</kbd> texte.",
+"Tous les raccourcis sont dans le tableau filtrable plus bas, avec leur équivalent Mac."],
+lab:"raccourcis",
+ex:[
+{t:'paires',q:"Raccourcis d'affichage : associez chaque touche.",p:[["<kbd>P</kbd>","Position"],["<kbd>S</kbd>","Échelle"],["<kbd>R</kbd>","Rotation"],["<kbd>U</kbd>","Tout ce qui est animé"]]},
+{t:'paires',q:"Raccourcis du temps et des images clés.",p:[["<kbd>Espace</kbd>","Prévisualiser"],["<kbd>F9</kbd>","Lissage de vitesse"],["<kbd>J</kbd> / <kbd>K</kbd>","Image clé précédente / suivante"],["<kbd>B</kbd> / <kbd>N</kbd>","Début / fin de la zone de travail"]]},
+{t:'paires',q:"Raccourcis de fichiers.",p:[["<kbd>Ctrl+N</kbd>","Nouvelle composition"],["<kbd>Ctrl+K</kbd>","Réglages de la composition"],["<kbd>Ctrl+I</kbd>","Importer"],["<kbd>Ctrl+M</kbd>","Ajouter à la file d'attente de rendu"]]}]},
+
+c8:{intro:"Livrer, c'est s'assurer que la personne qui reçoit votre travail peut l'utiliser sans vous appeler.",
+obj:"vérifier avant d'exporter et choisir le bon type de livraison.",
+pts:[
+"<b>Avant d'exporter</b>, vérifiez : la bonne composition, la durée, la cadence, le son, et qu'aucun calque masqué n'a été oublié.",
+"<b>Pour Internet</b> : H.264 depuis la file d'attente de rendu.",
+"<b>Pour un élément à incruster</b> : ProRes 4444 ou séquence PNG, avec la couche alpha (RVB + Alpha).",
+"<b>Pour un monteur sur Premiere Pro</b> : un modèle d'animation graphique (<b>.mogrt</b>). Dans le panneau <i>Animations graphiques essentielles</i>, vous exposez quelques réglages (texte, couleur) que le monteur pourra changer lui-même.",
+"<b>Dynamic Link</b> : utiliser une composition After Effects dans Premiere Pro sans faire d'export intermédiaire.",
+"<b>Pour archiver</b> ou transmettre le projet : <i>Fichier &gt; Dépendances &gt; Rassembler les fichiers</i>."],
+ex:[
+{t:'ordre',q:"Remettez la vérification avant export dans un ordre logique.",items:["Ouvrir la bonne composition","Vérifier la durée et la zone de travail","Vérifier le son et les calques masqués","Ajouter à la file d'attente (Ctrl+M) et choisir le format","Lancer le rendu et regarder le fichier obtenu"]},
+{t:'paires',q:"Quelle livraison pour quel besoin ?",p:[["Une vidéo pour les réseaux sociaux","H.264"],["Un logo à incruster sur d'autres images","ProRes 4444, RVB + Alpha"],["Un titre que le monteur modifiera lui-même","Modèle .mogrt"],["Transmettre tout le projet","Rassembler les fichiers"]]},
+{t:'qcm',q:"Un monteur veut changer lui-même le texte de votre titre animé dans Premiere Pro. Que lui livrez-vous ?",o:["Un fichier H.264","Un modèle d'animation graphique (.mogrt)","Une séquence PNG","Le fichier .aep seul"],a:1,e:"Le .mogrt expose les réglages choisis directement dans Premiere Pro."}]}
+});
+
+/* ---------- Application du contenu novice ---------- */
+CH.sort((a,b)=>ORDER.indexOf(a.k)-ORDER.indexOf(b.k));
+CH.forEach(c=>{const n=NV[c.k];if(!n)return;c.intro=n.intro;c.obj=n.obj;c.pts=n.pts;c.ex=n.ex;['warn','upd','tip','lab'].forEach(f=>{if(n[f]!==undefined)c[f]=n[f]});if(c.k==='m2')delete c.tip});
+
 const IDX=Object.fromEntries(CH.map((c,i)=>[c.k,i]));
 const label=i=>CH[i].k[0]==='m'?'Chap. '+CH[i].k.slice(1):'Complément '+CH[i].k.slice(1);
 const shortLabel=i=>CH[i].k[0]==='m'?CH[i].k.slice(1):'C'+CH[i].k.slice(1);
+
+/* =====================================================================
+   Moteur d'exercices interactifs (3 par étape, à valider pour avancer)
+   ===================================================================== */
+const XS=(()=>{try{return JSON.parse(localStorage.getItem('ae-memo-ex')||'{}')}catch(e){return{}}})();
+const xsave=()=>{try{localStorage.setItem('ae-memo-ex',JSON.stringify(XS))}catch(e){}};
+let TEACH=(()=>{try{return localStorage.getItem('ae-memo-teach')==='1'}catch(e){return false}})();
+let KB=(()=>{try{return localStorage.getItem('ae-memo-kb')||(/Mac|iPhone|iPad/.test(navigator.platform)?'mac':'win')}catch(e){return 'win'}})();
+const exDone=(k,i)=>!!(XS[k]&&XS[k][i]);
+const chDone=k=>{const c=CH[IDX[k]];return !c.ex||c.ex.every((_,i)=>exDone(k,i))};
+const exCount=k=>{const c=CH[IDX[k]];return c.ex?c.ex.filter((_,i)=>exDone(k,i)).length:0};
+const unlocked=i=>TEACH||i===0||chDone(CH[i-1].k);
+/* Raccourcis : textes écrits pour Windows (Ctrl) ; conversion pour Mac */
+function keyfix(h){return h.replace(/<kbd>([^<]*)<\/kbd>/g,(m,t)=>'<kbd>'+(KB==='mac'?t.replace(/Ctrl/g,'Cmd'):t.replace(/Cmd/g,'Ctrl'))+'</kbd>')}
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const NS='http://www.w3.org/2000/svg';
+function svgPt(svg,e){const p=svg.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(svg.getScreenCTM().inverse())}
+function drag(el,svg,move,end){el.addEventListener('pointerdown',e=>{e.preventDefault();el.setPointerCapture(e.pointerId);const mv=ev=>move(svgPt(svg,ev),ev);const up=()=>{el.removeEventListener('pointermove',mv);el.removeEventListener('pointerup',up);el.removeEventListener('pointercancel',up);end&&end()};el.addEventListener('pointermove',mv);el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up)})}
+function loop(svg,fn){let seen=false;const st=()=>{if(svg.isConnected)seen=true;else if(seen)return;fn();requestAnimationFrame(st)};requestAnimationFrame(st)}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const h=(tag,attrs={},html='')=>{const e=document.createElement(tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(html)e.innerHTML=html;return e};
+/* courbe de Bézier temporelle : renvoie la progression (0..1) au temps t (0..1) */
+function cbez(x1,y1,x2,y2){const B=(a,b,t)=>3*a*(1-t)*(1-t)*t+3*b*(1-t)*t*t+t*t*t;return t=>{let lo=0,hi=1,m=.5;for(let i=0;i<30;i++){m=(lo+hi)/2;B(x1,x2,m)<t?lo=m:hi=m}return B(y1,y2,m)}}
+
+/* ---------- Rendu de la zone d'exercices ---------- */
+function renderExos(c,box){
+ if(!c.ex)return;
+ const wrap=h('div',{class:'exs'});
+ const head=h('div',{class:'exhead'});
+ const pips=()=>`<span class="pips">${c.ex.map((_,i)=>`<span class="pip ${exDone(c.k,i)?'on':''}"></span>`).join('')}<span>${exCount(c.k)}/3 validés</span></span>`;
+ head.innerHTML=`<h3>Exercices · à vous de jouer</h3>${pips()}`;wrap.appendChild(head);
+ c.ex.forEach((ex,i)=>{
+  const card=h('div',{class:'ex'+(exDone(c.k,i)?' done':'')});
+  card.innerHTML=`<div class="exq"><span class="exn">Exercice ${i+1}/3</span><p>${keyfix(ex.q)}</p></div>`;
+  const body=h('div');card.appendChild(body);
+  const fb=h('div',{class:'exfb'});
+  const bar=h('div',{class:'exbar'});
+  card.appendChild(bar);card.appendChild(fb);
+  const done=(ok,msg)=>{fb.className='exfb '+(ok?'ok':'ko');fb.innerHTML=keyfix((ok?'<b>Bravo !</b> ':'<b>Pas encore.</b> ')+(msg||(ok?ex.e||'':'')));
+   if(ok){(XS[c.k]=XS[c.k]||[])[i]=1;xsave();card.classList.add('done');head.innerHTML=`<h3>Exercices · à vous de jouer</h3>${pips()}`;updNext();renderList()}};
+  const api={body,bar,done,ex,key:c.k+i};
+  (EXT[ex.t]||EXT.qcm)(api);
+  if(exDone(c.k,i)){fb.className='exfb ok';fb.innerHTML=keyfix('<b>Déjà validé.</b> '+(ex.e||'')+' Vous pouvez le refaire pour vous entraîner.')}
+  if(ex.hint){const hb=h('button',{class:'btn ghost',type:'button'},'Un indice ?');hb.onclick=()=>{fb.className='exfb ko';fb.innerHTML=keyfix('<b>Indice :</b> '+ex.hint)};bar.appendChild(hb)}
+  wrap.appendChild(card)});
+ box.appendChild(wrap);
+ function updNext(){const n=chdetail.querySelector('.chnav .next');if(!n)return;const ok=chDone(c.k);const last=IDX[c.k]===CH.length-1;n.disabled=last||(!ok&&!TEACH);n.textContent=last?'Fin du parcours ✓':ok||TEACH?'Étape suivante →':`Suivant 🔒 ${exCount(c.k)}/3`}
+ setTimeout(updNext);
+}
+
+/* ---------- Types d'exercices ---------- */
+const EXT={};
+/* QCM : ex.o = options, ex.a = index juste */
+EXT.qcm=({body,done,ex})=>{const w=h('div',{class:'chips'});ex.o.forEach((o,j)=>{const b=h('button',{class:'chipb',type:'button'},keyfix(o));b.onclick=()=>{if(j===ex.a){[...w.children].forEach(x=>x.disabled=true);b.classList.add('good');done(true)}else{b.classList.add('bad');b.disabled=true;done(false,ex.why&&ex.why[j]||'Relisez l\'explication au-dessus et réessayez.')}};w.appendChild(b)});body.appendChild(w)};
+/* Choix multiples : ex.o, ex.a = [indices justes] */
+EXT.multi=({body,bar,done,ex})=>{const w=h('div',{class:'chips'}),sel=new Set();ex.o.forEach((o,j)=>{const b=h('button',{class:'chipb',type:'button','aria-pressed':'false'},'☐ '+keyfix(o));b.onclick=()=>{sel.has(j)?sel.delete(j):sel.add(j);b.classList.toggle('sel',sel.has(j));b.innerHTML=(sel.has(j)?'☑ ':'☐ ')+keyfix(o)};w.appendChild(b)});body.appendChild(w);
+ const v=h('button',{class:'btn',type:'button'},'Vérifier');v.onclick=()=>{const ok=ex.a.length===sel.size&&ex.a.every(x=>sel.has(x));const miss=ex.a.filter(x=>!sel.has(x)).length,extra=[...sel].filter(x=>!ex.a.includes(x)).length;done(ok,ok?null:`${miss?miss+' bonne(s) réponse(s) manquante(s). ':''}${extra?extra+' réponse(s) en trop.':''}`)};bar.appendChild(v)};
+/* Remettre dans l'ordre : ex.items dans le bon ordre */
+EXT.ordre=({body,bar,done,ex})=>{const out=h('div',{class:'orderout'}),pool=h('div',{class:'chips'});let seq=[];
+ const draw=()=>{out.innerHTML=seq.map((j,n)=>`<div class="it"><i>${n+1}.</i><span>${keyfix(ex.items[j])}</span></div>`).join('');[...pool.children].forEach(b=>b.disabled=seq.includes(+b.dataset.j))};
+ shuffle(ex.items.map((_,j)=>j)).forEach(j=>{const b=h('button',{class:'chipb',type:'button','data-j':j},keyfix(ex.items[j]));b.onclick=()=>{seq.push(j);draw();if(seq.length===ex.items.length){const ok=seq.every((x,n)=>x===n);if(ok)done(true);else{const first=seq.findIndex((x,n)=>x!==n);done(false,`L'étape ${first+1} n'est pas à sa place. Cliquez « Recommencer ».`)}}};pool.appendChild(b)});
+ body.appendChild(out);body.appendChild(pool);const r=h('button',{class:'btn ghost',type:'button'},'Recommencer');r.onclick=()=>{seq=[];draw()};bar.appendChild(r);draw()};
+/* Associer : ex.p = [[gauche, droite], ...] */
+EXT.paires=({body,done,ex})=>{const g=h('div',{class:'pairs'}),L=h('div',{class:'col'}),R=h('div',{class:'col'});let selL=null,found=0,err=0;
+ const lb=ex.p.map(([a],j)=>{const b=h('button',{class:'chipb',type:'button'},keyfix(a));b.onclick=()=>{lb.forEach(x=>x.classList.remove('sel'));selL=j;b.classList.add('sel')};return b});
+ const order=shuffle(ex.p.map((_,j)=>j));const rb=[];
+ order.forEach(j=>{const b=h('button',{class:'chipb',type:'button'},keyfix(ex.p[j][1]));b.onclick=()=>{if(selL===null){done(false,'Choisissez d\'abord un élément dans la colonne de gauche.');return}
+  if(selL===j){b.classList.add('good');lb[j].classList.remove('sel');lb[j].classList.add('good');b.disabled=lb[j].disabled=true;selL=null;found++;if(found===ex.p.length)done(true,(err?`Terminé avec ${err} erreur(s). `:'Sans faute ! ')+(ex.e||''))}
+  else{err++;b.classList.add('bad');setTimeout(()=>b.classList.remove('bad'),600)}};rb[j]=b;R.appendChild(b)});
+ lb.forEach(b=>L.appendChild(b));g.appendChild(L);g.appendChild(R);body.appendChild(g)};
+/* Formulaire : ex.f = [{l, a (valeur ou tableau de valeurs acceptées), o (options => liste), u}] */
+EXT.vals=({body,bar,done,ex})=>{const f=h('div',{class:'form'});const ins=ex.f.map(fd=>{const lab=h('label',{},fd.l);let inp;if(fd.o){inp=h('select');inp.innerHTML='<option value="">—</option>'+fd.o.map(o=>`<option>${o}</option>`).join('')}else{inp=h('input',{type:'number',inputmode:'decimal',placeholder:fd.ph||''})}lab.appendChild(inp);if(fd.u)lab.appendChild(h('span',{class:'mono'},fd.u));f.appendChild(lab);return [lab,inp,fd]});body.appendChild(f);
+ const v=h('button',{class:'btn',type:'button'},'Valider');v.onclick=()=>{let bad=[];ins.forEach(([lab,inp,fd])=>{const acc=[].concat(fd.a).map(String);const val=String(inp.value).trim().replace(',','.');const ok=acc.includes(val)||(!fd.o&&acc.some(a=>Math.abs(+a-+val)<1e-9));lab.className=ok?'right':'wrong';if(!ok)bad.push(fd.l)});done(!bad.length,bad.length?'À corriger : '+bad.join(', ')+'.':null)};bar.appendChild(v)};
+
+/* Clic sur une zone d'un schéma : ex.s = 'ui' | 'axes', ex.a = id de zone */
+const ZSVG={
+ ui:{vb:'0 0 560 330',names:{outils:'la barre d\'outils',selection:'l\'outil Sélection',plume:'l\'outil Plume',projet:'le panneau Projet',compo:'la fenêtre Composition',effets:'le panneau Effets',calques:'la liste des calques',temps:'la zone du temps',cti:'l\'indicateur de temps',chrono:'le chronomètre',cube:'la case 3D',mode:'la colonne Mode',parent:'la colonne Parent',newcomp:'l\'icône Nouvelle composition',graph:'le bouton Éditeur de graphiques'},
+  s:`<rect x="0" y="0" width="560" height="330" style="fill:var(--bg)"/>
+<g data-z="outils"><rect x="6" y="6" width="548" height="26" rx="4" class="zf"/></g>
+<g data-z="selection"><rect x="12" y="9" width="20" height="20" rx="3" class="zt"/><path d="M18,12 v13 l3,-3 l3,6 l2,-1 l-3,-6 h4 z" style="fill:var(--ink)"/></g>
+<g data-z="plume"><rect x="36" y="9" width="20" height="20" rx="3" class="zt"/><path d="M46,12 l5,9 l-5,5 l-5,-5 z" style="fill:var(--ink)"/></g>
+<text x="70" y="24">outils…</text>
+<g data-z="projet"><rect x="6" y="38" width="130" height="150" rx="4" class="zf"/><text x="14" y="54" class="b">Projet</text><rect x="14" y="62" width="112" height="10" rx="2" class="zt"/><rect x="14" y="78" width="112" height="10" rx="2" class="zt"/><rect x="14" y="94" width="112" height="10" rx="2" class="zt"/></g>
+<g data-z="newcomp"><rect x="104" y="166" width="24" height="16" rx="3" class="zt"/><rect x="109" y="170" width="14" height="8" style="fill:none;stroke:var(--ink);stroke-width:1.5"/></g>
+<g data-z="compo"><rect x="142" y="38" width="290" height="150" rx="4" class="zf"/><text x="150" y="54" class="b">Composition</text><rect x="162" y="62" width="250" height="116" style="fill:var(--track)"/><circle cx="287" cy="120" r="22" style="fill:var(--p2)"/></g>
+<g data-z="effets"><rect x="438" y="38" width="116" height="150" rx="4" class="zf"/><text x="446" y="54" class="b">Effets</text><rect x="446" y="62" width="100" height="10" rx="2" class="zt"/><rect x="446" y="78" width="100" height="10" rx="2" class="zt"/></g>
+<rect x="6" y="194" width="548" height="130" rx="4" style="fill:var(--surface);stroke:var(--line)"/>
+<g data-z="graph"><rect x="214" y="199" width="22" height="16" rx="3" class="zt"/><path d="M218,212 q6,-12 14,-8" style="fill:none;stroke:var(--ink);stroke-width:1.5"/></g>
+<g data-z="calques"><rect x="12" y="222" width="132" height="96" rx="3" class="zf"/><text x="18" y="238" class="b">▾ Cercle</text><text x="30" y="258">Position</text><text x="30" y="282">▾ Fond</text></g>
+<g data-z="chrono"><circle cx="22" cy="254" r="6" style="fill:none;stroke:var(--ink);stroke-width:1.5"/><line x1="22" y1="250" x2="22" y2="254" style="stroke:var(--ink);stroke-width:1.5"/><circle cx="22" cy="254" r="10" style="fill:transparent"/></g>
+<g data-z="cube"><rect x="150" y="228" width="18" height="16" rx="2" class="zt"/><path d="M154,236 l5,-3 l5,3 l-5,3 z M154,236 v4 l5,3 v-4 M164,236 v4 l-5,3" style="fill:none;stroke:var(--ink);stroke-width:1.2"/></g>
+<g data-z="mode"><rect x="174" y="222" width="46" height="96" rx="3" class="zf"/><text x="178" y="238">Mode</text><text x="178" y="282" style="font-size:10px">Normal</text></g>
+<g data-z="parent"><rect x="224" y="222" width="54" height="96" rx="3" class="zf"/><text x="228" y="238">Parent</text><path d="M234,276 c-6,0 -6,-8 0,-8 c8,0 8,13 0,13" style="fill:none;stroke:var(--ink);stroke-width:1.4"/></g>
+<g data-z="temps"><rect x="284" y="222" width="264" height="96" rx="3" class="zf"/><text x="290" y="238">0s     1s     2s     3s</text><rect x="300" y="248" width="200" height="12" rx="2" style="fill:var(--p2);opacity:.6"/><rect x="300" y="276" width="240" height="12" rx="2" style="fill:var(--p5);opacity:.6"/></g>
+<g data-z="cti"><line x1="380" y1="222" x2="380" y2="318" style="stroke:var(--accent);stroke-width:2.5"/><rect x="373" y="222" width="14" height="10" style="fill:var(--accent)"/><rect x="368" y="222" width="24" height="96" style="fill:transparent"/></g>`},
+ axes:{vb:'0 0 440 250',names:{x:'la flèche X (rouge) : gauche-droite',y:'la flèche Y (verte) : haut-bas',z:'la flèche Z (bleue) : la profondeur',centre:'le centre : l\'axe maudit !'},
+  s:`<rect width="440" height="250" style="fill:var(--bg)"/><polygon points="120,70 300,50 300,190 120,170" style="fill:var(--track)"/>
+<g data-z="x"><line x1="210" y1="120" x2="370" y2="120" style="stroke:#d9443a;stroke-width:5"/><polygon points="368,110 388,120 368,130" style="fill:#d9443a"/><text x="396" y="125" class="b">X</text><rect x="225" y="108" width="170" height="24" style="fill:transparent"/></g>
+<g data-z="y"><line x1="210" y1="120" x2="210" y2="20" style="stroke:#2f9e57;stroke-width:5"/><polygon points="200,24 210,4 220,24" style="fill:#2f9e57"/><text x="224" y="20" class="b">Y</text><rect x="198" y="2" width="24" height="104" style="fill:transparent"/></g>
+<g data-z="z"><line x1="210" y1="120" x2="140" y2="215" style="stroke:#3a6bf0;stroke-width:5"/><polygon points="130,206 132,230 150,216" style="fill:#3a6bf0"/><text x="118" y="240" class="b">Z</text><polygon points="198,128 130,222 148,234 214,140" style="fill:transparent"/></g>
+<g data-z="centre"><circle cx="210" cy="120" r="12" style="fill:var(--bad);opacity:.35"/><circle cx="210" cy="120" r="5" style="fill:var(--bad)"/></g>`}};
+EXT.clic=({body,done,ex})=>{const Z=ZSVG[ex.s||'ui'];const svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox',Z.vb);svg.innerHTML=`<style>.zf{fill:var(--surface);stroke:var(--line);stroke-width:1.5}.zt{fill:var(--track)}[data-z]{cursor:pointer}[data-z]:hover>.zf,[data-z]:hover>.zt{stroke:var(--accent);stroke-width:2.5}</style>`+Z.s;
+ svg.addEventListener('click',e=>{const g=e.target.closest('[data-z]');if(!g)return;const z=g.dataset.z;if(z===ex.a){g.querySelectorAll('.zf,.zt').forEach(r=>r.style.stroke='var(--ok)');done(true,ex.e)}else done(false,`Vous avez cliqué sur ${Z.names[z]||z}. ${ex.hint?'':'Cherchez encore.'}`)});
+ const s=h('div',{class:'sim'+(ex.s==='axes'?'':' wide')});s.appendChild(svg);body.appendChild(s)};
+
+/* ---------- Simulateurs ---------- */
+const SIM={};
+EXT.sim=api=>{const s=h('div',{class:'sim'});api.body.appendChild(s);SIM[api.ex.s](s,api)};
+const mk=(w,hgt,inner)=>{const svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox',`0 0 ${w} ${hgt}`);svg.innerHTML=inner||'';return svg};
+const ckb=`<defs><pattern id="ck" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" style="fill:var(--surface)"/><rect width="7" height="7" style="fill:var(--track)"/><rect x="7" y="7" width="7" height="7" style="fill:var(--track)"/></pattern></defs>`;
+function vbtn(bar,label,fn){const b=h('button',{class:'btn',type:'button'},label);b.onclick=fn;bar.appendChild(b);return b}
+
+/* 1. Modifier la Position : glisser, glissière ou saisie. opt: mode, target [x,y] en px de compo (1920x1080) */
+SIM.pos=(s,{bar,done,ex})=>{const o=ex.o,S=.25;let x=480,y=540;
+ const svg=mk(480,270,`<rect width="480" height="270" style="fill:var(--track)"/><text x="8" y="16">Fenêtre Composition · 1920 × 1080</text><circle cx="${o.target[0]*S}" cy="${o.target[1]*S}" r="26" style="fill:none;stroke:var(--ok);stroke-width:2.5;stroke-dasharray:6 5"/><text x="${o.target[0]*S}" y="${o.target[1]*S+44}" text-anchor="middle">cible</text><circle class="hd" id="c" r="20" style="fill:var(--p2)"/>`);
+ s.appendChild(svg);const c=svg.querySelector('#c');
+ const row=h('div',{class:'tlrow'});row.innerHTML=`<b>▾ Cercle</b><span>▾ Transformer</span><span>Position</span>`;
+ let vx,vy;
+ if(o.mode==='type'){vx=h('input',{type:'number'});vy=h('input',{type:'number'});[vx,vy].forEach(i=>i.onchange=()=>{x=+vx.value||0;y=+vy.value||0;upd()});row.append(vx,h('span',{},','),vy);row.appendChild(h('span',{class:'note'},'← cliquez, tapez, Entrée'))}
+ else{vx=h('span',{class:'tlval'});vy=h('span',{class:'tlval'});row.append(vx,h('span',{},','),vy);if(o.mode==='scrub'){[[vx,'x'],[vy,'y']].forEach(([el,ax])=>{el.addEventListener('pointerdown',e=>{e.preventDefault();el.setPointerCapture(e.pointerId);let lx=e.clientX;const mv=ev=>{const d=(ev.clientX-lx)*4;lx=ev.clientX;if(ax==='x')x=clamp(x+d,0,1920);else y=clamp(y+d,0,1080);upd()};const up=()=>{el.removeEventListener('pointermove',mv);el.removeEventListener('pointerup',up)};el.addEventListener('pointermove',mv);el.addEventListener('pointerup',up)})});row.appendChild(h('span',{class:'note'},'← glissez les chiffres bleus vers la gauche ou la droite'))}}
+ s.appendChild(row);
+ if(o.mode==='drag')drag(c,svg,p=>{x=clamp(Math.round(p.x/S),0,1920);y=clamp(Math.round(p.y/S),0,1080);upd()});
+ function upd(){c.setAttribute('cx',x*S);c.setAttribute('cy',y*S);if(o.mode==='type'){if(document.activeElement!==vx)vx.value=Math.round(x);if(document.activeElement!==vy)vy.value=Math.round(y)}else{vx.textContent=Math.round(x);vy.textContent=Math.round(y)}}
+ upd();vbtn(bar,'Vérifier',()=>{const d=Math.hypot(x-o.target[0],y-o.target[1]);done(d<=(o.tol||40),d<=(o.tol||40)?ex.e:`Le cercle est à ${Math.round(d)} px de la cible. Position actuelle : ${Math.round(x)}, ${Math.round(y)}.`)})};
+
+/* 2. Poser des images clés : chronomètre, indicateur de temps, déplacement */
+SIM.keys=(s,{bar,done,ex})=>{const o=ex.o,S=.25,T=4;let t=0,on=false,keys=[],stat=[o.start[0],o.start[1]],play=null;
+ const svg=mk(480,270,`<rect width="480" height="270" style="fill:var(--track)"/><text x="8" y="16">Composition</text>${o.A?`<circle cx="${o.A[0]*S}" cy="${o.A[1]*S}" r="26" style="fill:none;stroke:var(--ok);stroke-width:2;stroke-dasharray:5 5"/><text x="${o.A[0]*S}" y="${o.A[1]*S+44}" text-anchor="middle">A (à 0 s)</text>`:''}<circle cx="${o.B[0]*S}" cy="${o.B[1]*S}" r="26" style="fill:none;stroke:var(--ok);stroke-width:2;stroke-dasharray:5 5"/><text x="${o.B[0]*S}" y="${o.B[1]*S+44}" text-anchor="middle">B (à ${o.tB} s)</text><path id="tr" style="fill:none;stroke:var(--accent);stroke-width:1.5;stroke-dasharray:3 4"/><circle class="hd" id="c" r="20" style="fill:var(--p2)"/>`);
+ s.appendChild(svg);const c=svg.querySelector('#c'),tr=svg.querySelector('#tr');
+ const row=h('div',{class:'tlrow'});const ch=h('button',{class:'chrono',type:'button','aria-pressed':'false',title:'Chronomètre'});const pv=h('span',{class:'mono'});row.append(ch,h('b',{},'Position'),pv);s.appendChild(row);
+ const tl=mk(480,70,`<rect width="480" height="70" style="fill:var(--bg)"/>${[0,1,2,3,4].map(i=>`<line x1="${30+i*105}" y1="14" x2="${30+i*105}" y2="22" style="stroke:var(--muted)"/><text x="${30+i*105}" y="11" text-anchor="middle">${i}s</text>`).join('')}<line x1="30" y1="22" x2="450" y2="22" style="stroke:var(--muted)"/><line x1="30" y1="46" x2="450" y2="46" style="stroke:var(--line);stroke-width:2"/><g id="kf"></g><g id="cti" class="hd"><rect x="-8" y="0" width="16" height="70" style="fill:transparent"/><rect x="-6" y="14" width="12" height="10" style="fill:var(--accent)"/><line x1="0" y1="22" x2="0" y2="70" style="stroke:var(--accent);stroke-width:2.5"/></g>`);
+ s.appendChild(tl);const kfG=tl.querySelector('#kf'),cti=tl.querySelector('#cti');
+ const note=h('p',{class:'note'},'Faites glisser la ligne bleue (indicateur de temps) pour vous déplacer dans le temps.');s.appendChild(note);
+ const tx=v=>30+v/T*420;
+ const posAt=tt=>{if(!on||!keys.length)return stat;const k=keys.slice().sort((a,b)=>a.t-b.t);if(tt<=k[0].t)return[k[0].x,k[0].y];if(tt>=k[k.length-1].t)return[k[k.length-1].x,k[k.length-1].y];for(let i=0;i<k.length-1;i++)if(tt<=k[i+1].t){const f=(tt-k[i].t)/(k[i+1].t-k[i].t);return[k[i].x+(k[i+1].x-k[i].x)*f,k[i].y+(k[i+1].y-k[i].y)*f]}};
+ function upd(){const [x,y]=posAt(t);c.setAttribute('cx',x*S);c.setAttribute('cy',y*S);pv.textContent=`${Math.round(x)} , ${Math.round(y)}`;cti.setAttribute('transform',`translate(${tx(t)},0)`);
+  kfG.innerHTML=keys.map(k=>`<rect x="${tx(k.t)-6}" y="40" width="12" height="12" transform="rotate(45 ${tx(k.t)} 46)" style="fill:var(--key)"/>`).join('');
+  const k=keys.slice().sort((a,b)=>a.t-b.t);tr.setAttribute('d',on&&k.length>1?'M'+k.map(p=>`${p.x*S},${p.y*S}`).join(' L'):'');
+  ch.setAttribute('aria-pressed',on);}
+ const setKey=(x,y)=>{const ex_=keys.find(k=>Math.abs(k.t-t)<.01);if(ex_){ex_.x=x;ex_.y=y}else keys.push({t,x,y})};
+ ch.onclick=()=>{if(on){on=false;stat=posAt(t);keys=[];note.textContent='Chronomètre éteint : toutes les images clés de Position ont été supprimées.'}else{on=true;const p=stat;keys=[{t,x:p[0],y:p[1]}];note.textContent=`Chronomètre allumé : première image clé posée à ${t.toFixed(1)} s.`}upd()};
+ drag(cti,tl,p=>{t=clamp(Math.round((p.x-30)/420*T*4)/4,0,T);upd()});
+ drag(c,svg,p=>{const x=clamp(Math.round(p.x/S),0,1920),y=clamp(Math.round(p.y/S),0,1080);if(on){setKey(x,y)}else stat=[x,y];upd()},()=>{if(on)note.textContent=`Image clé posée ou modifiée à ${t.toFixed(2).replace(/\.?0+$/,'')} s.`});
+ vbtn(bar,'▶ Lire',()=>{cancelAnimationFrame(play);const t0=performance.now();const st=()=>{t=Math.min(T,(performance.now()-t0)/1000);upd();if(t<T)play=requestAnimationFrame(st)};st()}).classList.add('ghost');
+ vbtn(bar,'Vérifier',()=>{if(!on)return done(false,'Le chronomètre de Position n\'est pas allumé : aucune image clé n\'existe.');const near=(tt,P)=>keys.some(k=>Math.abs(k.t-tt)<=.26&&Math.hypot(k.x-P[0],k.y-P[1])<=60);
+  const a=near(0,o.A||o.start),b=near(o.tB,o.B);done(a&&b,a&&b?ex.e:!a?'Il manque une image clé à 0 s avec le cercle sur sa position de départ.':`Il manque une image clé à ${o.tB} s avec le cercle sur la cible B.`)});
+ upd()};
+
+/* 3. Zone de travail B / N et prévisualisation */
+SIM.work=(s,{bar,done,ex})=>{const o=ex.o,T=5;let t=0,B=0,N=T,raf=null;
+ const tx=v=>30+v/T*420;
+ const svg=mk(480,120,`<rect width="480" height="120" style="fill:var(--bg)"/>${[0,1,2,3,4,5].map(i=>`<text x="${tx(i)}" y="12" text-anchor="middle">${i}s</text><line x1="${tx(i)}" y1="16" x2="${tx(i)}" y2="22" style="stroke:var(--muted)"/>`).join('')}<line x1="30" y1="22" x2="450" y2="22" style="stroke:var(--muted)"/><rect id="wa" y="28" height="12" rx="2" style="fill:var(--accent);opacity:.45"/><rect id="ram" y="44" height="6" rx="2" style="fill:var(--ok)"/><rect x="${tx(0)}" y="64" width="420" height="22" rx="3" style="fill:var(--track)"/><rect x="${tx(o.a)}" y="64" width="${tx(o.b)-tx(o.a)}" height="22" rx="3" style="fill:var(--p2)"/><text x="${(tx(o.a)+tx(o.b))/2}" y="79" text-anchor="middle" style="fill:#fff;font-weight:700">${o.label}</text><g id="cti" class="hd"><rect x="-9" y="0" width="18" height="120" style="fill:transparent"/><rect x="-6" y="14" width="12" height="10" style="fill:var(--accent)"/><line x1="0" y1="22" x2="0" y2="110" style="stroke:var(--accent);stroke-width:2.5"/></g><text x="30" y="110" id="lb"></text>`);
+ s.appendChild(svg);const wa=svg.querySelector('#wa'),ram=svg.querySelector('#ram'),cti=svg.querySelector('#cti'),lb=svg.querySelector('#lb');
+ const row=h('div',{class:'simrow'});const bB=h('button',{class:'btn ghost',type:'button'},'<kbd>B</kbd> début ici'),bN=h('button',{class:'btn ghost',type:'button'},'<kbd>N</kbd> fin ici'),sp=h('button',{class:'btn ghost',type:'button'},'<kbd>Espace</kbd> prévisualiser');row.append(bB,bN,sp);s.appendChild(row);
+ const upd=()=>{wa.setAttribute('x',tx(B));wa.setAttribute('width',tx(N)-tx(B));cti.setAttribute('transform',`translate(${tx(t)},0)`);lb.textContent=`indicateur : ${t.toFixed(1)} s · zone de travail : ${B.toFixed(1)} → ${N.toFixed(1)} s`};
+ drag(cti,svg,p=>{t=clamp(Math.round((p.x-30)/420*T*10)/10,0,T);upd()});
+ bB.onclick=()=>{B=Math.min(t,N-.1);ram.setAttribute('width',0);upd()};bN.onclick=()=>{N=Math.max(t,B+.1);ram.setAttribute('width',0);upd()};
+ sp.onclick=()=>{cancelAnimationFrame(raf);ram.setAttribute('x',tx(B));const t0=performance.now(),dur=(N-B)*600;const st=()=>{const f=Math.min(1,(performance.now()-t0)/dur);ram.setAttribute('width',(tx(N)-tx(B))*f);t=B+(N-B)*f;upd();if(f<1)raf=requestAnimationFrame(st)};st()};
+ vbtn(bar,'Vérifier',()=>{const okB=Math.abs(B-o.a)<=.15,okN=Math.abs(N-o.b)<=.15;done(okB&&okN,okB&&okN?ex.e:!okB?`Le début (B) est à ${B.toFixed(1)} s ; il doit être au début du bloc orange (${o.a} s).`:`La fin (N) est à ${N.toFixed(1)} s ; elle doit être à la fin du bloc orange (${o.b} s).`)});
+ upd()};
+
+/* 4. Masques : couvrir, inverser, adoucir */
+SIM.mask=(s,{bar,done,ex})=>{const o=ex.o,sun=[300,70],sr=28,id='m'+Math.random().toString(36).slice(2,7);
+ let P=o.goal==='cover'?[[40,30],[380,30],[380,210],[40,210]]:[[262,34],[338,34],[338,108],[262,108]],inv=false,fe=0;
+ const svg=mk(420,240,ckb+`<defs><mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="420" height="240"><rect id="mbg" width="420" height="240" style="fill:#000"/><polygon id="mp" style="fill:#fff"/></mask><filter id="${id}f" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur id="${id}b" stdDeviation="0"/></filter></defs><rect width="420" height="240" style="fill:url(#ck)"/>
+<g mask="url(#${id})"><rect width="420" height="240" style="fill:#8fc3ec"/><circle cx="${sun[0]}" cy="${sun[1]}" r="${sr}" style="fill:#f2b53a"/><path d="M0,180 Q120,120 240,170 T420,160 V240 H0 Z" style="fill:#3f9a5f"/><rect x="90" y="140" width="60" height="44" style="fill:#c9734b"/><polygon points="84,142 120,112 156,142" style="fill:#8a3f2a"/></g>
+<polygon id="mo" style="fill:none;stroke:var(--accent);stroke-width:2"/><g id="hs"></g>`);
+ s.appendChild(svg);const mp=svg.querySelector('#mp'),mo=svg.querySelector('#mo'),mbg=svg.querySelector('#mbg'),hs=svg.querySelector('#hs'),blur=svg.querySelector('#'+id+'b');
+ const row=h('div',{class:'simrow'});const ci=h('input',{type:'checkbox'});const l1=h('label',{},'');l1.append(ci,document.createTextNode('Inverser (Masque 1)'));row.appendChild(l1);
+ const fr=h('input',{type:'range',min:0,max:40,value:0}),fo=h('output',{},'0 px');const l2=h('label',{},'Contour progressif');l2.append(fr,fo);row.appendChild(l2);s.appendChild(row);
+ s.appendChild(h('p',{class:'note'},'Le damier = la transparence. Faites glisser les carrés bleus (les sommets du masque).'));
+ ci.onchange=()=>{inv=ci.checked;upd()};fr.oninput=()=>{fe=+fr.value;upd()};
+ function upd(){const pts=P.map(p=>p.join(',')).join(' ');mp.setAttribute('points',pts);mo.setAttribute('points',pts);mbg.style.fill=inv?'#fff':'#000';mp.style.fill=inv?'#000':'#fff';blur.setAttribute('stdDeviation',fe/2);mp.setAttribute('filter',fe?`url(#${id}f)`:'');fo.textContent=fe+' px'}
+ P.forEach((p,i)=>{const r=document.createElementNS(NS,'rect');r.setAttribute('width',14);r.setAttribute('height',14);r.setAttribute('class','hd');r.style.fill='var(--accent)';r.style.stroke='#fff';hs.appendChild(r);const pl=()=>{r.setAttribute('x',P[i][0]-7);r.setAttribute('y',P[i][1]-7)};pl();drag(r,svg,q=>{P[i]=[clamp(Math.round(q.x),0,420),clamp(Math.round(q.y),0,240)];pl();upd()})});
+ const inside=(x,y)=>{let c=false;for(let i=0,j=P.length-1;i<P.length;j=i++){const [xi,yi]=P[i],[xj,yj]=P[j];if(((yi>y)!==(yj>y))&&x<(xj-xi)*(y-yi)/(yj-yi)+xi)c=!c}return c};
+ const area=()=>Math.abs(P.reduce((a,p,i)=>{const q=P[(i+1)%P.length];return a+p[0]*q[1]-q[0]*p[1]},0))/2;
+ const covers=()=>{for(let a=0;a<16;a++){const x=sun[0]+Math.cos(a/8*Math.PI)*sr,y=sun[1]+Math.sin(a/8*Math.PI)*sr;if(!inside(x,y))return false}return true};
+ vbtn(bar,'Vérifier',()=>{const cov=covers(),A=area(),sa=Math.PI*sr*sr;
+  if(o.goal==='cover'){if(inv)return done(false,'La case Inverser est cochée : on voit tout sauf le soleil. Décochez-la.');if(!cov)return done(false,'Une partie du soleil dépasse du masque : agrandissez le tracé autour de lui.');if(A>sa*4.5)return done(false,'Le soleil est bien dedans, mais le masque garde aussi beaucoup de ciel. Resserrez les points autour du soleil.');return done(true,ex.e)}
+  if(o.goal==='invert'){if(!cov)return done(false,'Le masque doit toujours entourer le soleil.');return done(inv,inv?ex.e:'Le soleil est le seul élément visible. Il faut garder l\'inverse : cherchez la case qui inverse le masque.')}
+  if(o.goal==='feather'){if(fe>=20&&!inv&&cov)return done(true,ex.e);return done(false,fe<20?`Contour progressif à ${fe} px : montez à 20 px au moins.`:'Gardez le soleil entier et la case Inverser décochée.')}});
+ upd()};
+
+/* 5. Trajectoire : linéaire ou Bézier (interpolation spatiale) */
+SIM.spatial=(s,{bar,done,ex})=>{const o=ex.o,A=[50,210],C=[430,210],M=[240,90];let bez=o.goal!=='curve',d=bez?[120,0]:[0,0];
+ const seg=(p0,c1,c2,p1,t)=>{const u=1-t;return[u*u*u*p0[0]+3*u*u*t*c1[0]+3*u*t*t*c2[0]+t*t*t*p1[0],u*u*u*p0[1]+3*u*u*t*c1[1]+3*u*t*t*c2[1]+t*t*t*p1[1]]};
+ const pt=(dd,t)=>{const m1=[M[0]-dd[0],M[1]-dd[1]],m2=[M[0]+dd[0],M[1]+dd[1]];return t<.5?seg(A,A,m1,M,t*2):seg(M,m2,C,C,(t-.5)*2)};
+ const rings=o.goal==='curve'?[pt([110,0],.3),pt([110,0],.7)]:[];
+ const svg=mk(480,250,`<rect width="480" height="250" style="fill:var(--track)"/>${rings.map(r=>`<circle cx="${r[0]}" cy="${r[1]}" r="16" style="fill:none;stroke:var(--ok);stroke-width:3"/>`).join('')}<path id="pa" style="fill:none;stroke:var(--accent);stroke-width:1.5;stroke-dasharray:3 5"/><g id="dots"></g><line id="tg" style="stroke:var(--accent);stroke-width:2"/><circle id="h1" class="hd" r="7" style="fill:var(--accent)"/><circle id="h2" class="hd" r="7" style="fill:var(--accent)"/><rect x="${A[0]-7}" y="${A[1]-7}" width="14" height="14" style="fill:var(--key)"/><rect x="${C[0]-7}" y="${C[1]-7}" width="14" height="14" style="fill:var(--key)"/><rect id="mk" class="hd" x="${M[0]-8}" y="${M[1]-8}" width="16" height="16" style="fill:var(--key);stroke:var(--ink);stroke-width:1.5"/><circle id="ball" r="11" style="fill:var(--p2)"/>`);
+ s.appendChild(svg);const pa=svg.querySelector('#pa'),h1=svg.querySelector('#h1'),h2=svg.querySelector('#h2'),tg=svg.querySelector('#tg'),dots=svg.querySelector('#dots'),ball=svg.querySelector('#ball'),mkr=svg.querySelector('#mk');
+ const row=h('div',{class:'simrow'});const tgl=h('button',{class:'btn ghost',type:'button'},'');row.appendChild(tgl);const st=h('span',{class:'mono'});row.appendChild(st);s.appendChild(row);
+ s.appendChild(h('p',{class:'note'},'Le carré central est le point clé du sommet. Ctrl+Alt+clic dessus (ou le bouton) le fait passer de linéaire à Bézier ; puis tirez une poignée bleue.'));
+ const toggle=()=>{bez=!bez;d=bez?[40,0]:[0,0];upd()};tgl.onclick=toggle;mkr.addEventListener('click',e=>{if(e.ctrlKey||e.altKey||e.metaKey)toggle()});
+ drag(h2,svg,p=>{d=[clamp(p.x-M[0],-200,200),clamp(p.y-M[1],-200,200)];upd()});drag(h1,svg,p=>{d=[clamp(M[0]-p.x,-200,200),clamp(M[1]-p.y,-200,200)];upd()});
+ function upd(){let path='M'+A.join(',');for(let i=1;i<=60;i++)path+=' L'+pt(d,i/60).map(v=>v.toFixed(1)).join(',');pa.setAttribute('d',path);dots.innerHTML=Array.from({length:21},(_,i)=>pt(d,i/20)).map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="2.5" style="fill:var(--accent)"/>`).join('');
+  [h1,h2,tg].forEach(e=>e.style.display=bez?'':'none');h1.setAttribute('cx',M[0]-d[0]);h1.setAttribute('cy',M[1]-d[1]);h2.setAttribute('cx',M[0]+d[0]);h2.setAttribute('cy',M[1]+d[1]);tg.setAttribute('x1',M[0]-d[0]);tg.setAttribute('y1',M[1]-d[1]);tg.setAttribute('x2',M[0]+d[0]);tg.setAttribute('y2',M[1]+d[1]);
+  tgl.innerHTML=bez?'Ctrl+Alt+clic : repasser en linéaire':'Ctrl+Alt+clic : passer en Bézier';st.textContent='Sommet : '+(bez?'Bézier (courbe)':'linéaire (angle)')}
+ let t0=performance.now();loop(svg,()=>{const f=((performance.now()-t0)/2400)%1;const p=pt(d,f);ball.setAttribute('cx',p[0]);ball.setAttribute('cy',p[1])});
+ vbtn(bar,'Vérifier',()=>{if(o.goal==='curve'){if(!bez)return done(false,'Le sommet est encore linéaire : la trajectoire fait un angle. Passez-le en Bézier.');const hit=rings.every(r=>{let m=1e9;for(let i=0;i<=200;i++){const p=pt(d,i/200);m=Math.min(m,Math.hypot(p[0]-r[0],p[1]-r[1]))}return m<=14});return done(hit,hit?ex.e:'La courbe ne passe pas encore dans les deux anneaux verts : allongez ou orientez les poignées.')}
+  done(!bez,!bez?ex.e:'Le sommet est encore en Bézier (arrondi). Repassez-le en linéaire.')});
+ upd()};
+
+/* 6. Interpolations temporelles : comparer à une référence */
+const INT={lin:'Linéaire',ease:'Lissage de vitesse (F9)',hold:'Maintien'};
+const HALFK={lin:"M0,-9 L-9,0 L0,9 Z",ease:"M0,-5 L-8,-8 Q-3.6,0 -8,8 L0,5 Z",hold:"M0,-7.5 L-7.5,-7.5 L-7.5,7.5 L0,7.5 Z"};
+const motion=(k1,k2)=>{if(k1==='hold')return t=>t<1?0:1;const f=cbez(1/3,k1==='ease'?0:1/3,2/3,k2==='ease'?1:2/3);return f};
+SIM.interp=(s,{bar,done,ex})=>{const o=ex.o;let k1='lin',k2='lin';
+ const N=16,X0=40,X1=440;
+ const svg=mk(480,236,`<rect width="480" height="236" style="fill:var(--bg)"/><text x="10" y="20" class="b">Modèle à reproduire</text><line x1="${X0}" y1="52" x2="${X1}" y2="52" style="stroke:var(--line)"/><g id="rd"></g><circle id="rb" cy="52" r="12" style="fill:var(--p5)"/>
+<text x="10" y="96" class="b">Votre animation</text><line x1="${X0}" y1="128" x2="${X1}" y2="128" style="stroke:var(--line)"/><g id="ud"></g><circle id="ub" cy="128" r="12" style="fill:var(--p2)"/>
+<text x="10" y="168">Timeline : vos images clés</text><line x1="${X0}" y1="200" x2="${X1}" y2="200" style="stroke:var(--muted)"/><g id="k1" transform="translate(${X0},200)"></g><g id="k2" transform="translate(${X1},200)"></g><text x="${X0}" y="228" text-anchor="middle">0 s</text><text x="${X1}" y="228" text-anchor="middle">2 s</text>`);
+ s.appendChild(svg);
+ const row=h('div',{class:'simrow'});const mkSel=(lab,v,cb)=>{const l=h('label',{},lab);const se=h('select');se.innerHTML=Object.entries(INT).map(([k,n])=>`<option value="${k}">${n}</option>`).join('');se.value=v;se.onchange=()=>cb(se.value);l.appendChild(se);row.appendChild(l);return se};
+ mkSel('Image clé 1 (départ)',k1,v=>{k1=v;upd()});mkSel('Image clé 2 (arrivée)',k2,v=>{k2=v;upd()});s.appendChild(row);
+ s.appendChild(h('p',{class:'note'},'Chaque point = une image de la vidéo. Points serrés = lent, points écartés = rapide.'));
+ const dotsHTML=f=>Array.from({length:N+1},(_,i)=>X0+(X1-X0)*f(i/N)).map(x=>`<circle cx="${x}" cy="0" r="3.5" style="fill:var(--accent);opacity:.7"/>`).join('');
+ svg.querySelector('#rd').innerHTML=dotsHTML(motion(o.k1,o.k2));svg.querySelector('#rd').setAttribute('transform','translate(0,52)');
+ const ud=svg.querySelector('#ud');ud.setAttribute('transform','translate(0,128)');
+ function upd(){ud.innerHTML=dotsHTML(motion(k1,k2));
+  const sh=(g,a,b)=>svg.querySelector(g).innerHTML=`<path d="${HALFK[a]}" style="fill:var(--key)"/><path d="${HALFK[b]}" transform="scale(-1,1)" style="fill:var(--key)"/>`;
+  sh('#k1',k1==='hold'?'hold':'lin',k1);sh('#k2',k2,'lin')}
+ const rb=svg.querySelector('#rb'),ub=svg.querySelector('#ub');let t0=performance.now();
+ loop(svg,()=>{const c=((performance.now()-t0)/1000)%3,f=Math.min(1,c/2);rb.setAttribute('cx',X0+(X1-X0)*motion(o.k1,o.k2)(f));ub.setAttribute('cx',X0+(X1-X0)*motion(k1,k2)(f))});
+ vbtn(bar,'Vérifier',()=>{const ok=k1===o.k1&&(k1==='hold'||k2===o.k2);done(ok,ok?ex.e:k1!==o.k1?'Regardez le départ : la balle du modèle démarre-t-elle doucement, d\'un coup, ou reste-t-elle sur place ?':'Le départ est bon. Regardez maintenant comment la balle du modèle arrive.')});
+ upd()};
+
+/* 7. Éditeur de graphiques : poignées d'influence */
+SIM.graph=(s,{bar,done,ex})=>{const o=ex.o;let P1=[1/3,1/3],P2=[2/3,2/3];const G={x:30,y:20,w:200,h:160};
+ const svg=mk(480,250,`<rect width="480" height="250" style="fill:var(--bg)"/><text x="${G.x}" y="14" class="b">Courbe des valeurs</text><text x="270" y="14" class="b">Courbe de vitesse</text>
+<rect x="${G.x}" y="${G.y}" width="${G.w}" height="${G.h}" style="fill:var(--surface);stroke:var(--line)"/><rect x="270" y="${G.y}" width="${G.w}" height="${G.h}" style="fill:var(--surface);stroke:var(--line)"/>
+<path id="vc" style="fill:none;stroke:var(--accent);stroke-width:2.5"/><path id="sc" style="fill:none;stroke:var(--accent);stroke-width:2.5"/><line id="l1" style="stroke:var(--key);stroke-width:2"/><line id="l2" style="stroke:var(--key);stroke-width:2"/><circle id="p1" class="hd" r="8" style="fill:var(--key)"/><circle id="p2" class="hd" r="8" style="fill:var(--key)"/>
+<rect x="${G.x-5}" y="${G.y+G.h-5}" width="10" height="10" style="fill:var(--ink)"/><rect x="${G.x+G.w-5}" y="${G.y-5}" width="10" height="10" style="fill:var(--ink)"/><text x="${G.x+G.w}" y="${G.y+G.h+14}" text-anchor="end">temps</text><text x="470" y="${G.y+G.h+14}" text-anchor="end">temps</text>
+<line x1="30" y1="226" x2="470" y2="226" style="stroke:var(--line)"/><g id="dt"></g><circle id="bl" cy="226" r="9" style="fill:var(--p2)"/>`);
+ s.appendChild(svg);s.appendChild(h('p',{class:'note'},'Tirez les poignées jaunes. Dans la courbe de vitesse : en haut = rapide, en bas = lent.'));
+ const gx=v=>G.x+v*G.w,gy=v=>G.y+G.h-v*G.h;
+ const f=()=>cbez(P1[0],P1[1],P2[0],P2[1]);
+ const speeds=()=>{const F=f(),n=40,a=[];for(let i=0;i<n;i++)a.push((F((i+1)/n)-F(i/n))*n);return a};
+ function upd(){const F=f();let d='';for(let i=0;i<=60;i++)d+=(i?'L':'M')+gx(i/60)+','+gy(F(i/60));svg.querySelector('#vc').setAttribute('d',d);
+  const sp=speeds(),mx=Math.max(2.2,...sp);svg.querySelector('#sc').setAttribute('d',sp.map((v,i)=>(i?'L':'M')+(270+(i+.5)/sp.length*G.w)+','+(G.y+G.h-v/mx*G.h)).join(''));
+  [['#p1',P1,0],['#p2',P2,1]].forEach(([id,P,e])=>{const c=svg.querySelector(id);c.setAttribute('cx',gx(P[0]));c.setAttribute('cy',gy(P[1]));const l=svg.querySelector(e?'#l2':'#l1');l.setAttribute('x1',gx(e));l.setAttribute('y1',gy(e));l.setAttribute('x2',gx(P[0]));l.setAttribute('y2',gy(P[1]))});
+  svg.querySelector('#dt').innerHTML=Array.from({length:17},(_,i)=>`<circle cx="${30+440*F(i/16)}" cy="226" r="3" style="fill:var(--accent);opacity:.6"/>`).join('')}
+ drag(svg.querySelector('#p1'),svg,p=>{P1=[clamp((p.x-G.x)/G.w,0,1),clamp((G.y+G.h-p.y)/G.h,0,1)];upd()});drag(svg.querySelector('#p2'),svg,p=>{P2=[clamp((p.x-G.x)/G.w,0,1),clamp((G.y+G.h-p.y)/G.h,0,1)];upd()});
+ const bl=svg.querySelector('#bl');let t0=performance.now();loop(svg,()=>{const c=((performance.now()-t0)/1000)%2.6,q=Math.min(1,c/2);bl.setAttribute('cx',30+440*f()(q))});
+ vbtn(bar,'Vérifier',()=>{const sp=speeds(),st=(sp[0]+sp[1]+sp[2])/3,en=(sp[37]+sp[38]+sp[39])/3;
+  if(o.goal==='slowStart'){const ok=st<.5&&en>1.3;done(ok,ok?ex.e:st>=.5?'Le départ est encore trop rapide : la courbe de vitesse doit commencer tout en bas.':'Bon départ ! Mais l\'arrivée doit être rapide : la courbe de vitesse doit finir en haut.')}
+  else{const ok=st>1.3&&en<.5;done(ok,ok?ex.e:st<=1.3?'Le départ doit être vif : la courbe de vitesse doit commencer en haut.':'L\'arrivée doit être douce : la courbe de vitesse doit finir tout en bas.')}});
+ upd()};
+
+/* 8. Point d'ancrage */
+SIM.anchor=(s,{bar,done,ex})=>{const o=ex.o;let a=[...o.start];
+ const svg=mk(480,260,`<rect width="480" height="260" style="fill:var(--track)"/>${o.decor||''}<g id="lay"><rect x="${o.box[0]}" y="${o.box[1]}" width="${o.box[2]}" height="${o.box[3]}" style="fill:none;stroke:var(--accent);stroke-dasharray:4 4"/>${o.shape}</g><g id="an" class="hd"><circle r="14" style="fill:transparent"/><circle r="9" style="fill:none;stroke:var(--accent);stroke-width:2.5"/><line x1="-14" x2="14" style="stroke:var(--accent);stroke-width:2.5"/><line y1="-14" y2="14" style="stroke:var(--accent);stroke-width:2.5"/></g>`);
+ s.appendChild(svg);s.appendChild(h('p',{class:'note'},'Le viseur bleu est le point d\'ancrage. Faites-le glisser : le calque tourne autour de lui.'));
+ const lay=svg.querySelector('#lay'),an=svg.querySelector('#an');
+ drag(an,svg,p=>{a=[clamp(p.x,0,480),clamp(p.y,0,260)]});
+ let t0=performance.now();loop(svg,()=>{const t=(performance.now()-t0)/1000;const r=o.spin?t*90%360:Math.sin(t*2.2)*28;lay.setAttribute('transform',`rotate(${r} ${a[0]} ${a[1]})`);an.setAttribute('transform',`translate(${a[0]},${a[1]})`)});
+ vbtn(bar,'Vérifier',()=>{const d=Math.hypot(a[0]-o.target[0],a[1]-o.target[1]);done(d<=14,d<=14?ex.e:'Regardez bien le mouvement : l\'objet ne tourne pas encore autour du bon point.')})};
+
+/* 9. Modes de fusion (rendu réel du navigateur) */
+const BM={'Normal':'normal','Produit':'multiply','Écran':'screen','Addition':'plus-lighter','Incrustation':'overlay','Différence':'difference'};
+SIM.blend=(s,{bar,done,ex})=>{const o=ex.o;const box=h('div',{class:'blendbox'});
+ box.innerHTML=`<svg viewBox="0 0 400 200" preserveAspectRatio="none"><defs><linearGradient id="bgg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d6ea8"/><stop offset="1" stop-color="#9cc7a4"/></linearGradient></defs><rect width="400" height="200" fill="url(#bgg)"/><path d="M0,150 Q100,110 200,140 T400,130 V200 H0 Z" fill="#41704a"/><rect x="250" y="80" width="70" height="70" fill="#d9c7a0"/><polygon points="244,82 285,48 326,82" fill="#8a3f2a"/></svg>${o.top}`;
+ const top=box.lastElementChild;s.appendChild(box);
+ const row=h('div',{class:'simrow'});const l=h('label',{},'Mode du calque du dessus');const se=h('select');se.innerHTML=Object.keys(BM).map(k=>`<option>${k}</option>`).join('');l.appendChild(se);row.appendChild(l);s.appendChild(row);
+ const upd=()=>{let m=BM[se.value];if(m==='plus-lighter'&&!CSS.supports('mix-blend-mode','plus-lighter'))m='lighten';top.style.mixBlendMode=m};se.onchange=upd;upd();
+ vbtn(bar,'Vérifier',()=>{const ok=o.a.includes(se.value);done(ok,ok?ex.e:se.value==='Normal'?'En mode Normal, le calque cache tout ce qui est dessous. Essayez une autre catégorie.':`Avec « ${se.value} », regardez ce qui se passe sur ${o.what}.`)})};
+
+/* 10. Sélecteur de plage (texte) */
+SIM.text=(s,{bar,done,ex})=>{const o=ex.o,W='BANANE'.split('');let st=0,en=100,of=0;
+ const svg=mk(480,170,`<rect width="480" height="170" style="fill:var(--bg)"/><rect id="rg" y="18" height="12" rx="3" style="fill:var(--accent);opacity:.5"/><text x="20" y="14">plage sélectionnée</text><g id="lt"></g>`);
+ s.appendChild(svg);const row=h('div',{class:'simrow'});const sl=(lab,min,max,v,cb)=>{const l=h('label',{},lab);const r=h('input',{type:'range',min,max,value:v});const out=h('output',{},v+' %');r.oninput=()=>{out.textContent=r.value+' %';cb(+r.value);upd()};l.append(r,out);row.appendChild(l)};
+ sl('Début',0,100,0,v=>st=v);sl('Fin',0,100,100,v=>en=v);sl('Décalage',-100,100,0,v=>of=v);s.appendChild(row);
+ const sel=()=>W.map((_,i)=>{const c=(i+.5)/W.length*100,a=clamp(Math.min(st,en)+of,0,100),b=clamp(Math.max(st,en)+of,0,100);return c>=a&&c<=b?1:0});
+ function upd(){const a=clamp(Math.min(st,en)+of,0,100),b=clamp(Math.max(st,en)+of,0,100);const r=svg.querySelector('#rg');r.setAttribute('x',30+a*4.2);r.setAttribute('width',Math.max(0,(b-a)*4.2));
+  svg.querySelector('#lt').innerHTML=sel().map((v,i)=>`<text x="${30+(i+.5)*70}" y="120" text-anchor="middle" style="font-family:var(--display);font-weight:800;font-size:${v?64:40}px;fill:${v?'var(--accent)':'var(--ink)'}">${W[i]}</text>`).join('')}
+ vbtn(bar,'Vérifier',()=>{const sv=sel();const ok=sv.every((v,i)=>v===o.sel[i]);done(ok,ok?ex.e:'Comparez avec la consigne : quelles lettres doivent être dans la plage (en bleu, agrandies) ?')});upd()};
+
+/* 11. Caméra et focale */
+SIM.cam=(s,{bar,done,ex})=>{let f=24;const fw=v=>360/v;
+ const svg=mk(480,230,`<rect width="480" height="230" style="fill:var(--bg)"/><text x="10" y="16" class="b">Vue de haut</text><text x="250" y="16" class="b">Ce que voit la caméra</text>
+<clipPath id="tvc"><rect x="0" y="22" width="236" height="208"/></clipPath><g clip-path="url(#tvc)"><g transform="translate(110,0)"><rect x="-60" y="40" width="120" height="8" style="fill:var(--p5)"/><text x="0" y="36" text-anchor="middle">décor (10 m)</text><circle cx="0" cy="88" r="7" style="fill:var(--p2)"/><text x="12" y="92">personnage</text><path id="fov" style="fill:var(--accent);opacity:.18"/><rect x="-10" y="200" width="20" height="14" rx="3" style="fill:var(--ink)"/></g></g>
+<rect x="250" y="30" width="220" height="124" style="fill:#111"/><g id="pv"></g><rect x="250" y="30" width="220" height="124" style="fill:none;stroke:var(--line);stroke-width:2"/>`);
+ s.appendChild(svg);const row=h('div',{class:'simrow'});const l=h('label',{},'Focale');const r=h('input',{type:'range',min:15,max:200,value:24});const out=h('output',{},'24 mm');l.append(r,out);row.appendChild(l);s.appendChild(row);
+ const fb=h('p',{class:'note'});s.appendChild(fb);
+ r.oninput=()=>{f=+r.value;out.textContent=f+' mm';upd()};
+ function upd(){const half=Math.atan(18/f),L=190;svg.querySelector('#fov').setAttribute('d',`M0,207 L${-Math.tan(half)*L},${207-L} L${Math.tan(half)*L},${207-L} Z`);
+  const Fc=fw(f)*10/10,Fw=432/f;const sc=220/Fw;const decorW=10*sc;const charH=1.8*(220/Fc),charW=.6*(220/Fc);const Fv=Fc*9/16;
+  svg.querySelector('#pv').innerHTML=`<clipPath id="cpv"><rect x="250" y="30" width="220" height="124"/></clipPath><g clip-path="url(#cpv)"><rect x="${360-decorW/2}" y="30" width="${decorW}" height="124" style="fill:#7f9cc4"/><rect x="${360-decorW/2}" y="110" width="${decorW}" height="44" style="fill:#8a6a4a"/><rect x="${360-charW/2}" y="${92-charH/2}" width="${charW}" height="${charH}" rx="${charW/3}" style="fill:var(--p2)"/></g>`;
+  fb.textContent=`Largeur filmée au niveau du personnage : ${Fc.toFixed(1)} m · hauteur : ${Fv.toFixed(1)} m`}
+ vbtn(bar,'Vérifier',()=>{const Fw=432/f,Fv=fw(f)*9/16;if(Fw>10)return done(false,'On voit les bords noirs : le décor ne remplit pas l\'image. Augmentez la focale (on resserre).');if(Fv<2)return done(false,'Le personnage est coupé : la focale est trop longue. Diminuez-la.');if(1.8<.5*Fv)return done(false,'Tout est visible, mais le personnage est minuscule. Resserrez un peu plus.');done(true,ex.e)});upd()};
+
+/* 12. Wiggle */
+SIM.wiggle=(s,{bar,done,ex})=>{const o=ex.o;let fq=8,am=60;
+ const svg=mk(480,170,`<rect width="480" height="170" style="fill:var(--track)"/><rect id="sq" x="200" y="45" width="80" height="80" rx="6" style="fill:var(--p1)"/><text x="10" y="18" id="cd" class="b"></text>`);s.appendChild(svg);
+ const row=h('div',{class:'simrow'});const sl=(lab,min,max,v,cb,u)=>{const l=h('label',{},lab);const r=h('input',{type:'range',min,max,value:v});const out=h('output',{},v+u);r.oninput=()=>{out.textContent=r.value+u;cb(+r.value)};l.append(r,out);row.appendChild(l)};
+ sl('Fréquence',0,10,fq,v=>fq=v,' /s');sl('Amplitude',0,100,am,v=>am=v,' px');s.appendChild(row);
+ const sq=svg.querySelector('#sq'),cd=svg.querySelector('#cd');const nz=(t,s_)=>Math.sin(t*1.7+s_)*.6+Math.sin(t*2.9+s_*2)*.4;
+ let t0=performance.now();loop(svg,()=>{const t=(performance.now()-t0)/1000*fq*1.2;sq.setAttribute('transform',`translate(${nz(t,1)*am*.8},${nz(t,4)*am*.5})`);cd.textContent=`wiggle(${fq}, ${am})`});
+ vbtn(bar,'Vérifier',()=>{const ok=fq>=o.f[0]&&fq<=o.f[1]&&am>=o.a[0]&&am<=o.a[1];done(ok,ok?ex.e:`Pour ${o.what}, visez une fréquence entre ${o.f[0]} et ${o.f[1]} et une amplitude entre ${o.a[0]} et ${o.a[1]}.`)})};
+
+/* 13. Parenté */
+SIM.parent=(s,{bar,done,ex})=>{let p1='Aucun',p2='Aucun';
+ const svg=mk(480,190,`<rect width="480" height="190" style="fill:var(--track)"/><line x1="0" y1="160" x2="480" y2="160" style="stroke:var(--muted);stroke-width:2"/><g id="body"><rect x="0" y="80" width="150" height="50" rx="14" style="fill:var(--p1)"/><rect x="30" y="58" width="80" height="30" rx="10" style="fill:var(--p1)"/></g><g id="w1"><circle r="20" style="fill:var(--ink)"/><line x1="-14" x2="14" style="stroke:var(--bg);stroke-width:3"/></g><g id="w2"><circle r="20" style="fill:var(--ink)"/><line x1="-14" x2="14" style="stroke:var(--bg);stroke-width:3"/></g>`);s.appendChild(svg);
+ const row=h('div',{class:'simrow'});const mkS=(lab,cb)=>{const l=h('label',{},lab);const se=h('select');se.innerHTML=['Aucun','Carrosserie','Fond'].map(x=>`<option>${x}</option>`).join('');se.onchange=()=>cb(se.value);l.appendChild(se);row.appendChild(l)};
+ mkS('Parent de « Roue avant »',v=>p1=v);mkS('Parent de « Roue arrière »',v=>p2=v);s.appendChild(row);s.appendChild(h('p',{class:'note'},'Seule la carrosserie a des images clés : elle avance.'));
+ const body=svg.querySelector('#body'),w1=svg.querySelector('#w1'),w2=svg.querySelector('#w2');let t0=performance.now();
+ loop(svg,()=>{const t=((performance.now()-t0)/1000)%4;const x=20+t*70;body.setAttribute('transform',`translate(${x},0)`);const rot=t*200;
+  w1.setAttribute('transform',`translate(${(p1==='Carrosserie'?x:20)+120},140) rotate(${rot})`);w2.setAttribute('transform',`translate(${(p2==='Carrosserie'?x:20)+30},140) rotate(${rot})`);});
+ vbtn(bar,'Vérifier',()=>{const ok=p1==='Carrosserie'&&p2==='Carrosserie';done(ok,ok?ex.e:'Une roue reste en arrière : chaque roue doit être l\'enfant de la carrosserie.')})};
+
+/* 14. Cache de piste */
+SIM.matte=(s,{bar,done,ex})=>{const o=ex.o,id='tm'+Math.random().toString(36).slice(2,7);
+ const svg=mk(480,200,ckb+`<defs><pattern id="${id}p" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><rect width="24" height="24" fill="#2f9e57"/><rect width="12" height="24" fill="#3a6bf0"/></pattern><mask id="${id}m" maskUnits="userSpaceOnUse" x="0" y="0" width="480" height="200"><rect id="mb" width="480" height="200"/><text id="mt" x="240" y="135" text-anchor="middle" style="font-family:var(--display);font-weight:800;font-size:110px">TITRE</text></mask></defs><rect width="480" height="200" style="fill:url(#ck)"/><rect id="ph" width="480" height="200" fill="url(#${id}p)"/><text id="tt" x="240" y="135" text-anchor="middle" style="font-family:var(--display);font-weight:800;font-size:110px;fill:#fff">TITRE</text>`);
+ s.appendChild(svg);const row=h('div',{class:'simrow'});const l=h('label',{},'Cache de piste du calque « Photo »');const se=h('select');se.innerHTML=['Aucun','Cache alpha « TITRE »','Cache alpha inversé « TITRE »'].map(x=>`<option>${x}</option>`).join('');l.appendChild(se);row.appendChild(l);s.appendChild(row);
+ const ph=svg.querySelector('#ph'),tt=svg.querySelector('#tt'),mb=svg.querySelector('#mb'),mt=svg.querySelector('#mt');
+ const upd=()=>{const v=se.selectedIndex;if(!v){ph.removeAttribute('mask');tt.style.display=''}else{ph.setAttribute('mask',`url(#${id}m)`);tt.style.display='none';mb.style.fill=v===1?'#000':'#fff';mt.style.fill=v===1?'#fff':'#000'}};se.onchange=upd;upd();
+ vbtn(bar,'Vérifier',()=>{const ok=se.selectedIndex===o.a;done(ok,ok?ex.e:'Regardez le résultat : la photo doit apparaître '+o.what+'.')})};
+
+/* 15. Flou de mouvement */
+SIM.mblur=(s,{bar,done,ex})=>{let a=false,b=false;const id='mb'+Math.random().toString(36).slice(2,7);
+ const svg=mk(480,130,`<defs><filter id="${id}" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9 0"/></filter></defs><rect width="480" height="130" style="fill:var(--track)"/><circle id="bl" cy="65" r="24" style="fill:var(--p2)"/>`);s.appendChild(svg);
+ const row=h('div',{class:'simrow'});const t1=h('button',{class:'btn ghost',type:'button'},'');const t2=h('button',{class:'btn ghost',type:'button'},'');row.append(t1,t2);s.appendChild(row);
+ const upd=()=>{t1.innerHTML=(a?'☑':'☐')+' Interrupteur du calque « Balle »';t2.innerHTML=(b?'☑':'☐')+' Bouton général « Flou de mouvement » (haut de la timeline)';svg.querySelector('#bl').setAttribute('filter',a&&b?`url(#${id})`:'')};
+ t1.onclick=()=>{a=!a;upd()};t2.onclick=()=>{b=!b;upd()};upd();
+ const bl=svg.querySelector('#bl');let t0=performance.now();loop(svg,()=>{const f=((performance.now()-t0)/900)%1;bl.setAttribute('cx',-30+f*540)});
+ vbtn(bar,'Vérifier',()=>{done(a&&b,a&&b?ex.e:a||b?'Un seul des deux est activé : il faut l\'interrupteur du calque ET le bouton général.':'Aucun des deux interrupteurs n\'est activé.')})};
 
 /* ---------- Parcours ---------- */
 const MODS=[
@@ -790,13 +1661,29 @@ PARTS.slice(0,5).forEach((p,i)=>{const b=document.createElement('button');const 
 addbtn.onclick=()=>selPart(5);
 function selPart(i){curPart=curPart===i?-1:i;const f=CH.findIndex(c=>curPart<0||c.p===curPart);showCh(f)}
 function renderList(){[...partsEl.children].forEach((b,i)=>b.setAttribute('aria-pressed',curPart<0||curPart===i));addbtn.setAttribute('aria-pressed',curPart<0||curPart===5);
- chlist.innerHTML='';CH.forEach((c,i)=>{if(curPart>=0&&c.p!==curPart)return;const b=document.createElement('button');b.className='ch';b.setAttribute('role','tab');b.setAttribute('aria-selected',i===curCh);b.innerHTML=`<span class="dot" style="background:var(${PARTS[c.p].c})"></span><span class="num">${shortLabel(i)}</span><span class="nm">${c.t}</span>${c.upd?'<span class="flag" title="Mis à jour"></span>':''}`;b.onclick=()=>showCh(i);chlist.appendChild(b)})}
+ chlist.innerHTML='';CH.forEach((c,i)=>{if(curPart>=0&&c.p!==curPart)return;const lk=!unlocked(i),dn=c.ex&&chDone(c.k);const b=document.createElement('button');b.className='ch'+(lk?' locked':'');b.setAttribute('role','tab');b.setAttribute('aria-selected',i===curCh);
+  b.innerHTML=`<span class="dot" style="background:var(${PARTS[c.p].c})"></span><span class="num">${i+1}</span><span class="nm">${c.t}</span>${dn?'<span class="ok" title="Étape validée">✓</span>':lk?'<span class="lock" title="Verrouillée">🔒</span>':c.upd?'<span class="flag" title="Mis à jour"></span>':''}`;b.onclick=()=>showCh(i);chlist.appendChild(b)});
+ const st=document.getElementById('stepstat');if(st)st.textContent=`${CH.filter(c=>c.ex&&chDone(c.k)).length} / ${CH.length} étapes validées`}
+const firstTodo=()=>{const i=CH.findIndex(c=>c.ex&&!chDone(c.k));return i<0?CH.length-1:i};
 function showCh(i){curCh=i;const c=CH[i];renderList();
- const meta=c.k[0]==='m'?`${label(i)} · p. ${c.pg}`:`${label(i)} · <span class="badge b-add">ajout</span>`;
- chdetail.innerHTML=`<div class="chhead"><span class="eyebrow" style="color:var(${PARTS[c.p].c})">${PARTS[c.p].n}</span><span class="pg">${meta}</span></div><h2>${c.t}</h2>${figs(c.k,0)}<ul class="pts">${c.pts.map(p=>`<li>${p}</li>`).join('')}</ul>${figs(c.k,1)}${c.warn?`<div class="box warn"><b>Attention</b><span>${c.warn}</span></div>`:''}${c.upd?`<div class="box upd"><b>Mise à jour</b><span>${c.upd}</span></div>`:''}${c.tip?`<p class="quote">${c.tip}</p>`:''}${c.src?`<p class="note">Notion présente dans : ${c.src}.</p>`:''}${c.lab?`<button class="golab" data-lab="${c.lab}">${c.lab==='raccourcis'?'Voir le tableau':"Voir l'atelier"} ↓</button>`:''}<div class="chnav"><button ${i===0?'disabled':''} data-go="${i-1}">← Précédent</button><button ${i===CH.length-1?'disabled':''} data-go="${i+1}">Suivant →</button></div>`;
- chdetail.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{const n=+b.dataset.go;if(curPart>=0&&CH[n].p!==curPart)curPart=-1;showCh(n)});
+ if(!unlocked(i)){const p=firstTodo();chdetail.innerHTML=`<div class="chhead"><span class="eyebrow" style="color:var(${PARTS[c.p].c})">${PARTS[c.p].n}</span><span class="pg">Étape ${i+1} / ${CH.length}</span></div><h2>${c.t}</h2>
+  <div class="chlock"><b>🔒 Étape verrouillée</b><p>Pour avancer pas à pas, validez d'abord les 3 exercices de l'étape ${p+1} : « ${CH[p].t} ».</p><button class="btn" type="button" id="gotodo">Aller à l'étape ${p+1} →</button></div>`;
+  document.getElementById('gotodo').onclick=()=>{curPart=-1;showCh(p)};return}
+ const meta=`Étape ${i+1} / ${CH.length} · `+(c.k[0]==='m'?`${label(i)} du mémo · p. ${c.pg}`:`${label(i)} · <span class="badge b-add">ajout</span>`);
+ chdetail.innerHTML=keyfix(`<div class="chhead"><span class="eyebrow" style="color:var(${PARTS[c.p].c})">${PARTS[c.p].n}</span><span class="pg">${meta}</span></div><h2>${c.t}</h2>${c.intro?`<div class="enclair"><b>En clair</b><span>${c.intro}</span></div>`:''}${c.obj?`<p class="objectif"><b>À la fin de cette étape, vous saurez</b> ${c.obj}</p>`:''}${figs(c.k,0)}<ul class="pts">${c.pts.map(p=>`<li>${p}</li>`).join('')}</ul>${figs(c.k,1)}${c.warn?`<div class="box warn"><b>Attention</b><span>${c.warn}</span></div>`:''}${c.upd?`<div class="box upd"><b>Mise à jour</b><span>${c.upd}</span></div>`:''}${c.tip?`<p class="quote">${c.tip}</p>`:''}${c.lab?`<button class="golab" data-lab="${c.lab}">${c.lab==='raccourcis'?'Voir le tableau des raccourcis':"Manipuler dans l'atelier"} ↓</button>`:''}`);
+ renderExos(c,chdetail);
+ const nav=document.createElement('div');nav.className='chnav';nav.innerHTML=`<button ${i===0?'disabled':''} data-go="${i-1}">← Précédent</button><button class="next" data-go="${i+1}" disabled>Suivant</button>`;chdetail.appendChild(nav);
+ chdetail.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{const n=+b.dataset.go;if(curPart>=0&&CH[n].p!==curPart)curPart=-1;showCh(n);chdetail.scrollIntoView({behavior:smooth()})});
  const g=chdetail.querySelector('.golab');if(g)g.onclick=()=>{const el=document.getElementById(g.dataset.lab);el&&el.scrollIntoView({behavior:smooth()})}}
-showCh(0);
+/* Barre d'options : clavier, mode formateur, remise à zéro */
+(()=>{const bar=document.getElementById('stepbar');if(!bar)return;
+ bar.innerHTML=`<span class="kbmode" role="group" aria-label="Clavier"><button type="button" data-kb="win">Windows</button><button type="button" data-kb="mac">Mac</button></span><label class="teach"><input type="checkbox" id="teach"> Mode formateur : tout déverrouiller</label><span class="ptext" id="stepstat"></span><button class="reset" id="exreset" type="button">Effacer mes exercices</button>`;
+ const kbs=()=>bar.querySelectorAll('[data-kb]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.kb===KB));kbs();
+ bar.querySelectorAll('[data-kb]').forEach(b=>b.onclick=()=>{KB=b.dataset.kb;try{localStorage.setItem('ae-memo-kb',KB)}catch(e){}kbs();showCh(curCh);renderSC();showMod(curMod);kbFixDom(document.body)});
+ const t=document.getElementById('teach');t.checked=TEACH;t.onchange=()=>{TEACH=t.checked;try{localStorage.setItem('ae-memo-teach',TEACH?'1':'0')}catch(e){}showCh(curCh)};
+ document.getElementById('exreset').onclick=()=>{for(const k in XS)delete XS[k];xsave();showCh(0)}})();
+showCh(firstTodo());
+
 
 /* ---------- Comparaison ---------- */
 const SRC=["Mémo","Dawan","Vidéographe","Modula"];
@@ -990,6 +1877,10 @@ function renderQ(){const [q,o,c,e]=QZ[qn];document.getElementById('qq').textCont
 function renderS(){document.getElementById('qs').textContent=`Score : ${score} / ${answered}`}
 document.getElementById('qn').onclick=()=>{qn=(qn+1)%QZ.length;if(qn===0){score=0;answered=0}renderQ()};
 renderQ();
+
+/* ---------- Clavier Windows / Mac partout dans la page ---------- */
+function kbFixDom(root){root.querySelectorAll('kbd').forEach(k=>{k.textContent=KB==='mac'?k.textContent.replace(/Ctrl/g,'Cmd'):k.textContent.replace(/Cmd/g,'Ctrl')})}
+{const _rsc=renderSC;renderSC=function(){_rsc();kbFixDom(document.getElementById('sct'))};const _sm=showMod;showMod=function(i){_sm(i);kbFixDom(modEl)};kbFixDom(document.body)}
 </script>
 
 </body></html>
