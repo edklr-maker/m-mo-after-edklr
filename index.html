@@ -126,6 +126,25 @@ a{color:var(--accent)}
 .upd{background:var(--upd-bg);color:var(--upd-ink)}
 .quote{border-left:3px solid var(--key);padding-left:12px;font-style:italic;color:var(--muted);font-size:.95rem}
 .golab{align-self:flex-start;background:var(--accent);color:#fff;border:0;border-radius:999px;padding:7px 16px;font-weight:700}
+
+/* Illustrations des chapitres */
+.ill{margin:0;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:8px}
+.ill svg{width:100%;height:auto;display:block;max-height:280px}
+.ill figcaption{font-size:.88rem;color:var(--muted);line-height:1.45}
+.ill text{font-family:var(--mono);font-size:12px;fill:var(--muted)}
+.ill text.b{fill:var(--ink);font-weight:700}
+.ill text.ib{fill:#fff;font-weight:700}
+.ill .s{stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ill .m{stroke:var(--muted);fill:none;stroke-width:1.5;stroke-linecap:round}
+.ill .d{stroke-dasharray:6 5}
+.ill .a{fill:var(--accent)}.ill .as{stroke:var(--accent);fill:none;stroke-width:2.5;stroke-linecap:round}
+.ill .k{fill:var(--key)}.ill .ks{stroke:var(--key);fill:none;stroke-width:2.5;stroke-linecap:round}
+.ill .f{fill:var(--surface);stroke:var(--line);stroke-width:1.5}.ill .f0{fill:var(--surface)}
+.ill .t{fill:var(--track)}.ill .add{fill:var(--add-bg);stroke:var(--p6);stroke-width:1.5;stroke-dasharray:5 4}
+.ill .ok{fill:var(--ok)}.ill .oks{stroke:var(--ok);fill:none;stroke-width:3}
+.ill .bad{fill:var(--bad)}.ill .bads{stroke:var(--bad);fill:none;stroke-width:3}
+.ill .p1{fill:var(--p1)}.ill .p2{fill:var(--p2)}.ill .p3{fill:var(--p3)}.ill .p4{fill:var(--p4)}.ill .p5{fill:var(--p5)}.ill .p6{fill:var(--p6)}
+.ill .p1s{stroke:var(--p1);stroke-width:5;stroke-linecap:round}
 .chnav{display:flex;justify-content:space-between;gap:8px}
 .chnav button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-size:.9rem}
 .chnav button:disabled{opacity:.4;cursor:default}
@@ -480,6 +499,209 @@ const CH=[
  {k:"c7",p:5,t:"Suivi, stabilisation et détourage",pts:["<b>Suivi de mouvement</b> (panneau Suivi) : enregistrer le mouvement d'un point de l'image pour y attacher un texte ou un calque.","<b>Stabilisation</b> : l'effet Stabilisation de déformation corrige un plan tremblé.","<b>Suivi de la caméra 3D</b> : reconstruit le mouvement de la caméra de tournage pour poser des éléments 3D dans le plan.","<b>Roto-pinceau</b> (<kbd>Alt+W</kbd>) : détoure un sujet en peignant dessus ; la sélection se propage d'image en image.","<b>Cache de l'objet</b> optimisé par l'IA (version 26.2) : détoure un objet entier en quelques clics.","<b>Incrustation</b> sur fond vert ou bleu : effet Keylight, puis affinage du cache.","<b>Remplissage d'après le contenu</b> : supprime un objet indésirable de la vidéo."],src:"Vidéographe, Modula ; aide Adobe"},
  {k:"c8",p:5,t:"Livrer et collaborer",pts:["Vérifier avant export : bonne composition, longueur, cadence, son présent, aucun calque masqué oublié.","H.264 depuis la file d'attente de rendu pour la diffusion web ; ProRes 4444 ou séquence PNG avec RVB+A pour un élément transparent.","<b>Modèles d'animations graphiques</b> (fichiers .mogrt) : dans le panneau Animations graphiques essentielles, exposer quelques réglages (texte, couleur) pour qu'un monteur les modifie dans Premiere Pro.","<b>Dynamic Link</b> : utiliser une composition After Effects dans Premiere Pro sans faire de rendu intermédiaire.","Archiver avec Rassembler les fichiers (complément 3)."],src:"Dawan ; aide Adobe"}
 ];
+/* ---------- Illustrations des chapitres (schémas SVG originaux) ---------- */
+const _T=(x,y,s,c='',a='middle')=>`<text x="${x}" y="${y}" text-anchor="${a}"${c?` class="${c}"`:''}>${s}</text>`;
+const _K=(x,y,r=7,c='k')=>`<rect class="${c}" x="${x-r}" y="${y-r}" width="${2*r}" height="${2*r}" transform="rotate(45 ${x} ${y})"/>`;
+const _AR=(x1,y1,x2,y2,c='m')=>{const a=Math.atan2(y2-y1,x2-x1),h=8,p=(t)=>`${x2-h*Math.cos(a+t)},${y2-h*Math.sin(a+t)}`;return `<line class="${c}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/><polyline class="${c}" points="${p(.45)} ${x2},${y2} ${p(-.45)}"/>`};
+const _BOX=(x,y,w,h,s,c='f',tc='b')=>`<rect class="${c}" x="${x}" y="${y}" width="${w}" height="${h}" rx="6"/>`+(s?_T(x+w/2,y+h/2+4,s,tc):'');
+const _CHK=`<defs><pattern id="chk" width="16" height="16" patternUnits="userSpaceOnUse"><rect width="16" height="16" class="f0"/><rect width="8" height="8" class="t"/><rect x="8" y="8" width="8" height="8" class="t"/></pattern></defs>`;
+const ILL={
+m1:{c:"Une composition se définit par un cadre (taille en pixels), une cadence et une durée. Les préréglages récents proposent aussi le vertical et le carré.",s:
+_BOX(20,30,200,180,'')+_T(36,56,'Nouvelle composition','b','start')+
+['HDTV 1080 25','Largeur     1920 px','Hauteur     1080 px','Cadence     25 i/s','Durée       0:00:10:00'].map((l,i)=>`<rect class="t" x="34" y="${72+i*26}" width="172" height="20" rx="4"/>`+_T(42,86+i*26,l,'','start')).join('')+
+_AR(232,120,262,120)+
+`<rect class="as" x="276" y="52" width="176" height="99" rx="2"/>`+_T(364,107,'16:9','b')+_T(364,170,'1920 × 1080')+
+`<rect class="ks" x="472" y="44" width="56" height="99" rx="2"/>`+_T(500,98,'9:16','b')+_T(500,162,'vertical')+
+`<rect class="m" x="472" y="178" width="40" height="40" rx="2"/>`+_T(522,203,'1:1','','start')},
+
+m2:{c:"Les trois temps pour poser une image clé : activer le chronomètre, déplacer l'indicateur de temps, puis modifier la valeur. La deuxième image clé apparaît seule.",s:
+`<circle class="a" cx="80" cy="60" r="16"/>`+`<circle class="as d" cx="300" cy="60" r="16"/>`+_AR(104,60,276,60,'as d')+_T(80,96,'valeur A')+_T(300,96,'valeur B')+
+`<rect class="f" x="20" y="122" width="520" height="100" rx="8"/>`+
+`<line class="m" x1="150" y1="150" x2="525" y2="150"/>`+[0,1,2,3,4].map(i=>`<line class="m" x1="${170+i*85}" y1="144" x2="${170+i*85}" y2="150"/>`+_T(170+i*85,140,i+'s')).join('')+
+`<circle class="s" cx="42" cy="186" r="9"/><line class="s" x1="42" y1="186" x2="42" y2="180"/><line class="s" x1="42" y1="175" x2="42" y2="172"/>`+_T(60,190,'Position','b','start')+
+`<line class="m" x1="150" y1="186" x2="525" y2="186"/>`+_K(170,186)+_K(425,186)+
+`<line class="as" x1="425" y1="152" x2="425" y2="216"/><rect class="a" x="419" y="152" width="12" height="8"/>`+
+_T(170,212,'1 · chronomètre')+_T(540,236,'2 · se déplacer · 3 · changer la valeur','','end')},
+
+m3:{c:"B et N bornent la zone de travail. La barre verte montre les images déjà calculées en mémoire vive : la lecture est fluide quand elle couvre toute la zone.",s:
+`<rect class="f" x="20" y="40" width="520" height="150" rx="8"/>`+
+`<line class="m" x1="40" y1="80" x2="520" y2="80"/>`+[0,1,2,3,4,5,6,7,8].map(i=>`<line class="m" x1="${40+i*60}" y1="74" x2="${40+i*60}" y2="80"/>`).join('')+
+`<rect class="t" x="40" y="94" width="480" height="16" rx="3"/><rect class="a" x="130" y="94" width="270" height="16" rx="3" opacity=".55"/>`+
+_T(130,132,'B','b')+_T(400,132,'N','b')+_T(265,132,'zone de travail')+
+`<rect class="t" x="130" y="146" width="270" height="10" rx="2"/><rect class="ok" x="130" y="146" width="170" height="10" rx="2"/>`+_T(300,176,'images en RAM →','')+
+`<line class="as" x1="300" y1="64" x2="300" y2="160"/>`+
+_BOX(120,198,320,30,'Espace : calcule puis lit en temps réel','f','')},
+
+m4:{c:"Le masque est un tracé fermé : l'intérieur reste opaque, l'extérieur devient transparent (le damier). Les petits carrés sont les sommets à déplacer.",s:_CHK+
+`<rect x="60" y="30" width="440" height="190" fill="url(#chk)" stroke="var(--line)"/>`+
+`<defs><clipPath id="mk"><path d="M180,70 C250,30 380,40 410,100 C440,160 360,205 270,195 C180,185 120,120 180,70 Z"/></clipPath></defs>`+
+`<g clip-path="url(#mk)"><rect x="60" y="30" width="440" height="190" class="t"/><rect x="60" y="130" width="440" height="90" class="ok" opacity=".55"/><circle cx="350" cy="90" r="26" class="k"/></g>`+
+`<path class="as" d="M180,70 C250,30 380,40 410,100 C440,160 360,205 270,195 C180,185 120,120 180,70 Z"/>`+
+[[180,70],[410,100],[270,195]].map(([x,y])=>`<rect class="a" x="${x-5}" y="${y-5}" width="10" height="10"/>`).join('')+
+_T(290,128,'intérieur opaque','b')+_T(470,212,'extérieur transparent','','end')},
+
+m5:{c:"À gauche, un point clé linéaire fait un angle net dans la trajectoire. À droite, en Bézier, ses tangentes arrondissent le passage.",s:
+_T(140,30,'Linéaire','b')+_T(420,30,'Bézier','b')+
+`<polyline class="s d" points="40,200 140,70 240,200"/>`+`<circle class="k" cx="40" cy="200" r="6"/><circle class="k" cx="140" cy="70" r="7"/><circle class="k" cx="240" cy="200" r="6"/>`+
+`<line class="m" x1="280" y1="20" x2="280" y2="230"/>`+
+`<path class="s d" d="M320,200 C330,120 370,70 420,70 C470,70 510,120 520,200"/>`+
+`<line class="as" x1="360" y1="70" x2="480" y2="70"/><circle class="a" cx="360" cy="70" r="5"/><circle class="a" cx="480" cy="70" r="5"/>`+
+`<circle class="k" cx="320" cy="200" r="6"/><circle class="k" cx="420" cy="70" r="7"/><circle class="k" cx="520" cy="200" r="6"/>`+
+_T(420,56,'tangentes')+_T(140,226,'Cmd+Alt+clic : linéaire ↔ Bézier')+_T(420,226,'Cmd+Alt+glisser : tangentes')},
+
+m6:{c:"Chaque point est la position de l'objet à une image. Écartés, il va vite ; serrés, il ralentit. Le maintien saute d'une valeur à l'autre.",s:
+(()=>{const rows=[['Linéaire',t=>t],['Lissage F9',t=>t*t*(3-2*t)],['Bézier auto',t=>.5-.5*Math.cos(Math.PI*t)*.6-(.2*(1-2*t))],['Maintien',t=>t<1?0:1]];
+return rows.map(([n,f],r)=>{const y=40+r*52;let d='';for(let i=0;i<=12;i++){const t=i/12;const v=r===2?(t<.5?2*t*t*.5+t*.5:1-(2*(1-t)*(1-t)*.5+(1-t)*.5)):f(t);d+=`<circle class="${i===0||i===12?'k':'a'}" cx="${170+v*340}" cy="${y}" r="${i===0||i===12?7:5}"${i>0&&i<12?' opacity=".75"':''}/>`}
+return _T(150,y+4,n,'b','end')+`<line class="m" x1="170" y1="${y}" x2="510" y2="${y}"/>`+d}).join('')})()+_T(340,234,'une pastille = une image · même durée, même distance')},
+
+m7:{c:"L'éditeur de graphiques montre la même animation de deux façons : la valeur au fil du temps, ou la vitesse au fil du temps.",s:
+[[30,'Courbe des valeurs','M50,190 C130,190 170,60 250,60'],[300,'Courbe de vitesse','M320,190 C360,190 370,60 410,60 C450,60 460,190 500,190']].map(([x,n,d])=>
+`<rect class="f" x="${x}" y="24" width="230" height="200" rx="8"/>`+_T(x+115,46,n,'b')+`<line class="m" x1="${x+20}" y1="200" x2="${x+215}" y2="200"/><line class="m" x1="${x+20}" y1="200" x2="${x+20}" y2="56"/>`+`<path class="as" d="${d}"/>`+_T(x+212,216,'temps','','end')).join('')+
+`<rect class="k" x="44" y="184" width="12" height="12"/><rect class="k" x="244" y="54" width="12" height="12"/>`+
+_T(415,237,'pentes : approche · éloignement')},
+
+m8:{c:"Une cassure dans la courbe de vitesse se voit à l'écran comme un à-coup. Bézier auto égalise approche et éloignement : la vitesse redevient continue.",s:
+[[30,'Discontinuité','M50,170 L150,170 L150,90 L250,90','bad'],[300,'Bézier auto','M320,170 C370,170 380,120 420,120 C460,120 470,90 520,90','ok']].map(([x,n,d,c])=>
+`<rect class="f" x="${x}" y="24" width="230" height="200" rx="8"/>`+_T(x+115,46,n,'b')+`<line class="m" x1="${x+20}" y1="200" x2="${x+215}" y2="200"/><line class="m" x1="${x+20}" y1="200" x2="${x+20}" y2="60"/>`+`<path class="${c}s" d="${d}"/>`+_T(x+28,74,'vitesse','','start')).join('')+
+`<circle class="bad" cx="150" cy="130" r="14" opacity=".2"/>`+_K(150,170,6)+_K(150,90,6)+_K(420,120,6)},
+
+m9:{c:"La moitié gauche d'une image clé décrit l'approche, la moitié droite l'éloignement. Une forme mixte combine deux interpolations.",s:
+(()=>{const H={lin:"M0,-22 L-22,0 L0,22 Z",bez:"M0,-12 L-20,-20 Q-9,0 -20,20 L0,12 Z",hold:"M0,-18 L-18,-18 L-18,18 L0,18 Z",auto:"M0,-19 A19,19 0 0 0 0,19 Z"};
+const L=[['lin','lin','Losange','linéaire'],['bez','bez','Sablier','lissage F9'],['hold','hold','Carré','maintien'],['auto','auto','Rond','Bézier auto'],['lin','hold','Mixte','lin. → maintien']];
+return `<line class="m" x1="20" y1="100" x2="540" y2="100"/>`+L.map(([a,b,n,d],i)=>{const x=56+i*112;return `<g transform="translate(${x},100) scale(1.3)"><path class="k" d="${H[a]}"/><path class="k" d="${H[b]}" transform="scale(-1,1)"/></g>`+_T(x,160,n,'b')+_T(x,180,d)}).join('')+_T(280,224,'gauche = approche · droite = éloignement')})()},
+
+m10:{c:"Un fichier Photoshop à calques peut entrer comme un seul métrage aplati, ou comme une composition qui garde chaque calque séparé.",s:
+[0,1,2].map(i=>`<rect class="f" x="${40+i*14}" y="${70-i*14}" width="110" height="80" rx="4"/>`).join('')+_T(123,62,'Ciel','')+_T(123,88,'Maison','')+_T(123,108,'Arbre','')+_T(115,190,'fichier PSD à calques','b')+
+_AR(190,90,280,60)+_AR(190,130,280,170)+
+`<rect class="t" x="300" y="22" width="90" height="70" rx="4"/>`+_T(410,52,'Métrage','b','start')+_T(410,72,'1 calque fusionné','','start')+
+[0,1,2].map(i=>`<rect class="${['p1','p2','p3'][i]}" x="${300+i*30}" y="${140+i*22}" width="${150-i*30}" height="16" rx="3"/>`).join('')+_T(470,156,'Composition','b','start')+_T(470,176,'3 calques','','start')+_T(470,196,'séparés','','start')},
+
+m11:{c:"La précomposition range des calques dans une composition imbriquée. Elle sert aussi à contourner l'ordre de calcul : masques, puis effets, puis transformations.",s:
+`<rect class="f" x="20" y="20" width="520" height="150" rx="8"/>`+_T(36,42,'Compo principale','b','start')+
+`<rect class="t" x="40" y="58" width="480" height="18" rx="3"/>`+_T(52,72,'Titre','','start')+
+`<rect x="40" y="86" width="480" height="70" rx="6" class="add"/>`+_T(52,104,'Précomp 1 (Cmd+Maj+C)','b','start')+
+[0,1].map(i=>`<rect class="${['p2','p3'][i]}" x="${60+i*40}" y="${114+i*20}" width="${400-i*60}" height="14" rx="3"/>`).join('')+
+['1 · Masques','2 · Effets','3 · Transformations'].map((s,i)=>_BOX(40+i*170,190,150,34,s,'f','b')+(i<2?_AR(192+i*170,207,208+i*170,207):'')).join('')},
+
+m12:{c:"Un mode de fusion est un calcul entre les pixels d'un calque et ceux du dessous. Addition : on ajoute les valeurs de chaque couche, plafonnées à 255.",s:
+(()=>{const sw=(x,r,g,b,l)=>`<rect x="${x}" y="40" width="80" height="80" rx="6" style="fill:rgb(${r},${g},${b});stroke:var(--line)"/>`+_T(x+40,140,`${r} · ${g} · ${b}`)+_T(x+40,160,l,'b');
+return sw(40,150,60,40,'dessus')+_T(150,86,'+','b')+sw(170,90,110,40,'dessous')+_T(280,86,'=','b')+sw(300,240,170,80,'Addition')})()+
+['Produit','Addition','Incrust.','Différence','TSL','Alpha'].map((s,i)=>`<rect class="t" x="${30+i*85}" y="192" width="78" height="28" rx="14"/>`+_T(69+i*85,210,s)).join('')+_T(450,86,'catégories ↓','','start')},
+
+m13:{c:"Le calque d'effet agit sur l'image produite par tous les calques situés sous lui. Les calques au-dessus ne sont pas touchés.",s:
+[['Texte',0,'p1'],["Calque d'effet · Flou",1,''],['Photo',2,'p3'],['Fond',3,'p5']].map(([n,i,c])=>i===1?`<rect class="as d" x="60" y="${30+i*48}" width="330" height="34" rx="6"/>`+_T(225,52+i*48,n,'b'):`<rect class="${c}" x="60" y="${30+i*48}" width="330" height="34" rx="6" opacity=".85"/>`+_T(225,52+i*48,n,'ib')).join('')+
+`<path class="ks" d="M410,108 h20 v110 h-20"/>`+_T(442,168,'affectés','b','start')+_T(442,52,'non affecté','','start')},
+
+m14:{c:"Le triangle est l'enfant du carré : quand le parent pivote, l'enfant suit, comme s'il y était fixé. Son repère devient le parent.",s:
+`<g transform="translate(140,120)"><rect class="p1" x="-40" y="-40" width="80" height="80" rx="4"/><polygon class="p2" points="60,-20 100,0 60,20"/><line class="ks d" x1="0" y1="0" x2="60" y2="0"/></g>`+
+_T(140,200,'avant','b')+_AR(260,120,320,120)+
+`<g transform="translate(420,120) rotate(-35)"><rect class="p1" x="-40" y="-40" width="80" height="80" rx="4"/><polygon class="p2" points="60,-20 100,0 60,20"/><line class="ks d" x1="0" y1="0" x2="60" y2="0"/></g>`+
+`<path class="as" d="M470,180 A70,70 0 0 0 490,90"/>`+_T(420,220,'rotation du parent','b')+
+`<path class="s" d="M290,60 c-8,0 -8,-12 0,-12 c12,0 12,20 0,20 c-18,0 -18,-28 0,-28"/>`+_T(310,58,'parent','','start')},
+
+m15:{c:"Le sélecteur de plage est une courbe posée sur les lettres : dedans, elles prennent l'état B ; dehors, elles restent en A. On anime le décalage.",s:
+(()=>{const L='BANANE'.split('');const sel=[0,.5,1,1,.5,0];
+return `<path class="t" d="M40,90 L120,90 L190,30 L370,30 L440,90 L520,90 L520,96 L40,96 Z"/>`+`<path class="as" d="M40,90 L120,90 L190,30 L370,30 L440,90 L520,90"/>`+
+L.map((l,i)=>{const x=90+i*76,v=sel[i];return `<text x="${x}" y="190" text-anchor="middle" style="font-family:var(--display);font-weight:800;font-size:${36+v*34}px;fill:${v===1?'var(--accent)':v?'color-mix(in srgb,var(--accent) 50%,var(--ink))':'var(--ink)'}">${l}</text>`}).join('')+
+_T(80,80,'état A')+_T(280,22,'état B')+_AR(400,118,480,118,'ks')+_T(440,110,'décalage')+_T(280,230,'pente = lettres à mi-chemin')})()},
+
+m16:{c:"Le texte sert de cache à la photo : on ne voit la photo qu'à travers les lettres. Depuis 2022, n'importe quel calque peut être choisi comme cache de piste.",s:_CHK+
+`<defs><pattern id="ph" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><rect width="20" height="20" class="p3"/><rect width="10" height="20" class="p1"/></pattern><clipPath id="tx"><text x="440" y="150" text-anchor="middle" style="font-family:var(--display);font-weight:800;font-size:76px">AE</text></clipPath></defs>`+
+`<rect class="f" x="30" y="60" width="120" height="120" rx="6"/><text x="90" y="150" text-anchor="middle" style="font-family:var(--display);font-weight:800;font-size:76px;fill:var(--ink)">AE</text>`+_T(90,206,'cache (texte)','b')+
+_T(175,126,'+','b')+`<rect x="200" y="60" width="120" height="120" rx="6" fill="url(#ph)"/>`+_T(260,206,'photo','b')+
+_T(345,126,'=','b')+`<rect x="380" y="60" width="120" height="120" fill="url(#chk)" stroke="var(--line)"/><g clip-path="url(#tx)"><rect x="380" y="60" width="120" height="120" fill="url(#ph)"/></g>`+_T(440,206,'cache alpha','b')},
+
+m17:{c:"Une seule vue en perspective peut tromper. Les vues de projection (haut, devant…) sont fiables, mais il en faut au moins deux pour situer un objet.",s:
+`<g transform="translate(110,130)"><polygon class="f" points="-50,-20 10,-50 70,-20 10,10"/><polygon class="t" points="-50,-20 10,10 10,80 -50,50"/><polygon class="p1" opacity=".6" points="10,10 70,-20 70,50 10,80"/></g>`+_T(110,232,'perspective','b')+
+[[270,'Haut'],[410,'Devant']].map(([x,n])=>`<rect class="f" x="${x}" y="50" width="110" height="110" rx="6"/><rect class="${n==='Haut'?'t':'p1'}" x="${x+30}" y="${n==='Haut'?80:85}" width="50" height="${n==='Haut'?50:60}" opacity=".8"/>`+_T(x+55,190,n,'b')).join('')+
+[['3D classique',190,108],['Cinema 4D',306,92],['3D avancé (GPU)',406,140]].map(([s,x,w])=>`<rect class="t" x="${x}" y="208" width="${w}" height="24" rx="12"/>`+_T(x+w/2,224,s)).join('')},
+
+m18:{c:"En mode 2 vues : à gauche la vue de haut, où un calque plat n'est qu'un trait ; à droite la vue Caméra active. On déplace les calques à gauche.",s:
+`<rect class="f" x="20" y="24" width="250" height="190" rx="8"/>`+_T(36,46,'Haut','b','start')+
+`<line class="p1s" x1="70" y1="90" x2="220" y2="90"/>`+`<line class="ks d" x1="145" y1="190" x2="145" y2="96"/>`+`<rect class="s" x="133" y="186" width="24" height="16" rx="3"/><polygon class="s" points="135,186 145,176 155,186"/>`+_T(145,80,'calque = un trait')+_T(175,206,'caméra','','start')+
+`<rect class="f" x="290" y="24" width="250" height="190" rx="8"/>`+_T(306,46,'Caméra active','b','start')+
+`<polygon class="p1" opacity=".75" points="350,80 480,70 480,170 350,160"/>`+_T(415,196,'ne pas déplacer ici')},
+
+m19:{c:"Prenez le calque par une flèche d'axe (X rouge, Y vert, Z bleu). Au centre se cache « l'axe maudit », perpendiculaire à la vue : le calque bouge sans que rien ne change à l'écran.",s:
+`<polygon class="t" points="170,70 350,50 350,190 170,170"/>`+
+`<line x1="260" y1="120" x2="400" y2="120" style="stroke:#d9443a;stroke-width:3"/><polygon points="400,112 416,120 400,128" style="fill:#d9443a"/>`+_T(430,124,'X','b','start')+
+`<line x1="260" y1="120" x2="260" y2="20" style="stroke:#2f9e57;stroke-width:3"/><polygon points="252,24 260,8 268,24" style="fill:#2f9e57"/>`+_T(276,24,'Y','b','start')+
+`<line x1="260" y1="120" x2="200" y2="200" style="stroke:#3a6bf0;stroke-width:3"/><polygon points="192,194 194,212 208,202" style="fill:#3a6bf0"/>`+_T(184,224,'Z','b','end')+
+`<circle class="bad" cx="260" cy="120" r="14" opacity=".25"/><circle class="bad" cx="260" cy="120" r="5"/>`+_T(470,180,'centre = axe maudit','b','end')},
+
+m20:{c:"Vue de haut : une petite focale (grand-angle) embrasse un large champ, une grande focale (téléobjectif) un champ étroit. Une caméra à 2 nœuds vise son point ciblé.",s:
+[[140,'24 mm · grand-angle',75],[420,'200 mm · téléobjectif',14]].map(([x,n,a])=>{const r=a*Math.PI/180/2,L=150;return `<path class="t" d="M${x},200 L${x-L*Math.sin(r)},${200-L*Math.cos(r)} L${x+L*Math.sin(r)},${200-L*Math.cos(r)} Z" opacity=".9"/>`+`<rect class="s" x="${x-14}" y="196" width="28" height="18" rx="3"/>`+_T(x,234,n,'b')}).join('')+
+`<line class="ks d" x1="420" y1="196" x2="420" y2="70"/><circle class="k" cx="420" cy="70" r="7"/>`+_T(434,74,'point ciblé','','start')+_T(140,40,'50 mm ≈ œil humain')},
+
+m21:{c:"Les quatre lumières du mémo, plus l'environnement HDRI du 3D avancé. Une ombre exige trois choses : une lumière, un calque qui projette, un calque qui reçoit.",s:
+(()=>{const g=(x,n,b)=>`<g transform="translate(${x},90)">${b}</g>`+_T(x,170,n,'b');
+return g(70,'Ponctuelle',`<circle class="k" r="14"/>`+[0,45,90,135,180,225,270,315].map(a=>`<line class="ks" x1="${22*Math.cos(a*Math.PI/180)}" y1="${22*Math.sin(a*Math.PI/180)}" x2="${36*Math.cos(a*Math.PI/180)}" y2="${36*Math.sin(a*Math.PI/180)}"/>`).join(''))+
+g(200,'Concentrée',`<path class="k" opacity=".35" d="M0,-40 L-36,40 L36,40 Z"/><circle class="k" cy="-40" r="9"/>`)+
+g(330,'Parallèle',[-24,-8,8,24].map(x=>_AR(x,-40,x,36,'ks')).join(''))+
+g(460,'Ambiante',`<circle class="k" r="40" opacity=".18"/><circle class="k" r="24" opacity=".25"/><circle class="k" r="10" opacity=".4"/>`)})()+
+_T(280,222,'ombre = lumière + calque qui projette + calque qui reçoit')},
+
+m22:{c:"Le parcours d'un export dans la file d'attente de rendu : les paramètres de rendu calculent les images, le module de sortie choisit le codec, puis la destination.",s:
+_BOX(20,90,100,50,'Compo','f','b')+_AR(124,115,148,115)+
+`<rect class="f" x="152" y="30" width="250" height="170" rx="8"/>`+_T(166,52,'File d\'attente de rendu','b','start')+
+_BOX(168,66,218,36,'Paramètres : Rendu optimal','t','')+_BOX(168,112,218,36,'Module de sortie : codec','t','')+_BOX(168,158,218,30,'Destination','t','')+
+_AR(406,115,430,115)+
+_BOX(434,40,110,40,'H.264','p1','ib')+_BOX(434,95,110,40,'ProRes 4444','p3','ib')+_BOX(434,150,110,40,'PNG + alpha','p2','ib')+_T(489,214,'RVB+A = transparent')},
+
+m23:{c:"Quelques touches qui reviennent sans cesse. Le tableau filtrable plus bas les reprend toutes, avec leur équivalent PC.",s:
+(()=>{const K=[['Espace','lecture',2],['B','début zone',1],['N','fin zone',1],['F9','lissage',1],['F4','modes',1],['P','position',1],['S','échelle',1],['R','rotation',1],['T','opacité',1],['U','images clés',1]];let x=15,y=40,o='';
+K.forEach(([k,d,w],i)=>{if(i===5){x=15;y=140}const W=w*78+(w-1)*10;o+=`<rect class="f" x="${x}" y="${y}" width="${W}" height="50" rx="8"/><rect class="t" x="${x+4}" y="${y+4}" width="${W-8}" height="38" rx="6"/>`+_T(x+W/2,y+28,k,'b')+_T(x+W/2,y+70,d);x+=W+10});return o})()},
+
+c1:{c:"Les quatre panneaux principaux d'After Effects. Fenêtre > Espace de travail permet de réinitialiser cette disposition quand elle se dérègle.",s:
+_BOX(20,20,130,140,'')+_T(85,44,'Projet','b')+[0,1,2,3].map(i=>`<rect class="t" x="32" y="${58+i*22}" width="106" height="14" rx="3"/>`).join('')+
+_BOX(160,20,260,140,'')+_T(290,44,'Composition','b')+`<rect class="p1" opacity=".35" x="186" y="56" width="208" height="92" rx="2"/>`+
+_BOX(430,20,110,140,'')+_T(485,44,'Effets','b')+[0,1,2].map(i=>`<rect class="t" x="442" y="${58+i*22}" width="86" height="14" rx="3"/>`).join('')+
+_BOX(20,170,520,62,'')+_T(36,190,'Montage (timeline)','b','start')+[0,1].map(i=>`<rect class="${['p2','p3'][i]}" x="${180+i*60}" y="${182+i*22}" width="${300-i*80}" height="14" rx="3" opacity=".8"/>`).join('')},
+
+c2:{c:"Les formats d'image courants, la cadence (25 images par seconde en Europe) et les quatre couches d'une image : rouge, vert, bleu et alpha pour la transparence.",s:
+`<rect class="as" x="20" y="30" width="160" height="90" rx="2"/>`+_T(100,80,'16:9','b')+`<rect class="ks" x="196" y="30" width="51" height="90" rx="2"/>`+_T(221,80,'9:16','b')+`<rect class="m" x="263" y="30" width="90" height="90" rx="2"/>`+_T(308,80,'1:1','b')+
+`<rect class="f" x="370" y="30" width="170" height="90" rx="6"/>`+[0,1,2,3,4].map(i=>`<rect class="t" x="${380+i*31}" y="48" width="26" height="54" rx="2"/>`).join('')+_T(455,140,'25 i/s','b')+
+[['R','#d9443a'],['V','#2f9e57'],['B','#3a6bf0']].map(([n,c],i)=>`<rect x="${20+i*70}" y="170" width="60" height="50" rx="6" style="fill:${c};opacity:.85"/>`+_T(50+i*70,200,n,'ib')).join('')+
+_CHK+`<rect x="230" y="170" width="60" height="50" rx="6" fill="url(#chk)" stroke="var(--line)"/>`+_T(260,200,'A','b')+_T(310,200,'couche alpha = transparence','','start')},
+
+c3:{c:"Préparer avant d'animer : un storyboard découpé en plans, un panneau Projet rangé en dossiers, et des enregistrements numérotés.",s:
+[0,1,2].map(i=>`<rect class="f" x="${20+i*90}" y="30" width="80" height="60" rx="4"/>`+_T(60+i*90,110,'plan '+(i+1))).join('')+
+`<circle class="k" cx="50" cy="60" r="10"/><circle class="k" cx="160" cy="60" r="10"/><rect class="k" x="236" y="48" width="28" height="24"/>`+
+_AR(290,60,320,60)+
+`<rect class="f" x="330" y="20" width="210" height="140" rx="8"/>`+_T(346,42,'Projet','b','start')+
+['Médias','Compos','Précomps','Solides'].map((s,i)=>`<path class="k" d="M346,${58+i*24} h10 l4,4 h14 v12 h-28 z"/>`+_T(382,71+i*24,s,'','start')).join('')+
+['v01','v02','v03'].map((s,i)=>_BOX(20+i*96,180,88,34,'projet_'+s,i===2?'add':'f','')).join('')+_T(330,202,'Rassembler → archive','','start')},
+
+c4:{c:"Le point d'ancrage est le centre des rotations. Au milieu, le carré tourne sur lui-même ; dans un coin, il décrit un grand arc.",s:
+(()=>{const anc=(x,y)=>`<circle class="as" cx="${x}" cy="${y}" r="9"/><line class="as" x1="${x-14}" y1="${y}" x2="${x+14}" y2="${y}"/><line class="as" x1="${x}" y1="${y-14}" x2="${x}" y2="${y+14}"/>`;
+return `<rect class="p2" opacity=".3" x="90" y="70" width="80" height="80" transform="rotate(30 130 110)"/><rect class="p2" x="90" y="70" width="80" height="80"/>`+anc(130,110)+_T(130,190,'ancrage au centre','b')+
+`<rect class="p2" opacity=".3" x="350" y="70" width="80" height="80" transform="rotate(30 350 70)"/><rect class="p2" x="350" y="70" width="80" height="80"/>`+anc(350,70)+`<path class="ks d" d="M430,150 A113,113 0 0 1 380,175"/>`+_T(390,190,'ancrage dans le coin','b')})()+
+['A ancrage','P position','S échelle','R rotation','T opacité'].map((s,i)=>`<rect class="t" x="${20+i*106}" y="208" width="100" height="24" rx="12"/>`+_T(70+i*106,224,s)).join('')},
+
+c5:{c:"Le rebond résume plusieurs principes : trajectoire en arc, ralenti en haut (images serrées), écrasement au contact du sol, rebonds de plus en plus bas.",s:
+`<line class="s" x1="20" y1="210" x2="540" y2="210"/>`+
+`<path class="m d" d="M40,40 Q110,40 160,200 Q240,70 320,200 Q380,120 440,200 Q480,160 520,200"/>`+
+(()=>{const seg=[[40,40,110,40,160,200,[0,.3,.55,.78]],[160,200,240,70,320,200,[.3,.5,.7]],[320,200,380,120,440,200,[.5]]],o=[];seg.forEach(([a,b,c,d,e,f,ts])=>ts.forEach(t=>{const u=1-t;o.push([u*u*a+2*u*t*c+t*t*e,u*u*b+2*u*t*d+t*t*f])}));return o})().map(([x,y])=>`<circle class="a" cx="${x}" cy="${y}" r="12" opacity=".35"/>`).join('')+
+`<ellipse class="a" cx="160" cy="203" rx="20" ry="7"/><ellipse class="a" cx="320" cy="203" rx="17" ry="8"/>`+
+_T(160,232,'écrasement')+_T(240,116,'ralenti en haut')+_T(80,26,'départ')},
+
+c6:{c:"Trois expressions qui remplacent des dizaines d'images clés : un tremblement aléatoire, une boucle, une rotation continue.",s:
+(()=>{let w='M30,140';for(let i=1;i<=30;i++)w+=` L${30+i*5},${140+Math.sin(i*1.7)*22+Math.cos(i*.9)*14}`;
+const box=(x,code,path)=>`<rect class="f" x="${x}" y="30" width="170" height="160" rx="8"/><rect class="t" x="${x+10}" y="40" width="150" height="26" rx="4"/>`+`<text x="${x+85}" y="58" text-anchor="middle" class="b" style="font-size:12px">${code}</text>`+`<line class="m" x1="${x+10}" y1="174" x2="${x+160}" y2="174"/>`+path;
+return box(10,'wiggle(2, 30)',`<path class="as" d="${w}"/>`)+box(195,'loopOut("cycle")',`<path class="as" d="M210,170 L250,100 L250,170 L290,100 L290,170 L330,100 L330,170 L355,128"/>`+_K(210,170,5)+_K(250,100,5))+box(380,'time * 90',`<path class="as" d="M392,172 L540,82"/>`)+_T(280,222,'Alt+clic sur le chronomètre pour ajouter une expression')})()},
+
+c7:{c:"Le suivi enregistre la position d'un détail de l'image d'image en image (zone d'élément dans la zone de recherche), puis y accroche un texte ou un calque.",s:
+`<rect class="t" x="20" y="20" width="520" height="200" rx="8"/>`+
+`<path class="m d" d="M90,170 C160,120 250,150 320,90 S440,60 470,70"/>`+[[90,170],[160,138],[240,138],[320,90],[400,68]].map(([x,y])=>`<circle class="k" cx="${x}" cy="${y}" r="4"/>`).join('')+
+`<rect class="as d" x="430" y="30" width="80" height="80"/><rect class="as" x="455" y="55" width="30" height="30"/><line class="as" x1="470" y1="64" x2="470" y2="76"/><line class="as" x1="464" y1="70" x2="476" y2="70"/>`+
+_T(424,118,'zone de recherche','','end')+_T(470,48,'élément','','middle')+
+_BOX(395,150,140,34,'texte attaché','add','b')+`<line class="ks d" x1="470" y1="150" x2="470" y2="86"/>`+_T(40,206,'Roto-pinceau Alt+W · cache d\'objet IA · Keylight','','start')},
+
+c8:{c:"Un même projet, plusieurs livraisons : une vidéo web, un élément transparent à incruster, un modèle .mogrt modifiable dans Premiere Pro, et une archive complète.",s:
+_BOX(20,95,110,50,'Projet AE','p6','ib')+
+[['H.264','diffusion web','p1'],['ProRes 4444','RVB+A transparent','p3'],['.mogrt','modèle Premiere Pro','p2'],['Rassembler','archive complète','p5']].map(([n,d,c],i)=>{const y=18+i*54;return _AR(134,120,236,y+20)+_BOX(240,y,120,40,n,c,'ib')+_T(376,y+25,d,'','start')}).join('')}
+};
+
 const IDX=Object.fromEntries(CH.map((c,i)=>[c.k,i]));
 const label=i=>CH[i].k[0]==='m'?'Chap. '+CH[i].k.slice(1):'Complément '+CH[i].k.slice(1);
 const shortLabel=i=>CH[i].k[0]==='m'?CH[i].k.slice(1):'C'+CH[i].k.slice(1);
@@ -539,7 +761,7 @@ function renderList(){[...partsEl.children].forEach((b,i)=>b.setAttribute('aria-
  chlist.innerHTML='';CH.forEach((c,i)=>{if(curPart>=0&&c.p!==curPart)return;const b=document.createElement('button');b.className='ch';b.setAttribute('role','tab');b.setAttribute('aria-selected',i===curCh);b.innerHTML=`<span class="dot" style="background:var(${PARTS[c.p].c})"></span><span class="num">${shortLabel(i)}</span><span class="nm">${c.t}</span>${c.upd?'<span class="flag" title="Mis à jour"></span>':''}`;b.onclick=()=>showCh(i);chlist.appendChild(b)})}
 function showCh(i){curCh=i;const c=CH[i];renderList();
  const meta=c.k[0]==='m'?`${label(i)} · p. ${c.pg}`:`${label(i)} · <span class="badge b-add">ajout</span>`;
- chdetail.innerHTML=`<div class="chhead"><span class="eyebrow" style="color:var(${PARTS[c.p].c})">${PARTS[c.p].n}</span><span class="pg">${meta}</span></div><h2>${c.t}</h2><ul class="pts">${c.pts.map(p=>`<li>${p}</li>`).join('')}</ul>${c.warn?`<div class="box warn"><b>Attention</b><span>${c.warn}</span></div>`:''}${c.upd?`<div class="box upd"><b>Mise à jour</b><span>${c.upd}</span></div>`:''}${c.tip?`<p class="quote">${c.tip}</p>`:''}${c.src?`<p class="note">Notion présente dans : ${c.src}.</p>`:''}${c.lab?`<button class="golab" data-lab="${c.lab}">${c.lab==='raccourcis'?'Voir le tableau':"Voir l'atelier"} ↓</button>`:''}<div class="chnav"><button ${i===0?'disabled':''} data-go="${i-1}">← Précédent</button><button ${i===CH.length-1?'disabled':''} data-go="${i+1}">Suivant →</button></div>`;
+ chdetail.innerHTML=`<div class="chhead"><span class="eyebrow" style="color:var(${PARTS[c.p].c})">${PARTS[c.p].n}</span><span class="pg">${meta}</span></div><h2>${c.t}</h2>${ILL[c.k]?`<figure class="ill"><svg viewBox="0 0 560 240" role="img" aria-label="${ILL[c.k].c.replace(/"/g,'&quot;')}">${ILL[c.k].s}</svg><figcaption>${ILL[c.k].c}</figcaption></figure>`:''}<ul class="pts">${c.pts.map(p=>`<li>${p}</li>`).join('')}</ul>${c.warn?`<div class="box warn"><b>Attention</b><span>${c.warn}</span></div>`:''}${c.upd?`<div class="box upd"><b>Mise à jour</b><span>${c.upd}</span></div>`:''}${c.tip?`<p class="quote">${c.tip}</p>`:''}${c.src?`<p class="note">Notion présente dans : ${c.src}.</p>`:''}${c.lab?`<button class="golab" data-lab="${c.lab}">${c.lab==='raccourcis'?'Voir le tableau':"Voir l'atelier"} ↓</button>`:''}<div class="chnav"><button ${i===0?'disabled':''} data-go="${i-1}">← Précédent</button><button ${i===CH.length-1?'disabled':''} data-go="${i+1}">Suivant →</button></div>`;
  chdetail.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{const n=+b.dataset.go;if(curPart>=0&&CH[n].p!==curPart)curPart=-1;showCh(n)});
  const g=chdetail.querySelector('.golab');if(g)g.onclick=()=>{const el=document.getElementById(g.dataset.lab);el&&el.scrollIntoView({behavior:smooth()})}}
 showCh(0);
