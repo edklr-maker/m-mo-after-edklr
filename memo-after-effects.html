@@ -1,741 +1,185 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Mémo After Effects</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asnières-sur-Seine, au fil du temps</title>
+<meta name="description" content="Scénario de l'immersion 360° : 30 minutes, 4 écrans, de la préhistoire à aujourd'hui.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400&display=swap">
 <style>
-/* Layout : un support de cours organisé comme une timeline — parcours en 7 modules, explorateur des chapitres (mémo + compléments), comparaison des sources, ateliers, glossaire, raccourcis, quiz */
-:root{
-  --bg:#f3f4f7; --surface:#ffffff; --ink:#151a2b; --muted:#5b627a; --line:#d9dce6;
-  --accent:#2f5bff; --key:#e8a317; --track:#e7e9f1; --ok:#1d8a5a; --bad:#c2412d;
-  --warn-bg:#fff4dc; --warn-ink:#6b4700; --upd-bg:#e6f4ec; --upd-ink:#145c3c; --add-bg:#eaeefe; --add-ink:#1f3aa8;
-  --p1:#2f5bff; --p2:#c98a0a; --p3:#1d8a5a; --p4:#b0567a; --p5:#5b627a; --p6:#7a4fd0;
-  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
-  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#12141c; --surface:#1b1e29; --ink:#e9ebf3; --muted:#9aa0b8; --line:#2c3142;
-  --accent:#7b97ff; --key:#f2b53a; --track:#252938; --ok:#4cc38a; --bad:#ff7a63;
-  --warn-bg:#3a2f14; --warn-ink:#f6d48a; --upd-bg:#163326; --upd-ink:#9be3bf; --add-bg:#1f2747; --add-ink:#b4c4ff;
-  --p1:#7b97ff; --p2:#f2b53a; --p3:#4cc38a; --p4:#e08ab0; --p5:#9aa0b8; --p6:#b49aff; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#12141c; --surface:#1b1e29; --ink:#e9ebf3; --muted:#9aa0b8; --line:#2c3142;
-  --accent:#7b97ff; --key:#f2b53a; --track:#252938; --ok:#4cc38a; --bad:#ff7a63;
-  --warn-bg:#3a2f14; --warn-ink:#f6d48a; --upd-bg:#163326; --upd-ink:#9be3bf; --add-bg:#1f2747; --add-ink:#b4c4ff;
-  --p1:#7b97ff; --p2:#f2b53a; --p3:#4cc38a; --p4:#e08ab0; --p5:#9aa0b8; --p6:#b49aff; color-scheme:dark}
-
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
-.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:28px 64px;display:flex;flex-direction:column;gap:64px}
-h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
-h1{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:800;letter-spacing:-.02em}
-h2{font-size:clamp(1.5rem,3.5vw,2rem);font-weight:700}
-h3{font-size:1.12rem;font-weight:700}
-p{margin:0;max-width:68ch}
-.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.sec{display:flex;flex-direction:column;gap:18px;scroll-margin-top:12px}
-.lead{color:var(--muted);font-size:1.05rem}
-kbd{font-family:var(--mono);font-size:.8rem;font-weight:700;background:var(--track);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 7px;white-space:nowrap;color:var(--ink)}
-code{font-family:var(--mono);font-size:.88rem;background:var(--track);border-radius:4px;padding:1px 5px}
-button{font:inherit;color:inherit;cursor:pointer}
-button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-a{color:var(--accent)}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
-.note{font-size:.92rem;color:var(--muted)}
-.chip{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:6px 14px;font-size:.9rem}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.badge{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;padding:2px 6px;white-space:nowrap}
-.b-add{background:var(--add-bg);color:var(--add-ink)}
-.b-upd{background:var(--upd-bg);color:var(--upd-ink)}
-
-/* Hero */
-.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:end}
-.hero .intro{display:flex;flex-direction:column;gap:14px}
-.facts{display:flex;flex-direction:column;border-left:2px solid var(--line)}
-.fact{display:flex;gap:14px;padding:6px 0 6px 16px;position:relative;align-items:baseline}
-.fact::before{content:"";position:absolute;left:-7px;top:13px;width:10px;height:10px;background:var(--key);transform:rotate(45deg)}
-.fact b{font-family:var(--mono);font-size:.9rem;min-width:3.4em}
-.fact span{color:var(--muted);font-size:.95rem}
-.howto{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.howto div{border-top:2px solid var(--ink);padding-top:10px;display:flex;flex-direction:column;gap:4px}
-.howto b{font-family:var(--display);font-size:1rem}
-.howto span{font-size:.9rem;color:var(--muted)}
-@media (max-width:760px){.hero{grid-template-columns:1fr}.howto{grid-template-columns:repeat(2,1fr)}}
-
-/* Parcours */
-.progress-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.pbar{flex:1;min-width:180px;height:10px;background:var(--track);border-radius:999px;overflow:hidden}
-.pbar i{display:block;height:100%;background:var(--ok);width:0}
-.ptext{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
-.reset{border:1px solid var(--line);background:transparent;border-radius:999px;padding:4px 12px;font-size:.85rem;color:var(--muted)}
-.modtabs{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-.modtab{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 10px 8px;text-align:left;display:flex;flex-direction:column;gap:6px;min-width:0}
-.modtab .mn{font-family:var(--mono);font-size:.7rem;color:var(--muted)}
-.modtab .mt{font-family:var(--display);font-weight:700;font-size:.92rem;line-height:1.15}
-.modtab .mini{height:4px;background:var(--track);border-radius:2px;overflow:hidden}
-.modtab .mini i{display:block;height:100%;background:var(--ok)}
-.modtab[aria-selected="true"]{border-color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
-@media (max-width:860px){.modtabs{grid-template-columns:repeat(4,1fr)}}
-@media (max-width:480px){.modtabs{grid-template-columns:repeat(2,1fr)}}
-.module{display:grid;grid-template-columns:1.2fr 1fr;gap:22px}
-.module .col{display:flex;flex-direction:column;gap:14px;min-width:0}
-.links{display:flex;flex-wrap:wrap;gap:6px}
-.lk{border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 10px;font-size:.88rem;display:flex;gap:6px;align-items:center}
-.lk .d{width:8px;height:8px;transform:rotate(45deg);flex-shrink:0}
-.tp{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
-.tp ol{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:5px;font-size:.95rem}
-.checks{display:flex;flex-direction:column;gap:6px}
-.checks label{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer;padding:6px 8px;border-radius:6px}
-.checks label:hover{background:var(--bg)}
-.checks input{margin-top:4px;accent-color:var(--ok);width:16px;height:16px;flex-shrink:0}
-.checks input:checked + span{color:var(--muted);text-decoration:line-through}
-@media (max-width:760px){.module{grid-template-columns:1fr}}
-
-/* Barre des parties */
-.parts{display:flex;width:100%;height:58px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
-.parts button{border:0;border-right:2px solid var(--bg);color:#fff;text-align:left;padding:8px 10px;display:flex;flex-direction:column;justify-content:space-between;min-width:0;overflow:hidden}
-.parts button:last-child{border-right:0}
-.parts button .pl{font-family:var(--display);font-weight:700;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.parts button .pp{font-family:var(--mono);font-size:.7rem;opacity:.9;white-space:nowrap}
-.parts button[aria-pressed="false"]{opacity:.4}
-.partsrow{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap}
-.partsrow .parts{flex:1;min-width:260px}
-.addbtn{border:1px dashed var(--p6);background:var(--add-bg);color:var(--add-ink);border-radius:8px;padding:8px 14px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;min-height:58px}
-.addbtn[aria-pressed="false"]{opacity:.45}
-.addbtn b{font-family:var(--display);font-size:.9rem}
-.addbtn span{font-family:var(--mono);font-size:.7rem}
-.legend-scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
-
-/* Explorateur */
-.explorer{display:grid;grid-template-columns:290px 1fr;gap:18px;align-items:start}
-.chlist{display:flex;flex-direction:column;gap:3px;max-height:640px;overflow-y:auto;padding-right:4px}
-.ch{display:flex;gap:10px;align-items:center;text-align:left;border:1px solid transparent;background:transparent;border-radius:8px;padding:7px 10px}
-.ch:hover{background:var(--surface)}
-.ch[aria-selected="true"]{background:var(--surface);border-color:var(--line)}
-.ch .num{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2em}
-.ch .dot{width:9px;height:9px;flex-shrink:0;transform:rotate(45deg)}
-.ch .nm{font-size:.94rem;line-height:1.25;flex:1}
-.ch .flag{width:7px;height:7px;border-radius:50%;background:var(--ok);flex-shrink:0}
-.chdetail{display:flex;flex-direction:column;gap:16px;min-width:0;scroll-margin-top:12px}
-.chhead{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
-.chhead .pg{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
-.pts{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:8px}
-.box{border-radius:8px;padding:12px 14px;font-size:.95rem;display:flex;gap:10px}
-.box b{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding-top:4px;flex-shrink:0;min-width:5.5em}
-.warn{background:var(--warn-bg);color:var(--warn-ink)}
-.upd{background:var(--upd-bg);color:var(--upd-ink)}
-.quote{border-left:3px solid var(--key);padding-left:12px;font-style:italic;color:var(--muted);font-size:.95rem}
-.golab{align-self:flex-start;background:var(--accent);color:#fff;border:0;border-radius:999px;padding:7px 16px;font-weight:700}
-.chnav{display:flex;justify-content:space-between;gap:8px}
-.chnav button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-size:.9rem}
-.chnav button:disabled{opacity:.4;cursor:default}
-@media (max-width:820px){.explorer{grid-template-columns:1fr}.chlist{flex-direction:row;overflow-x:auto;max-height:none;padding-bottom:6px}.ch{flex-shrink:0}.ch .nm{white-space:nowrap}}
-
-/* Comparaison */
-.cmpwrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
-.cmp{width:100%;border-collapse:collapse;font-size:.92rem;min-width:620px}
-.cmp th,.cmp td{padding:8px 12px;border-bottom:1px solid var(--line);text-align:center}
-.cmp th:first-child,.cmp td:first-child{text-align:left}
-.cmp thead th{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;vertical-align:bottom}
-.cmp tr:last-child td{border-bottom:0}
-.cmp .y{color:var(--ok);font-weight:700}
-.cmp .p{color:var(--key);font-weight:700}
-.cmp .n{color:var(--line)}
-.cmp td.mem{background:color-mix(in srgb,var(--accent) 6%,transparent)}
-.cmp tr.gap td:first-child{font-weight:700}
-.cmp tr.gap td:first-child::after{content:" · ajouté";font-family:var(--mono);font-size:.68rem;color:var(--add-ink);font-weight:500}
-.cov{display:flex;flex-direction:column;gap:8px}
-.covrow{display:grid;grid-template-columns:150px 1fr 48px;gap:10px;align-items:center;font-size:.92rem}
-.covbar{height:14px;background:var(--track);border-radius:3px;overflow:hidden}
-.covbar i{display:block;height:100%}
-.covrow .v{font-family:var(--mono);font-size:.8rem;text-align:right;font-variant-numeric:tabular-nums}
-.updlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
-.updcard{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:6px}
-.updcard .ver{font-family:var(--mono);font-size:.72rem;color:var(--upd-ink);background:var(--upd-bg);align-self:flex-start;padding:2px 6px;border-radius:4px}
-.updcard p{font-size:.92rem}
-.updcard .was{font-size:.86rem;color:var(--muted)}
-
-/* Ateliers */
-.labs{display:flex;flex-direction:column;gap:22px}
-.lab{display:flex;flex-direction:column;gap:16px;scroll-margin-top:12px}
-.lab .tag{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
-@media (max-width:720px){.two{grid-template-columns:1fr}}
-.stage{position:relative;height:90px;background:var(--track);border-radius:8px;overflow:hidden}
-.ball{position:absolute;top:28px;left:12px;width:34px;height:34px;border-radius:50%;background:var(--accent)}
-.play{background:var(--accent);color:#fff;border:0;border-radius:999px;padding:7px 18px;font-weight:700}
-canvas{width:100%;max-width:100%;height:auto;display:block}
-svg text{font-family:var(--mono)}
-.range{display:flex;flex-direction:column;gap:6px}
-.range label{display:flex;justify-content:space-between;font-size:.9rem}
-.range label output{font-family:var(--mono);font-weight:700}
-input[type=range]{width:100%;accent-color:var(--accent)}
-select{font:inherit;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
-.banane{display:flex;justify-content:center;align-items:flex-end;gap:2px;height:110px;font-family:var(--display);font-weight:800;font-size:40px;line-height:1}
-.banane span{display:inline-block;transform-origin:50% 100%}
-.blend{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:8px;overflow:hidden;isolation:isolate;background:linear-gradient(160deg,#b4532a,#d98a4a 60%,#8f3b1d)}
-.blend .boat{position:absolute;left:12%;top:38%;width:62%;height:20%;background:#2b55d6;border-radius:40px;transform:rotate(-14deg)}
-.blend .top{position:absolute;inset:14% 10%;display:grid;grid-template-columns:repeat(4,1fr)}
-.blend .top i:nth-child(1){background:#000}.blend .top i:nth-child(2){background:#555}.blend .top i:nth-child(3){background:#aaa}.blend .top i:nth-child(4){background:#fff}
-.blend .fruit{position:absolute;left:28%;top:22%;width:30%;height:56%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#ffe066,#f2b200 70%)}
-.blend .toplayer{position:absolute;inset:0}
-.kfgrid{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}
-.kfgrid .col{display:flex;flex-direction:column;gap:6px}
-.kfgrid .col .eyebrow{text-align:center}
-@media (max-width:560px){.kfgrid{grid-template-columns:1fr}.kfgrid svg{justify-self:center}}
-.lights{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
-.light{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
-.light p{font-size:.92rem;color:var(--muted)}
-.order{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.order .st{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-family:var(--display);font-weight:700}
-.order .ar{color:var(--muted);font-family:var(--mono)}
-.expr{font-family:var(--mono);font-size:1.05rem;background:var(--ink);color:var(--bg);border-radius:8px;padding:12px 16px;overflow-x:auto;white-space:nowrap}
-.wstage{position:relative;height:200px;background:var(--track);border-radius:8px;overflow:hidden}
-.wstage .tgt{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:var(--key)}
-.wstage .home{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border:2px solid var(--muted);border-radius:50%}
-
-/* Glossaire */
-.gl-tools{display:flex;gap:8px;flex-wrap:wrap}
-.gl-tools input,.sc-tools input{flex:1;min-width:180px;font:inherit;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
-.glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
-.term{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
-.term dt{font-family:var(--display);font-weight:700}
-.term dd{margin:0;font-size:.92rem;color:var(--muted)}
-
-/* Raccourcis */
-.sc-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
-table.sc{width:100%;border-collapse:collapse;font-size:.94rem}
-.sc th,.sc td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-.sc th{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
-.sc tr:last-child td{border-bottom:0}
-.sc td.cat{font-family:var(--mono);font-size:.75rem;color:var(--muted);white-space:nowrap}
-.empty{padding:16px;color:var(--muted)}
-
-/* Quiz */
-.quiz{display:flex;flex-direction:column;gap:14px}
-.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}
-.opt{text-align:left;padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
-.opt.right{border-color:var(--ok);color:var(--ok);font-weight:700}
-.opt.wrong{border-color:var(--bad);color:var(--bad)}
-.qfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.score{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
-.next{border:1px solid var(--ink);background:transparent;border-radius:999px;padding:6px 16px}
-.src{font-size:.88rem;color:var(--muted);display:flex;flex-direction:column;gap:6px}
-.src ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:3px}
-@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important}}
+:root{--bg:#f4f7f8;--paper:#ffffff;--ink:#14262e;--muted:#566a73;--line:#d6e1e5;--river:#1f6f8b;--river-soft:#e3f0f4;--quote:#f7fafb;
+--f-display:"Fraunces",Georgia,serif;--f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#0d171c;--paper:#132229;--ink:#e3edf0;--muted:#91a7b0;--line:#25393f;--river:#6cc0dd;--river-soft:#16323d;--quote:#0f1d23;color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6}
+.layout{max-width:1160px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px));display:grid;grid-template-columns:230px minmax(0,1fr);gap:40px;align-items:start}
+nav{position:sticky;top:24px;font-size:.92rem}
+nav .eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;margin-bottom:8px}
+nav ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);display:grid}
+nav a{display:block;padding:5px 0 5px 14px;margin-left:-2px;border-left:2px solid transparent;color:var(--muted);text-decoration:none}
+nav a:hover,nav a.on{color:var(--river);border-left-color:var(--river)}
+main{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:clamp(20px,4vw,48px);min-width:0}
+header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:8px}
+.kicker{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--river);font-weight:700}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.2}
+h1{font-size:clamp(1.8rem,4.5vw,2.7rem);margin:.3em 0 .2em;font-weight:600}
+.date{color:var(--muted);font-size:.9rem;margin:0}
+h2{font-size:1.6rem;margin:2em 0 .5em;font-weight:600;scroll-margin-top:20px;padding-top:.6em;border-top:1px solid var(--line)}
+h3{font-size:1.15rem;margin:1.8em 0 .5em;font-weight:600;color:var(--river);scroll-margin-top:20px}
+p,li{max-width:70ch}
+a{color:var(--river)}
+.tw{overflow-x:auto;margin:1em 0;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+th{background:var(--river-soft);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink)}
+td:first-child{font-family:var(--f-mono);font-size:.85rem;white-space:nowrap;color:var(--river)}
+blockquote{margin:1em 0;padding:14px 20px;background:var(--quote);border-left:3px solid var(--river);border-radius:0 8px 8px 0;font-style:italic}
+blockquote p{margin:.3em 0}
+ul,ol{padding-left:1.3em}
+li{margin:.25em 0}
+li:has(> input[type=checkbox]){list-style:none;margin-left:-1.3em}
+input[type=checkbox]{accent-color:var(--river);margin-right:8px}
+header + h2{border-top:none;margin-top:1em;padding-top:0}
+footer{margin-top:3em;padding-top:16px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+@media (max-width:860px){.layout{grid-template-columns:1fr;gap:20px}nav{position:static}nav ol{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border-left:none}nav a{border-left:none;padding-left:0}}
 </style>
+</head>
+<body>
+<div class="layout">
+<nav aria-label="Sommaire"><div class="eyebrow">Sommaire</div><ol><li><a href="#le-dispositif-et-le-fil-rouge">Le dispositif et le fil rouge</a></li><li><a href="#chronologie-retenue">Chronologie retenue</a></li><li><a href="#scénario-séquencé">Scénario séquencé</a></li><li><a href="#besoins-en-visuels">Besoins en visuels</a></li><li><a href="#adaptations-par-niveau">Adaptations par niveau</a></li><li><a href="#points-à-valider">Points à valider</a></li></ol></nav>
+<main>
+<header><div class="kicker">Scénario · immersion 360°</div><h1 id="asnières-sur-seine-au-fil-du-temps-scénario-de-limmersion-360">Asnières-sur-Seine, au fil du temps : scénario de l&#39;immersion 360°</h1><p class="date">Version du 8 octobre 2026</p></header>
 
-<div class="wrap">
+<h2 id="le-dispositif-et-le-fil-rouge">Le dispositif et le fil rouge</h2>
+<p>L&#39;immersion dure 30 minutes et raconte Asnières en 11 séquences encadrées d&#39;un prologue et d&#39;un épilogue, de la préhistoire à aujourd&#39;hui, autour d&#39;un panorama de la boucle de la Seine qui se transforme sous les yeux des élèves. Ce scénario reprend le texte et les 36 scènes du storyboard d&#39;Eddy (V2302), les regroupe, les minute et les répartit sur les 4 écrans.</p>
+<p><strong>Disposition de la salle (confirmée).</strong> Les 4 écrans de 8 m x 5 m forment les 4 murs d&#39;une salle fermée, public au centre : 32 m de projection continue, soit une vraie vue à 360°. Les murs sont nommés ainsi dans tout le document :</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Position</th><th>Rôle dans le récit</th></tr></thead><tbody><tr><td>E1</td><td>Face au public à l&#39;entrée</td><td>La scène principale : personnages, action, dates</td></tr><tr><td>E2</td><td>À droite</td><td>La Seine et le paysage qui continuent le panorama</td></tr><tr><td>E3</td><td>Dos au public</td><td>Le panorama « arrière », la foule, l&#39;ambiance</td></tr><tr><td>E4</td><td>À gauche</td><td>Les documents : cartes, gravures, tableaux, portraits</td></tr></tbody></table></div>
+<p><strong>Format de fabrication.</strong> Chaque écran a un ratio 16:10. On recommande de produire une toile panoramique unique de 7680 x 1200 px (4 x 1920 x 1200, WUXGA) au minimum, idéalement 15360 x 2400 px si les projecteurs sont en 4K, avec des zones de recouvrement de 5 à 10 % aux angles pour le raccord (edge blending).</p>
+<p><strong>Les quatre principes de mise en scène.</strong></p>
+<ol><li><p><strong>Le panorama fil rouge.</strong> Une même vue à 360° de la boucle de la Seine revient entre chaque séquence (le « retour sur vue 360 » du storyboard). À chaque retour, le paysage a changé : hameau, château, pont, gare, usines, immeubles. Les élèves voient la ville grandir.</p></li><li><p><strong>Le blason qui se complète.</strong> Chaque « clin d&#39;œil au blason » du storyboard ajoute une pièce au blason : les chardons et l&#39;âne (le nom), les léopards couronnés du marquis d&#39;Argenson, la Seine et les bateaux, puis la Croix de guerre en 1952. Le blason complet apparaît à la fin.</p></li><li><p><strong>Une action à la fois.</strong> Un seul événement est raconté à la fois, sur E1 ; les autres murs prolongent le décor. Le regard ne doit jamais hésiter entre deux écrans.</p></li><li><p><strong>Un guide pour les plus jeunes.</strong> Un petit âne animé, clin d&#39;œil à l&#39;origine du nom, passe d&#39;une époque à l&#39;autre et indique où regarder. Il reste discret pour les collégiens et lycéens.</p></li></ol>
+<p><strong>Son.</strong> Une voix off unique, posée et chaleureuse, environ 1 300 mots au total dans cette version, soit une douzaine de minutes de parole à un rythme lent ; le reste appartient à l&#39;image et à la musique. Chaque texte peut être allongé si l&#39;on veut un récit plus dense. Musique et ambiances changent à chaque époque ; si la salle le permet, le son est spatialisé sur les 4 murs (l&#39;eau à droite, la foule derrière).</p>
+<h2 id="chronologie-retenue">Chronologie retenue</h2>
+<p>Le récit garde 37 jalons, choisis parmi ceux du storyboard et vérifiés sur la <a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Asni%C3%A8res-sur-Seine">page Wikipédia d&#39;Asnières-sur-Seine</a>, le <a target="_blank" rel="noopener" href="https://www.asnieres-patrimoine.fr/le-chateau/">site Asnières Patrimoine</a> et la <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/H%C3%B4tel_de_Ville,_Asni%C3%A8res-sur-Seine">page de l&#39;hôtel de ville</a>. La colonne S renvoie à la séquence du scénario. Les lignes marquées « à vérifier » sont listées dans la dernière partie.</p>
+<div class="tw"><table><thead><tr><th>Date</th><th>Événement</th><th>S</th></tr></thead><tbody><tr><td>Préhistoire</td><td>Mégalithe dressé dans un tumulus ; découvert en 1933, aujourd&#39;hui square du Maréchal-Leclerc</td><td>1</td></tr><tr><td>IVe siècle</td><td>Nécropole gallo-romaine au bord de la Seine (découverte en 1752 lors des travaux des haras du marquis)</td><td>1</td></tr><tr><td>Époque romaine</td><td>Villas agricoles ; le nom vient du latin <em>asinaria</em> : le lieu des ânes</td><td>1</td></tr><tr><td>1158</td><td>Première mention écrite : bulle du pape Adrien IV citant l&#39;église et le cimetière</td><td>2</td></tr><tr><td>1248</td><td>Guillaume de Marcouris, abbé de Saint-Denis, affranchit les serfs d&#39;Asnières</td><td>2</td></tr><tr><td>1460</td><td>Après la guerre de Cent Ans, il reste 5 feux, environ 25 habitants</td><td>2</td></tr><tr><td>XVIIe siècle</td><td>Nobles et bourgeois construisent des maisons de campagne</td><td>3</td></tr><tr><td>1676</td><td>Naissance de Pierre Boudou, chirurgien du roi, futur fondateur d&#39;une école pour filles</td><td>3</td></tr><tr><td>1711</td><td>Consécration de l&#39;église Sainte-Geneviève ; environ 450 habitants vers 1700</td><td>3</td></tr><tr><td>Vers 1715</td><td>La comtesse de Parabère, favorite du Régent, s&#39;installe à Asnières</td><td>3</td></tr><tr><td>1750-1752</td><td>Le marquis de Voyer d&#39;Argenson fait bâtir le château par Jacques Hardouin-Mansart de Sagonne</td><td>4</td></tr><tr><td>1752</td><td>Le marquis, directeur des Haras du roi, construit son entrepôt des haras</td><td>4</td></tr><tr><td>1769</td><td>Disgrâce : le marquis se sépare du château (à vérifier)</td><td>4</td></tr><tr><td>1790</td><td>Pierre Dieudonné Delguèdre, paysan, premier maire</td><td>5</td></tr><tr><td>1812</td><td>Premier plan cadastral</td><td>6</td></tr><tr><td>1815</td><td>Les bateaux sont coulés pour bloquer les armées ennemies ; le château occupé par les Anglais</td><td>6</td></tr><tr><td>1826</td><td>Premier pont routier, à péage</td><td>6</td></tr><tr><td>1837</td><td>Arrivée du chemin de fer, ligne Paris-Le Pecq, la première ligne de voyageurs partant de Paris</td><td>6</td></tr><tr><td>1845</td><td>Mise à l&#39;eau du Chaptal ; canotiers, régates et guinguettes</td><td>6</td></tr><tr><td>1848</td><td>Pont détruit puis reconstruit par Émile Clapeyron ; le château devient un restaurant (Offenbach, La Vie parisienne)</td><td>6</td></tr><tr><td>1860</td><td>Louis Vuitton installe ses ateliers à Asnières</td><td>6</td></tr><tr><td>1873-1887</td><td>Monet, Renoir, Seurat (<em>Une baignade, Asnières</em>), Van Gogh et Signac peignent la Seine à Asnières</td><td>7</td></tr><tr><td>1870-1871</td><td>Siège de Paris : pont et gare détruits ; la Commune prend Asnières le 9 avril 1871</td><td>8</td></tr><tr><td>1873</td><td>Naissance d&#39;Henri Barbusse</td><td>8</td></tr><tr><td>1879</td><td>Sarah Bernhardt s&#39;installe rue Magenta</td><td>8</td></tr><tr><td>1897</td><td>Tornade du 18 juin ; début de la construction de l&#39;hôtel de ville (Emmanuel Garnier), inauguré le 15 octobre 1899</td><td>8</td></tr><tr><td>1899</td><td>Cimetière des Chiens, premier cimetière animalier au monde ; Chenard et Walcker s&#39;installent</td><td>8</td></tr><tr><td>1900</td><td>Épreuves de natation des Jeux olympiques dans la Seine</td><td>9</td></tr><tr><td>1901</td><td>Ernest Daltroff reprend une parfumerie qui deviendra Caron</td><td>9</td></tr><tr><td>1910</td><td>Grande crue de la Seine</td><td>9</td></tr><tr><td>1914-1918</td><td>Mobilisation, réfugiés, bombes de Zeppelin sur plusieurs rues</td><td>9</td></tr><tr><td>1935</td><td>Inauguration du Centre administratif et social</td><td>10</td></tr><tr><td>1944</td><td>Résistance (docteur René Dervaux, fusillé le 7 mars) ; Libération par la 2e DB le 24 août</td><td>10</td></tr><tr><td>1945</td><td>Visite du général de Gaulle, discours au balcon de la mairie</td><td>10</td></tr><tr><td>1952</td><td>La Croix de guerre entre dans le blason, en hommage aux 772 victimes</td><td>10</td></tr><tr><td>1959-1968</td><td>Michel Maurice-Bokanowski maire ; la commune devient Asnières-sur-Seine en 1968</td><td>11</td></tr><tr><td>Aujourd&#39;hui</td><td>Environ 91 500 habitants (2022), métro, RER, anciennes usines reconverties</td><td>11</td></tr></tbody></table></div>
+<h2 id="scénario-séquencé">Scénario séquencé</h2>
+<p>Le déroulé tient en 30 minutes exactement : un prologue, 11 séquences historiques et un épilogue. Chaque séquence indique son minutage, les scènes du storyboard qu&#39;elle reprend, ce que montre chaque écran, le texte de la voix off et le son. Les « moments 360 », où l&#39;image enveloppe toute la salle, sont signalés : il y en a un par séquence au plus, pour garder leur effet.</p>
+<div class="tw"><table><thead><tr><th>S</th><th>Titre</th><th>Début</th><th>Durée</th><th>Moment 360</th></tr></thead><tbody><tr><td>0</td><td>Prologue : au fil de l&#39;eau</td><td>0:00</td><td>1:30</td><td>La Seine sur les 4 murs remonte le temps</td></tr><tr><td>1</td><td>Les premières traces</td><td>1:30</td><td>2:30</td><td>Chardons et ânes envahissent la salle</td></tr><tr><td>2</td><td>Le village de l&#39;abbaye</td><td>4:00</td><td>2:30</td><td>Le hameau médiéval, puis la fumée de 1460</td></tr><tr><td>3</td><td>La campagne des nobles</td><td>6:30</td><td>2:30</td><td>Le village se reconstruit autour du public</td></tr><tr><td>4</td><td>Le château du marquis</td><td>9:00</td><td>3:30</td><td>La galerie de tableaux, puis les chevaux du manège</td></tr><tr><td>5</td><td>La Révolution</td><td>12:30</td><td>1:00</td><td>La foule fait le tour de la salle</td></tr><tr><td>6</td><td>La Seine, le pont et le train</td><td>13:30</td><td>3:30</td><td>Le premier train fait le tour de la salle</td></tr><tr><td>7</td><td>Asnières des peintres</td><td>17:00</td><td>2:30</td><td>Le paysage devient tableau impressionniste</td></tr><tr><td>8</td><td>Naissance d&#39;une ville moderne</td><td>19:30</td><td>2:30</td><td>La tornade de 1897</td></tr><tr><td>9</td><td>Un nouveau siècle agité</td><td>22:00</td><td>2:30</td><td>La crue de 1910 monte sur les murs</td></tr><tr><td>10</td><td>Résister et reconstruire</td><td>24:30</td><td>2:30</td><td>La foule de la Libération</td></tr><tr><td>11</td><td>Asnières-sur-Seine aujourd&#39;hui</td><td>27:00</td><td>2:00</td><td>Le panorama actuel</td></tr><tr><td>12</td><td>Épilogue : le blason complet</td><td>29:00</td><td>1:00</td><td>Toutes les époques se fondent dans la Seine</td></tr></tbody></table></div>
+<h3 id="s0-prologue-au-fil-de-leau-000-130">S0 · Prologue : au fil de l&#39;eau (0:00 – 1:30)</h3>
+<p>Le public entre dans une salle bleue et calme. Le but est de poser le fil rouge : la Seine, le temps, l&#39;âne guide.</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>E1</td><td>Une goutte d&#39;eau tombe dans le noir et forme le titre « Asnières, au fil de la Seine et du temps »</td></tr><tr><td>E2, E3</td><td>La Seine d&#39;aujourd&#39;hui, filmée à hauteur d&#39;eau, coule tout autour de la salle</td></tr><tr><td>E4</td><td>Une frise du temps défile à rebours : 2026, 1900, 1750, 1158, l&#39;Antiquité</td></tr><tr><td>Tous</td><td>Le courant accélère à rebours : les immeubles, puis les ponts, puis les maisons disparaissent ; il ne reste que le fleuve et les prairies. L&#39;âne guide entre par E4</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>Fermez les yeux un instant, et écoutez. Ce bruit, c&#39;est la Seine. Elle coulait ici bien avant les rues, les maisons et les ponts. Aujourd&#39;hui, plus de 90 000 personnes habitent Asnières-sur-Seine. Mais pendant des milliers d&#39;années, il n&#39;y avait ici que le fleuve, des prairies… et quelques ânes. Ouvrez les yeux. Nous allons remonter le courant du temps, et regarder la ville naître autour de vous.</p></blockquote>
+<p><strong>Son.</strong> Bruit d&#39;eau spatialisé, puis nappe musicale qui « rembobine ».</p>
+<h3 id="s1-les-premières-traces-de-la-préhistoire-à-lantiquité-130-400">S1 · Les premières traces, de la préhistoire à l&#39;Antiquité (1:30 – 4:00)</h3>
+<p>Storyboard : scènes 1 et 2.</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>E1</td><td>Un bloc de pierre de plusieurs tonnes se dresse au milieu de la prairie ; la caméra tourne autour. Fondu vers le même bloc aujourd&#39;hui, square du Maréchal-Leclerc, derrière la mairie</td></tr><tr><td>E2</td><td>La Seine sauvage, ses îles et ses berges boisées</td></tr><tr><td>E3</td><td>Une villa agricole gallo-romaine, des champs et des ânes au pâturage</td></tr><tr><td>E4</td><td>Carte de la boucle de la Seine ; dessin de la nécropole du IVe siècle au bord de l&#39;eau ; le mot latin <em>asinaria</em> qui s&#39;écrit</td></tr><tr><td>Tous (moment 360)</td><td>Des chardons poussent sur les 4 murs, des ânes les traversent ; zoom sur un chardon qui devient la première pièce du blason</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>Regardez cette pierre. Elle a été dressée par des hommes de la préhistoire, il y a des milliers d&#39;années. On l&#39;a retrouvée en 1933, en creusant le sol pour construire un bâtiment de la ville. Aujourd&#39;hui, elle se trouve dans le square Leclerc, derrière la mairie : vous pourrez aller la voir. Plus tard, au temps des Romains, des familles vivent ici. Elles cultivent la terre au bord du fleuve et enterrent leurs morts près de l&#39;eau : on a retrouvé leurs tombes, vieilles de 1 700 ans. Et ces ânes ? Ils ont donné son nom au lieu. En latin, <em>asinaria</em>, c&#39;est l&#39;endroit où l&#39;on élève les ânes. Asinaria… Asnières.</p></blockquote>
+<p><strong>Son.</strong> Vent, oiseaux, braiment d&#39;âne amusé au moment du nom.</p>
+<h3 id="s2-le-village-de-labbaye-le-moyen-âge-400-630">S2 · Le village de l&#39;abbaye, le Moyen Âge (4:00 – 6:30)</h3>
+<p>Storyboard : scènes 3 et 4, début de la scène 5.</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>E1</td><td>1158 : un parchemin se déroule, sceau du pape Adrien IV. 1248 : sur la place de l&#39;église, l&#39;abbé Guillaume de Marcouris lit la charte d&#39;affranchissement devant les paysans</td></tr><tr><td>E2, E3</td><td>Retour au panorama fil rouge : un petit hameau de quelques maisons, l&#39;église et son cimetière, les champs, les ânes</td></tr><tr><td>E4</td><td>Enluminures de travaux des champs ; carte des terres de l&#39;abbaye de Saint-Denis</td></tr><tr><td>Tous (moment 360)</td><td>1460 : le ciel s&#39;assombrit, de la fumée monte des maisons, les champs se vident. Un compteur s&#39;affiche : 25 habitants</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>Au Moyen Âge, Asnières n&#39;est qu&#39;un hameau. Il appartient à la grande abbaye de Saint-Denis. Les habitants cultivent des céréales et des légumes, et élèvent leurs animaux. En 1158, le nom du village est écrit pour la première fois, dans une lettre du pape qui cite son église et son cimetière. En 1248, un grand jour : l&#39;abbé Guillaume de Marcouris libère les serfs. Ces paysans, qui appartenaient au seigneur, deviennent des hommes libres. Mais deux siècles plus tard, la guerre de Cent Ans ravage la région. En 1460, il ne reste plus que cinq familles, environ 25 habitants. Le village est presque vide.</p></blockquote>
+<p><strong>Son.</strong> Cloche, chant grégorien léger ; silence et vent pour 1460.</p>
+<h3 id="s3-la-campagne-des-nobles-xviie-et-début-du-xviiie-siècle-630-900">S3 · La campagne des nobles, XVIIe et début du XVIIIe siècle (6:30 – 9:00)</h3>
+<p>Storyboard : fin de la scène 5, scène 6.</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>E1</td><td>L&#39;église Sainte-Geneviève se construit en accéléré ; 1711, elle est consacrée. Pierre Boudou, chirurgien du roi, devant la première école pour filles</td></tr><tr><td>E2</td><td>Les berges se couvrent de jardins à la française</td></tr><tr><td>E3</td><td>La route de Paris, des carrosses qui arrivent</td></tr><tr><td>E4</td><td>Portraits de la comtesse de Parabère et de Pierre Boudou ; compteur de population : 450 habitants vers 1700</td></tr><tr><td>Tous (moment 360)</td><td>Le panorama fil rouge se reconstruit autour du public : la fumée se dissipe, de belles demeures apparaissent une à une</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>Puis le village renaît. Au XVIIe siècle, les nobles et les riches bourgeois de Paris découvrent Asnières. Ils aiment son calme, son air pur, et la Seine toute proche. Ils y font construire de belles maisons de campagne. La comtesse de Parabère, amie du Régent qui gouverne la France, s&#39;y installe. Le village grandit autour de sa nouvelle église, Sainte-Geneviève, consacrée en 1711. Un enfant du pays, Pierre Boudou, devenu chirurgien du roi, y fonde une école pour les filles : à l&#39;époque, c&#39;est rare. Vers 1700, Asnières compte déjà 450 habitants.</p></blockquote>
+<p><strong>Son.</strong> Clavecin baroque, pas de chevaux, cloches.</p>
+<h2 id="besoins-en-visuels">Besoins en visuels</h2>
+<p>Le projet demande environ 45 visuels, dont un tiers existe déjà sous forme d&#39;archives ou de tableaux du domaine public ; le reste est à créer. Deux contraintes techniques valent pour tous :</p>
+<ul><li><p><strong>Résolution.</strong> Un visuel plein écran fait au moins 1920 x 1200 px, un panorama 360 au moins 7680 x 1200 px. Les gravures, cartes postales et photos d&#39;archives sont presque toujours trop petites : c&#39;est là qu&#39;un outil d&#39;agrandissement comme Magnific est utile, en vérifiant que l&#39;IA n&#39;invente pas de détails historiquement faux.</p></li><li><p><strong>Droits.</strong> Les tableaux et gravures d&#39;artistes morts depuis plus de 70 ans sont libres ; les photos du XXe siècle, les dessins d&#39;Yves Ducourtioux cités dans le storyboard et les enregistrements musicaux demandent une autorisation.</p></li></ul>
+<div class="tw"><table><thead><tr><th>S</th><th>Visuel</th><th>Type</th><th>Source possible</th></tr></thead><tbody><tr><td>Tous</td><td>Panorama fil rouge de la boucle de la Seine, en 8 états : Antiquité, hameau, 1700, château, 1840, 1900, 1950, aujourd&#39;hui</td><td>À créer (3D ou illustration), point de vue fixe</td><td>Studio ou IA, calé sur le cadastre de 1812 et les vues actuelles</td></tr><tr><td>Tous</td><td>Blason d&#39;Asnières-sur-Seine en vectoriel, décomposé en pièces animables</td><td>Existant à redessiner</td><td>Mairie, service communication</td></tr><tr><td>Tous</td><td>L&#39;âne guide, en quelques poses</td><td>À créer (personnage animé)</td><td>Illustrateur</td></tr><tr><td>0, 11</td><td>La Seine aujourd&#39;hui à hauteur d&#39;eau, vues aériennes de la ville</td><td>Tournage ou drone</td><td>Tournage dédié ou mairie</td></tr><tr><td>1</td><td>Le mégalithe : photo actuelle au square Leclerc, sous tous les angles</td><td>Photo</td><td>Prise de vue sur place</td></tr><tr><td>1</td><td>Prairie préhistorique, villa gallo-romaine, nécropole au bord de l&#39;eau</td><td>À créer</td><td>Reconstitution IA ou illustrateur, avec un archéologue en relecture</td></tr><tr><td>1</td><td>Chardons et ânes animés</td><td>À créer</td><td>Banque d&#39;images ou animation</td></tr><tr><td>2</td><td>Bulle papale de 1158, enluminures, charte d&#39;affranchissement</td><td>Existant ou à créer</td><td>Gallica (BnF), Archives nationales, sinon reconstitution</td></tr><tr><td>2</td><td>Hameau médiéval et sa version désertée de 1460</td><td>À créer</td><td>Reconstitution</td></tr><tr><td>3</td><td>Église Sainte-Geneviève, d&#39;hier et d&#39;aujourd&#39;hui</td><td>Gravure et photo</td><td>Archives municipales, prise de vue</td></tr><tr><td>3</td><td>Portraits de la comtesse de Parabère et de Pierre Boudou</td><td>Existant si trouvé</td><td>Gallica, Wikimedia Commons</td></tr><tr><td>4</td><td>Château en construction puis achevé, galerie de tableaux, manège et chevaux</td><td>À créer, d&#39;après gravures</td><td>Asnières Patrimoine, plans d&#39;époque</td></tr><tr><td>4</td><td>Portrait du marquis de Voyer d&#39;Argenson, ses armoiries</td><td>Existant</td><td>Wikimedia Commons, Gallica</td></tr><tr><td>4</td><td>Tableaux flamands et hollandais pour la galerie</td><td>Existant, domaine public</td><td>Wikimedia Commons</td></tr><tr><td>5</td><td>Foule révolutionnaire, élection du premier maire</td><td>À créer</td><td>Reconstitution</td></tr><tr><td>6</td><td>Plan cadastral de 1812</td><td>Existant</td><td>Archives départementales des Hauts-de-Seine</td></tr><tr><td>6</td><td>Premier pont, locomotive de 1837, gare, Chaptal, guinguettes, bal au château</td><td>Gravures existantes et animations à créer</td><td>Gallica, cartes postales, reconstitution</td></tr><tr><td>6</td><td>Atelier Louis Vuitton en 1860</td><td>Existant sous droits</td><td>Maison Louis Vuitton (autorisation)</td></tr><tr><td>7</td><td>Seurat, Monet, Renoir, Van Gogh, Signac : tableaux peints à Asnières</td><td>Existant, domaine public</td><td>Fichiers haute définition des musées détenteurs</td></tr><tr><td>8</td><td>Pont et gare détruits en 1870, gare Lisch, tramway</td><td>Photos et cartes postales</td><td>Archives municipales, Gallica</td></tr><tr><td>8</td><td>Barbusse, Sarah Bernhardt, hôtel de ville en chantier</td><td>Photos d&#39;époque</td><td>Gallica, Wikimedia Commons, archives</td></tr><tr><td>8</td><td>Cimetière des Chiens, tombe de Rintintin, monument Barry</td><td>Photo</td><td>Prise de vue sur place</td></tr><tr><td>8</td><td>Tornade de 1897</td><td>À créer</td><td>Effet visuel</td></tr><tr><td>9</td><td>Natation dans la Seine en 1900, crue de 1910</td><td>Photos d&#39;époque, à animer</td><td>Gallica, cartes postales de la crue</td></tr><tr><td>9</td><td>Parfumerie Caron, portraits Bonnet, Allégret, Perdrière</td><td>Existant sous droits</td><td>Maison Caron, agences photo</td></tr><tr><td>9</td><td>Zeppelin et réfugiés</td><td>À créer d&#39;après photos</td><td>Reconstitution</td></tr><tr><td>10</td><td>Centre administratif et social, Résistance, Libération, de Gaulle au balcon</td><td>Photos d&#39;archives</td><td>Archives municipales, ECPAD, Musée de la Résistance en ligne</td></tr><tr><td>10</td><td>Remise de la Croix de guerre en 1952</td><td>Photo d&#39;archives</td><td>Archives municipales</td></tr><tr><td>11</td><td>Usines reconverties, métro, écoles, château restauré</td><td>Photo actuelle</td><td>Prise de vue, mairie</td></tr></tbody></table></div>
+<h3 id="images-reçues-le-8-octobre-projet-magnific-au-fil-de-leau">Images reçues le 8 octobre (projet Magnific « Au fil de l&#39;eau »)</h3>
+<p>Les 11 images couvrent surtout la séquence 9 (Jeux olympiques de 1900), plus une archive précieuse pour la séquence 1. Aucune n&#39;atteint la taille d&#39;un écran (1920 x 1200 px) : toutes devront être agrandies, et les images IA, en 16:9, recadrées ou prolongées en 16:10. Elles sont rangées dans le dossier partagé du projet, sous visuels/recus-2026-10-08.</p>
+<div class="tw"><table><thead><tr><th>S</th><th>Image</th><th>Taille (px)</th><th>Usage proposé</th></tr></thead><tbody><tr><td>1</td><td>Coupure du <em>Petit Parisien</em> : « Place de l&#39;Hôtel-de-Ville, des pierres tombales sont découvertes »</td><td>799 x 909</td><td>E4, en document d&#39;époque lors de l&#39;évocation de la découverte de 1933 ; à reprendre en S10 pour le Centre administratif et social</td></tr><tr><td>6</td><td>Mise à l&#39;eau du Chaptal, dessin d&#39;Yves Ducourtioux d&#39;après une gravure de 1845</td><td>876 x 620</td><td>E4 pendant l&#39;évocation de 1845 ; peut servir de modèle pour animer la scène sur E2 et E3. Autorisation de l&#39;auteur à demander</td></tr><tr><td>9</td><td>Scène IA en couleur : barques, ponton, foule, drapeau</td><td>1344 x 768</td><td>E2-E3, décor du moment 360 des Jeux de 1900</td></tr><tr><td>9</td><td>Barge au rideau rayé devant l&#39;usine : archive et version IA en couleur</td><td>1460 x 821 et 1344 x 768</td><td>E1, avec un fondu de l&#39;archive vers la couleur : un bel effet « l&#39;histoire reprend vie »</td></tr><tr><td>9</td><td>Nageur n°71 sortant de l&#39;eau : archive et version IA en couleur</td><td>290 x 355 et 1344 x 768</td><td>Même fondu archive vers couleur sur E1 ; l&#39;archive est trop petite pour être agrandie seule</td></tr><tr><td>9</td><td>Nageur debout sur un bateau : archive et version IA en couleur</td><td>673 x 959 et 1344 x 768</td><td>E4 en portrait d&#39;époque. La version IA a modifié le visage et le décor : à présenter comme une reconstitution</td></tr><tr><td>9</td><td>Plongeon depuis une tour, public en barques</td><td>500 x 393</td><td>E4 en archive ; à animer (le plongeur traverse l&#39;écran)</td></tr><tr><td>?</td><td>Portrait IA d&#39;un homme âgé barbu</td><td>2048 x 2048</td><td>À identifier pour le placer</td></tr></tbody></table></div>
+<p><strong>Deuxième envoi, 13 images.</strong> Les photos du château sont les seules déjà assez grandes pour les écrans. L&#39;atelier Vuitton est maintenant bien couvert pour la séquence 6.</p>
+<div class="tw"><table><thead><tr><th>S</th><th>Image</th><th>Taille (px)</th><th>Usage proposé</th></tr></thead><tbody><tr><td>4, 11</td><td>Trois photos actuelles du château : la façade et le pavillon latéral</td><td>5120 x 3840 et 3648 x 2736</td><td>Façade : E4 en S11 (« le château est toujours là ») et image finale de la construction en S4, en fondu depuis la reconstitution. Pavillon : la photo de face est utilisable ; l&#39;autre est déformée par le grand-angle et un doigt apparaît en bas à gauche</td></tr><tr><td>6</td><td>Illustration : pont de pierre, fiacre, pêcheur dans des barques</td><td>1136 x 944</td><td>E1 pour le premier pont de 1826, ou E2 pour l&#39;ambiance des canotiers. Format presque carré : à prolonger sur les côtés</td></tr><tr><td>6</td><td>Cinq photos d&#39;archive des ateliers de malles</td><td>env. 1260 x 630</td><td>Captures d&#39;une vidéo : le bouton lecture en bas à droite et le bas assombri sont à retirer, ou mieux, à demander en originaux à Louis Vuitton. Idéales sur E4, avec un fondu vers la couleur sur E1</td></tr><tr><td>6</td><td>Planche de 5 colorisations IA de ces archives</td><td>1456 x 720</td><td>À découper : chaque vignette est trop petite seule. Plutôt pour la maquette que pour la projection</td></tr><tr><td>6</td><td>Trois illustrations de l&#39;atelier (deux sépia, une couleur)</td><td>1456 x 720</td><td>Moment fort possible : l&#39;atelier en 360 sur E1 à E3. La légende « Manufacture de malles, Paris, c. 1910 » et la fausse signature sont à effacer, puisque la scène se passe à Asnières</td></tr></tbody></table></div>
+<p>Point d&#39;attention sur l&#39;atelier : toutes les malles portent la toile Monogram, créée en 1896. Elle convient à une scène vers 1900, pas à l&#39;arrivée de 1860, où les malles étaient en toile grise unie. Le logo LV étant une marque, l&#39;accord de la maison Louis Vuitton est de toute façon nécessaire.</p>
+<p><strong>Troisième envoi, 9 images.</strong> Elles servent la séquence 4, avec deux corrections à faire avant usage.</p>
+<div class="tw"><table><thead><tr><th>S</th><th>Image</th><th>Taille (px)</th><th>Usage proposé</th></tr></thead><tbody><tr><td>4</td><td>Huit variantes IA du marquis de Voyer d&#39;Argenson à son bureau, du plan large au gros plan</td><td>env. 1820 x 1000</td><td>Le plan large (fenêtre et rideaux) sur E1 pour l&#39;ouverture de S4, les gros plans pour un portrait sur E4, et un plan plus sombre pour sa disgrâce de 1769. Sur la variante en plongée, il tient un stylo à bille bleu au lieu de la plume : à corriger ou écarter</td></tr><tr><td>4</td><td>Portrait de Jules Hardouin-Mansart par Hyacinthe Rigaud, avec le dôme des Invalides</td><td>2400 x 1350 (tableau centré sur fond blanc)</td><td>Attention : c&#39;est le grand-père de l&#39;architecte du château. Le château est de Jacques Hardouin-Mansart de Sagonne. Utilisable seulement si la voix off dit « petit-fils du grand Mansart, l&#39;architecte de Versailles » ; le fond blanc est à recadrer</td></tr></tbody></table></div>
+<p>Pour le marquis, la croix sur ruban rouge doit être celle de l&#39;ordre de Saint-Louis (avec des fleurs de lys entre les branches), et non la Légion d&#39;honneur, créée en 1802. S&#39;il existe un portrait d&#39;époque du marquis, il vaut mieux s&#39;en servir comme référence de visage.</p>
+<p><strong>Quatrième envoi, 11 images.</strong> La bulle de 1158 pour la séquence 2, et une meilleure version du portrait de Mansart.</p>
+<div class="tw"><table><thead><tr><th>S</th><th>Image</th><th>Taille (px)</th><th>Usage proposé</th></tr></thead><tbody><tr><td>2</td><td>Le pape Adrien IV rédige la bulle, un scribe à côté (trois cadrages)</td><td>env. 905 x 500</td><td>E1 pour l&#39;évocation de 1158. Trop petites : à régénérer ou agrandir fortement</td></tr><tr><td>2</td><td>Le pape scelle la bulle avec une presse, sceau de plomb gris</td><td>env. 905 x 500</td><td>La plus juste historiquement : les bulles pontificales sont scellées au plomb, d&#39;où leur nom</td></tr><tr><td>2</td><td>Gros plan d&#39;un parchemin avec un sceau de cire doré</td><td>env. 905 x 500</td><td>À corriger : il faut un sceau de plomb gris, pas de la cire. Le texte est du faux latin illisible, ce qui convient tant qu&#39;il reste flou</td></tr><tr><td>2</td><td>Remise du document à un jeune homme, devant des ecclésiastiques</td><td>env. 905 x 500</td><td>Utilisable comme « la lettre part vers la France »</td></tr><tr><td>2</td><td>Deux planches regroupant ces scènes</td><td>2048 x 2048 et 2752 x 1536</td><td>Pour la maquette seulement</td></tr><tr><td>4</td><td>Portrait de Jules Hardouin-Mansart par Rigaud, recadré carré</td><td>1920 x 1920</td><td>Remplace la version sur fond blanc ; même réserve, c&#39;est le grand-père de l&#39;architecte du château</td></tr></tbody></table></div>
+<p>Le style de ces images est celui d&#39;une peinture du XIXe siècle, avec des costumes de la Renaissance (pourpoint et chausses rouges, cols romains, cardinal en mozette). Pour des élèves, c&#39;est acceptable si l&#39;image est présentée comme une « vision d&#39;artiste ». Pour être plus juste, on peut demander à l&#39;IA un décor roman du XIIe siècle et des vêtements médiévaux.</p>
+<p>Pour les élèves, il serait utile de signaler discrètement à l&#39;écran ce qui est archive et ce qui est reconstitution IA.</p>
+<h2 id="adaptations-par-niveau">Adaptations par niveau</h2>
+<p>Le film reste le même pour tous ; ce qui change, c&#39;est l&#39;accompagnement avant, pendant et après, plus deux variantes de voix off faciles à produire (mêmes images, texte réenregistré).</p>
+<div class="tw"><table><thead><tr><th></th><th>Primaire (CE2-CM2)</th><th>Collège</th><th>Lycée</th></tr></thead><tbody><tr><td>Voix off</td><td>Version de ce document, avec l&#39;âne guide bien présent</td><td>Version de ce document</td><td>Variante enrichie : causes et conséquences, noms et dates en plus (Commune de 1871, programme du CNR, industrialisation)</td></tr><tr><td>Avant la séance</td><td>Chercher le blason de la ville et deviner ce que représente chaque pièce</td><td>Placer 10 dates d&#39;Asnières sur une frise</td><td>Lire la page d&#39;histoire de la ville et choisir une période à suivre</td></tr><tr><td>Pendant</td><td>Compter les ânes cachés ; repérer le mégalithe à la fin</td><td>Noter un changement du panorama à chaque retour</td><td>Relever comment l&#39;image montre l&#39;histoire (reconstitution, archive, tableau)</td></tr><tr><td>Après</td><td>Dessiner sa propre pièce de blason</td><td>Visite du square Leclerc, du château ou de l&#39;hôtel de ville</td><td>Débat : que reste-t-il de chaque époque dans la ville d&#39;aujourd&#39;hui ?</td></tr><tr><td>Liens au programme</td><td>Questionner le monde, « se situer dans le temps » (cycle 2), histoire cycle 3</td><td>Histoire 5e, 4e et 3e : Moyen Âge, Révolution, industrialisation, guerres mondiales</td><td>Histoire, éducation morale et civique, histoire des arts</td></tr></tbody></table></div>
+<p>Pour les plus jeunes, les séquences 8 à 10 (guerres, bombardements) restent évoquées sans images violentes, comme prévu dans le scénario. Un livret pédagogique d&#39;une page par niveau peut être tiré de ce tableau.</p>
+<h2 id="points-à-valider">Points à valider</h2>
+<p>Six faits du storyboard doivent être vérifiés ou corrigés avant l&#39;enregistrement de la voix off, car les sources consultées les contredisent ou ne les confirment pas.</p>
+<div class="tw"><table><thead><tr><th>Point</th><th>Storyboard</th><th>Ce que disent les sources</th></tr></thead><tbody><tr><td>Nécropole du IVe siècle</td><td>Découverte lors de la construction du château</td><td>Découverte en 1752 lors des travaux des haras, « et non du château » (<a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Asni%C3%A8res-sur-Seine">Wikipédia</a>)</td></tr><tr><td>Parabère</td><td>« Comtesse de Parabeyre »</td><td>Marie-Madeleine de La Vieuville, comtesse de Parabère (orthographe à corriger)</td></tr><tr><td>Hôtel de ville</td><td>Architecte « Emile Garnier »</td><td>Emmanuel Garnier, première pierre en 1897, inauguration le 15 octobre 1899 (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/H%C3%B4tel_de_Ville,_Asni%C3%A8res-sur-Seine">page de l&#39;hôtel de ville</a>)</td></tr><tr><td>Conseil national de la Résistance</td><td>Le CNR se réunit à Asnières le 15 mars 1944</td><td>La <a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Programme_du_Conseil_national_de_la_R%C3%A9sistance">page du programme du CNR</a> indique une adoption à Paris, par le bureau, sans réunion plénière. La voix off évite donc de situer la réunion à Asnières</td></tr><tr><td>Visite du général de Gaulle</td><td>28 janvier 1945</td><td>28 février 1945, discours au balcon de la mairie (page de l&#39;hôtel de ville)</td></tr><tr><td>Jeux olympiques de 1900</td><td>Le 60 m sous l&#39;eau donne à la France sa première médaille d&#39;or</td><td>À vérifier : la France avait déjà gagné d&#39;autres épreuves en 1900. La voix off ne le mentionne pas</td></tr></tbody></table></div>
+<p>Autres petites corrections : Chenard et Walcker (et non Walker), Henri Barbusse (et non Henry), Rubens (et non Runbens), Seurat peint <em>Une baignade, Asnières</em> en 1883-1884. La vente du château en 1769 n&#39;est confirmée par aucune page consultée.</p>
+<p><strong>Prochaines étapes.</strong></p>
+<ul><li data-checked="false"><p><input type="checkbox" disabled> Valider la résolution des projecteurs (salle carrée à 4 murs confirmée)</p></li><li data-checked="false"><p><input type="checkbox" disabled> Valider le découpage et les minutages des 13 séquences</p></li><li data-checked="false"><p><input type="checkbox" disabled> Faire relire la chronologie par les archives municipales ou Asnières Patrimoine</p></li><li data-checked="false"><p><input type="checkbox" disabled> Déposer dans le projet les images Magnific et les visuels déjà disponibles</p></li><li data-checked="false"><p><input type="checkbox" disabled> Choisir la voix off et l&#39;univers musical</p></li><li data-checked="false"><p><input type="checkbox" disabled> Produire un premier panorama fil rouge pour tester le raccord aux angles</p></li></ul>
+<p><strong>Sources consultées.</strong> <a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Asni%C3%A8res-sur-Seine">Asnières-sur-Seine, Wikipédia</a> · <a target="_blank" rel="noopener" href="https://www.asnieres-patrimoine.fr/le-chateau/">Le château, Asnières Patrimoine</a> · <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/H%C3%B4tel_de_Ville,_Asni%C3%A8res-sur-Seine">Hôtel de Ville d&#39;Asnières-sur-Seine, Wikipedia</a> · <a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Programme_du_Conseil_national_de_la_R%C3%A9sistance">Programme du CNR, Wikipédia</a> · Storyboard d&#39;Eddy, version 2302.</p>
+<h3 id="s4-le-château-du-marquis-1750-1769-900-1230">S4 · Le château du marquis, 1750-1769 (9:00 – 12:30)</h3>
+<p>Storyboard : scènes 7 à 10. C&#39;est la séquence la plus longue et la plus spectaculaire : elle porte l&#39;identité de la ville et deux moments 360.</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>E1</td><td>Le marquis de Voyer d&#39;Argenson, étendard à la main, devant son terrain. Le château se construit en accéléré ; l&#39;architecte Mansart de Sagonne et les artistes travaillent : Pineau sculpte les ornements, Coustou les statues, les frères Brunetti peignent les trompe-l&#39;œil</td></tr><tr><td>E2</td><td>Les jardins descendent vers la Seine</td></tr><tr><td>E3</td><td>Les écuries et l&#39;entrepôt des haras près du bac d&#39;Asnières</td></tr><tr><td>E4</td><td>Plan du domaine, du pont d&#39;Asnières au pont de Clichy ; les armoiries du marquis</td></tr><tr><td>Tous (moment 360, 1)</td><td>Les 4 murs deviennent la galerie du château : tableaux flamands et hollandais côte à côte, dans leurs cadres dorés, lumière de bougies</td></tr><tr><td>Tous (moment 360, 2)</td><td>Des chevaux au galop font le tour de la salle, puis s&#39;alignent dans le manège voûté</td></tr><tr><td>E1 (fin)</td><td>Les léopards couronnés d&#39;or sur fond bleu s&#39;ajoutent au blason. 1769 : le marquis, seul, regarde son château ; la lumière baisse</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>En 1750, un homme puissant achète ici un immense domaine : le marquis de Voyer d&#39;Argenson. Il veut un château digne du roi. Il fait appel à l&#39;architecte royal Jacques Hardouin-Mansart de Sagonne, et aux meilleurs artistes de son temps : sculpteurs, peintres, maîtres du bronze. En deux ans seulement, le château d&#39;Asnières sort de terre. À l&#39;intérieur, une galerie abrite des tableaux des grands peintres flamands et hollandais. Regardez autour de vous : c&#39;est l&#39;une des plus belles collections de l&#39;époque. Le marquis dirige aussi les Haras du roi. Il construit près de la Seine d&#39;immenses écuries, où l&#39;on dresse les chevaux avant de les envoyer dans tout le royaume. Ses armoiries, des léopards couronnés d&#39;or sur fond bleu, sont toujours sur le blason de la ville. Mais quelques années plus tard, le marquis perd la faveur du roi, et doit se séparer de son château.</p></blockquote>
+<p><strong>Son.</strong> Orchestre baroque, chantier (marteaux, scies), galop et hennissements spatialisés pour les chevaux.</p>
+<h3 id="s5-la-révolution-1789-1790-1230-1330">S5 · La Révolution, 1789-1790 (12:30 – 13:30)</h3>
+<p>Storyboard : scènes 11 et 12.</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>E1</td><td>1790 : sur la place, Pierre Dieudonné Delguèdre, paysan, est élu premier maire ; on lui remet l&#39;écharpe</td></tr><tr><td>E2, E3</td><td>Retour au panorama : nouvelles maisons et routes, échoppes d&#39;artisans du bois et du cuir</td></tr><tr><td>E4</td><td>Cocarde tricolore, extrait de la Déclaration des droits de l&#39;homme</td></tr><tr><td>Tous (moment 360)</td><td>Une foule avec drapeaux et cocardes passe d&#39;un mur à l&#39;autre en chantant</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>Asnières est encore un village de paysans et d&#39;artisans. En 1789, la Révolution éclate. Les privilèges des nobles sont abolis, leurs terres sont partagées. Et en 1790, pour la première fois, les habitants choisissent leur maire. Ils élisent l&#39;un des leurs : Pierre Dieudonné Delguèdre, un paysan.</p></blockquote>
+<p><strong>Son.</strong> Chant révolutionnaire (« Ça ira »), tambours.</p>
+<h3 id="s6-la-seine-le-pont-et-le-train-1812-1860-1330-1700">S6 · La Seine, le pont et le train, 1812-1860 (13:30 – 17:00)</h3>
+<p>Storyboard : scènes 13 à 18.</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>E4 → tous</td><td>1812 : le premier plan cadastral se déplie sur E4, puis se pose sur le panorama comme un calque</td></tr><tr><td>E2</td><td>1815 : les soldats français coulent les bateaux pour bloquer le passage ; le château porte un drapeau anglais</td></tr><tr><td>E1</td><td>1826 : le premier pont se construit ; un péager encaisse les passants. 1848 : le pont détruit est reconstruit</td></tr><tr><td>Tous (moment 360)</td><td>1837 : la locomotive entre par E4, fait le tour complet de la salle dans un nuage de vapeur et s&#39;arrête en gare sur E1</td></tr><tr><td>E2, E3</td><td>1845 : mise à l&#39;eau du Chaptal ; canotiers, régates, guinguettes et danseurs sur les quais</td></tr><tr><td>E1</td><td>Le château devenu restaurant : un bal, des robes, des lustres</td></tr><tr><td>E4</td><td>1860 : l&#39;atelier Louis Vuitton, des malles en fabrication ; cheminées d&#39;usines au loin</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>Au XIXe siècle, tout s&#39;accélère. En 1826, un premier pont enjambe la Seine : il faut payer pour le traverser. Puis, en 1837, un bruit nouveau : le train ! La première ligne de voyageurs partie de Paris passe par Asnières. Les Parisiens arrivent en quelques minutes. Le dimanche, ils viennent canoter sur la Seine, faire des courses de bateaux, danser dans les guinguettes. Le vieux château devient un restaurant où l&#39;on donne des bals célèbres. Le compositeur Offenbach le chante : « Qu&#39;on me mène au bal d&#39;Asnières ! » Avec le train arrivent aussi les usines. En 1860, un fabricant de malles s&#39;installe ici : il s&#39;appelle Louis Vuitton, et ses ateliers y sont toujours.</p></blockquote>
+<p><strong>Son.</strong> Sifflet et vapeur spatialisés, accordéon de guinguette, extrait d&#39;Offenbach (<em>La Vie parisienne</em>).</p>
+<h3 id="s7-asnières-des-peintres-1873-1887-1700-1930">S7 · Asnières des peintres, 1873-1887 (17:00 – 19:30)</h3>
+<p>Storyboard : scène 20. Une respiration contemplative, presque sans voix.</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>Tous (moment 360)</td><td>Le panorama se transforme, coup de pinceau par coup de pinceau, en tableau impressionniste</td></tr><tr><td>E1</td><td>Seurat, <em>Une baignade, Asnières</em> : les baigneurs s&#39;animent doucement, l&#39;eau ondule</td></tr><tr><td>E2</td><td>Monet et Renoir, <em>La Seine à Asnières</em></td></tr><tr><td>E3</td><td>Signac et les néo-impressionnistes : les points de couleur se déplacent</td></tr><tr><td>E4</td><td>Van Gogh, le pont d&#39;Asnières et le restaurant de la Sirène</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>La lumière sur l&#39;eau, les baigneurs, les voiliers… Les peintres adorent Asnières. Claude Monet, Auguste Renoir, Georges Seurat, Vincent Van Gogh, Paul Signac viennent poser leur chevalet sur les berges. Regardez autour de vous : vous êtes dans leurs tableaux.</p></blockquote>
+<p><strong>Son.</strong> Piano seul (Satie ou Debussy, à vérifier pour les droits d&#39;enregistrement), clapotis.</p>
+<h3 id="s8-naissance-dune-ville-moderne-1870-1899-1930-2200">S8 · Naissance d&#39;une ville moderne, 1870-1899 (19:30 – 22:00)</h3>
+<p>Storyboard : scènes 17 (fin), 19, 21 à 24.</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>E1</td><td>1870 : le pont tombe, la gare s&#39;écroule, de la fumée (bref et sans victimes à l&#39;image). Puis les ponts métalliques sont reconstruits, la gare Lisch arrive, le tramway passe</td></tr><tr><td>E2</td><td>Henri Barbusse écrit à sa table ; Sarah Bernhardt dans sa maison de la rue Magenta</td></tr><tr><td>E3</td><td>Les nouvelles rues et immeubles ; au nord, les cabanes des chiffonniers ; l&#39;usine Chenard et Walcker</td></tr><tr><td>E4</td><td>Le cimetière des Chiens sur l&#39;ancienne île des Ravageurs : la tombe de Rintintin, le monument au chien Barry</td></tr><tr><td>Tous (moment 360)</td><td>1897 : la tornade traverse la salle d&#39;un mur à l&#39;autre, feuilles et tuiles volent</td></tr><tr><td>E1 (fin)</td><td>L&#39;hôtel de ville s&#39;élève pierre par pierre et est inauguré en 1899 ; compteur de population : 20 000 habitants</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>En 1870, la guerre contre la Prusse frappe Asnières : le pont et la gare sont détruits. Mais la ville se relève vite. On reconstruit les ponts en métal, une nouvelle gare arrive, puis le tramway. Des artistes célèbres s&#39;installent ici, comme la grande actrice Sarah Bernhardt. L&#39;écrivain Henri Barbusse y naît. En 1897, une violente tornade ravage la ville. La même année commence la construction d&#39;un grand hôtel de ville, digne de cette commune qui compte maintenant 20 000 habitants. Et en 1899, Asnières invente quelque chose d&#39;unique au monde : un cimetière pour les animaux. On y trouve des chiens, des chats, des chevaux… et même la tombe de Rintintin, le chien vedette de cinéma.</p></blockquote>
+<p><strong>Son.</strong> Grondements sourds, puis musique de reconstruction, cloche du tramway, vent fort et sifflant pour la tornade.</p>
+<h3 id="s9-un-nouveau-siècle-agité-1900-1918-2200-2430">S9 · Un nouveau siècle agité, 1900-1918 (22:00 – 24:30)</h3>
+<p>Storyboard : scènes 25 à 27.</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>E2 → E3</td><td>1900 : les nageurs des Jeux olympiques plongent dans la Seine, la foule les encourage depuis les berges</td></tr><tr><td>E1</td><td>1901 : la parfumerie Caron, des flacons qui brillent</td></tr><tr><td>E4</td><td>Portraits : Maurice Bonnet (photographie en relief), Yves Allégret (cinéma), Hélène Perdrière (théâtre)</td></tr><tr><td>Tous (moment 360)</td><td>1910 : l&#39;eau de la crue monte sur les 4 murs jusqu&#39;à mi-hauteur ; des barques circulent dans les rues</td></tr><tr><td>E4 → E2</td><td>1914-1918 : un dirigeable Zeppelin traverse le haut des écrans ; lueurs, sirènes ; des réfugiés arrivent sur E3</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>1900 : Paris accueille les Jeux olympiques, et les épreuves de natation ont lieu ici, dans la Seine ! Asnières attire aussi les créateurs : un parfumeur, des photographes, des acteurs. Mais en 1910, la Seine déborde. L&#39;eau envahit les rues et les maisons pendant des semaines. Puis, en 1914, c&#39;est la Première Guerre mondiale. Les hommes partent au front, des réfugiés arrivent. Des bombes lâchées depuis un dirigeable allemand tombent même sur plusieurs rues de la ville.</p></blockquote>
+<p><strong>Son.</strong> Coup de sifflet du départ et clameur, musique Belle Époque, eau qui monte, sirène lointaine.</p>
+<h3 id="s10-résister-et-reconstruire-1919-1952-2430-2700">S10 · Résister et reconstruire, 1919-1952 (24:30 – 27:00)</h3>
+<p>Storyboard : scènes 28 à 32. Ton sobre, sans violence montrée.</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>E1</td><td>1935 : le Centre administratif et social se construit, là où l&#39;on avait trouvé la pierre préhistorique en 1933</td></tr><tr><td>E4</td><td>1940-1944 : la ville dans l&#39;ombre ; le docteur René Dervaux réunit des résistants ; tract du programme du Conseil national de la Résistance (Sécurité sociale, retraites)</td></tr><tr><td>Tous (moment 360)</td><td>24 août 1944 : la Libération, drapeaux et foule joyeuse sur les 4 murs. 1945 : le général de Gaulle salue la foule depuis le balcon de la mairie</td></tr><tr><td>E1 (fin)</td><td>1952 : cérémonie d&#39;hommage aux 772 victimes ; la Croix de guerre s&#39;ajoute au blason</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>Après la guerre, la ville se modernise : en 1935, elle construit un grand centre pour aider ses habitants. Mais en 1940, la France est occupée. À Asnières, des femmes et des hommes résistent, comme le docteur René Dervaux, arrêté et fusillé en 1944. Aujourd&#39;hui, les quais de Seine portent son nom. Pendant ce temps, la Résistance prépare la France d&#39;après : la Sécurité sociale, les retraites pour tous. Le 24 août 1944, Asnières est libérée. Quelques mois plus tard, le général de Gaulle vient saluer les habitants. En 1952, la ville reçoit la Croix de guerre, en mémoire de ses 772 victimes. Elle est toujours sur son blason.</p></blockquote>
+<p><strong>Son.</strong> Silence, puis cloches de la Libération et clameur ; sonnerie aux morts très courte pour 1952.</p>
+<h3 id="s11-asnières-sur-seine-aujourdhui-1959-à-nos-jours-2700-2900">S11 · Asnières-sur-Seine aujourd&#39;hui, 1959 à nos jours (27:00 – 29:00)</h3>
+<p>Storyboard : scènes 33 à 36.</p>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>E1</td><td>1968 : le panneau d&#39;entrée de ville change, « Asnières » devient « Asnières-sur-Seine » ; portrait de Michel Maurice-Bokanowski, maire de 1959</td></tr><tr><td>E2</td><td>Les usines deviennent bureaux et logements (Millot, Piguet)</td></tr><tr><td>E3</td><td>Le métro, le RER, les bus ; des enfants qui sortent de l&#39;école</td></tr><tr><td>E4</td><td>Le château restauré, l&#39;hôtel de ville, le mégalithe du square Leclerc</td></tr><tr><td>Tous (moment 360)</td><td>Le panorama fil rouge dans son état actuel : images aériennes ou photos d&#39;aujourd&#39;hui raccordées à la vue de départ</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>Après 1945, il faut loger des milliers de familles. Asnières construit des immeubles, des écoles, des commerces. En 1968, elle prend le nom d&#39;Asnières-sur-Seine, pour affirmer son lien avec le fleuve. Les anciennes usines deviennent des bureaux et des logements. Aujourd&#39;hui, plus de 90 000 habitants vivent ici. Et le château du marquis, l&#39;hôtel de ville, la pierre de la préhistoire sont toujours là. Ils racontent, à qui sait les regarder, l&#39;histoire de la ville.</p></blockquote>
+<p><strong>Son.</strong> Musique actuelle, sons de la ville (métro, cour d&#39;école).</p>
+<h3 id="s12-épilogue-le-blason-complet-2900-3000">S12 · Épilogue : le blason complet (29:00 – 30:00)</h3>
+<div class="tw"><table><thead><tr><th>Écran</th><th>Image</th></tr></thead><tbody><tr><td>E1</td><td>Le blason complet se forme pièce par pièce : chardons, léopards du marquis, la Seine, la Croix de guerre</td></tr><tr><td>Tous (moment 360)</td><td>Les époques défilent côte à côte sur les 4 murs, puis se fondent dans la Seine qui coule à nouveau tout autour de la salle</td></tr><tr><td>E4</td><td>L&#39;âne guide salue et sort ; générique court</td></tr></tbody></table></div>
+<p><strong>Voix off.</strong></p>
+<blockquote><p>Une pierre dressée, un hameau, un château, un pont, un train, des tableaux, une ville. Chaque époque a laissé sa trace sur ce blason. Et vous, quelle trace laisserez-vous à Asnières ?</p></blockquote>
+<p><strong>Son.</strong> Reprise du thème du prologue, bruit de l&#39;eau.</p>
 
-<header class="sec">
-  <div class="hero">
-    <div class="intro">
-      <span class="eyebrow">Support de cours · d'après Stéphane Prince, Vidéodesign Formation</span>
-      <h1>Mémo After Effects</h1>
-      <p class="lead">Les 23 chapitres du mémo, complétés par huit chapitres sur ce que d'autres formations enseignent et mis à jour pour After Effects 2026. Le tout est organisé en un parcours de sept modules, avec exercices, ateliers et suivi de progression.</p>
-    </div>
-    <div class="facts" aria-label="Repères historiques">
-      <div class="fact"><b>1993</b><span>Naissance du logiciel, développé par la société Cosa</span></div>
-      <div class="fact"><b>1994</b><span>Rachat par Adobe</span></div>
-      <div class="fact"><b>1995</b><span>Première version Adobe : After Effects 3</span></div>
-      <div class="fact"><b>2026</b><span>Version 26.5 (septembre) : 3D avancée, cache d'objet IA, assistant IA en bêta</span></div>
-    </div>
-  </div>
-  <div class="howto">
-    <div><b>1. Suivre un module</b><span>Objectifs, chapitres à lire et exercice guidé.</span></div>
-    <div><b>2. Lire les chapitres</b><span>Le mémo, ses mises à jour et les compléments.</span></div>
-    <div><b>3. Manipuler</b><span>Sept ateliers interactifs pour les notions abstraites.</span></div>
-    <div><b>4. Se tester</b><span>Cocher « Je sais faire » et passer le quiz.</span></div>
-  </div>
-</header>
-
-<section class="sec" id="parcours" aria-labelledby="h-parcours">
-  <span class="eyebrow">Parcours d'apprentissage · 7 modules</span>
-  <h2 id="h-parcours">Apprendre pas à pas</h2>
-  <div class="progress-top">
-    <div class="pbar" aria-hidden="true"><i id="gbar"></i></div>
-    <span class="ptext" id="gtext"></span>
-    <button class="reset" id="greset">Tout décocher</button>
-  </div>
-  <div class="modtabs" id="modtabs" role="tablist" aria-label="Modules"></div>
-  <div class="module card" id="module" role="tabpanel"></div>
-  <p class="note">Vos cases cochées sont gardées dans ce navigateur uniquement.</p>
-</section>
-
-<section class="sec" id="chapitres" aria-labelledby="h-ch">
-  <span class="eyebrow">31 chapitres · 23 du mémo + 8 compléments</span>
-  <h2 id="h-ch">Explorer les chapitres</h2>
-  <p class="lead">Les blocs colorés sont à l'échelle des pages du mémo. Un point vert dans la liste signale un chapitre mis à jour pour la version actuelle.</p>
-  <div class="partsrow"><div class="parts" id="parts"></div><button class="addbtn" id="addbtn"><b>Compléments</b><span>8 chapitres ajoutés</span></button></div>
-  <div class="legend-scale" style="max-width:calc(100% - 160px)"><span>p. 2</span><span>p. 48</span></div>
-  <div class="explorer">
-    <div class="chlist" id="chlist" role="tablist" aria-label="Chapitres"></div>
-    <div class="chdetail card" id="chdetail" role="tabpanel" aria-live="polite"></div>
-  </div>
-</section>
-
-<section class="sec" id="comparaison" aria-labelledby="h-cmp">
-  <span class="eyebrow">Comparaison des sources</span>
-  <h2 id="h-cmp">Ce que le mémo couvre, et ce qui manquait</h2>
-  <p class="lead">Le mémo a été comparé aux programmes de trois formations After Effects et à l'aide officielle d'Adobe. Il est très solide sur l'animation, les calques et la 3D, mais laisse de côté les bases de la vidéo, l'interface et plusieurs techniques courantes. Les lignes en gras sont celles qui ont donné lieu à un chapitre complémentaire.</p>
-  <div class="card cov" id="cov" aria-label="Couverture par source"></div>
-  <div class="cmpwrap"><table class="cmp" id="cmp"></table></div>
-  <p class="note"><span class="y">●</span> traité · <span class="p">◐</span> partiellement ou en passant · <span class="n">○</span> non mentionné dans le programme consulté.</p>
-  <h3 style="margin-top:12px">Ce qui a changé depuis l'écriture du mémo</h3>
-  <div class="updlist" id="updlist"></div>
-</section>
-
-<section class="sec" id="ateliers" aria-labelledby="h-labs">
-  <span class="eyebrow">Ateliers interactifs</span>
-  <h2 id="h-labs">Manipuler les notions difficiles</h2>
-  <div class="labs">
-
-    <div class="lab card" id="lab-ordre">
-      <span class="tag">Chap. 11 · Précomposition</span>
-      <h3>L'ordre de calcul dans un calque</h3>
-      <div class="order"><span class="st">1 · Masques</span><span class="ar">→</span><span class="st">2 · Effets</span><span class="ar">→</span><span class="st">3 · Transformations</span></div>
-      <p class="note">Exemple du mémo : on veut une traînée en appliquant un effet <i>Écho</i> sur une banane animée en position. Le calque ne se démultiplie pas, il se superpose à lui-même et s'éclaircit. L'écho est calculé sur l'image fixe, avant le déplacement. Solution : animer la position, précomposer le calque (deuxième option), puis appliquer l'écho sur la précomposition.</p>
-    </div>
-
-    <div class="lab card" id="lab-interp">
-      <span class="tag">Chap. 6 à 8 · Interpolations temporelles et éditeur de graphiques</span>
-      <h3>Comparer les types d'images clés</h3>
-      <p class="note">Le mémo insiste : réglez d'abord la vitesse linéaire (l'écart entre deux valeurs et le temps laissé entre elles). Les interpolations servent à affiner une animation déjà correcte.</p>
-      <div class="stage"><div class="ball" id="ball"></div></div>
-      <div class="controls">
-        <button class="chip" data-e="lin" aria-pressed="true">Linéaire</button>
-        <button class="chip" data-e="ease" aria-pressed="false">Lissage de vitesse <kbd>F9</kbd></button>
-        <button class="chip" data-e="auto" aria-pressed="false">Bézier auto <kbd>Cmd+clic</kbd></button>
-        <button class="chip" data-e="hold" aria-pressed="false">Maintien <kbd>Cmd+Alt+clic</kbd></button>
-        <button class="play" id="play">▶ Lire</button>
-      </div>
-      <div class="two">
-        <canvas id="graph" width="640" height="200" aria-label="Courbe de vitesse"></canvas>
-        <p class="note" id="enote"></p>
-      </div>
-    </div>
-
-    <div class="lab card" id="lab-formes">
-      <span class="tag">Chap. 9 · Bilan des formes des images clés</span>
-      <h3>Lire la forme d'une image clé</h3>
-      <p class="note">Chaque image clé a deux interpolations : l'<b>approche</b> (juste avant) et l'<b>éloignement</b> (juste après). Sa forme dans la timeline combine les deux moitiés.</p>
-      <div class="kfgrid">
-        <div class="col"><span class="eyebrow">Approche</span><div class="controls" id="kfA" style="justify-content:center"></div></div>
-        <svg id="kfsvg" width="110" height="110" viewBox="-30 -30 60 60" aria-label="Forme de l'image clé"></svg>
-        <div class="col"><span class="eyebrow">Éloignement</span><div class="controls" id="kfB" style="justify-content:center"></div></div>
-      </div>
-    </div>
-
-    <div class="lab card" id="lab-texte">
-      <span class="tag">Chap. 15 · Animateurs de texte</span>
-      <h3>Le sélecteur de plage, en direct</h3>
-      <p class="note">État A : le texte d'origine. État B : échelle 200 % et couleur bleue, réglées dans l'animateur sans image clé. Le sélecteur fait passer les caractères de A à B. Les images clés se posent sur le décalage.</p>
-      <svg id="selsvg" viewBox="0 0 640 120" width="100%" aria-label="Forme du sélecteur de plage"></svg>
-      <div class="banane" id="banane"></div>
-      <div class="two">
-        <div class="range"><label for="off">Décalage <output id="offv">0 %</output></label><input type="range" id="off" min="-100" max="100" value="0"></div>
-        <div class="range"><label for="smo">Lissage (paramètres avancés) <output id="smov">100 %</output></label><input type="range" id="smo" min="0" max="100" value="100"></div>
-      </div>
-      <div class="controls"><label for="shape" class="note">Forme :</label>
-        <select id="shape"><option value="carre">Carré</option><option value="haut">Dégradé du haut</option><option value="bas">Dégradé du bas</option><option value="tri">Triangle</option><option value="arr">Arrondi</option><option value="lisse">Lisse</option></select>
-      </div>
-      <p class="note" id="shapenote"></p>
-    </div>
-
-    <div class="lab card" id="lab-expr">
-      <span class="tag">Complément 6 · Les expressions</span>
-      <h3>Tester l'expression <code>wiggle</code></h3>
-      <p class="note">On ajoute une expression avec <kbd>Alt</kbd>+clic sur le chronomètre. <code>wiggle(fréquence, amplitude)</code> fait trembler une valeur au hasard : la fréquence est le nombre d'oscillations par seconde, l'amplitude l'écart maximal, ici en pixels autour de la position d'origine.</p>
-      <div class="expr" id="exprcode"></div>
-      <div class="two">
-        <div class="range"><label for="wf">Fréquence <output id="wfv"></output></label><input type="range" id="wf" min="0.5" max="10" step="0.5" value="2"></div>
-        <div class="range"><label for="wa">Amplitude <output id="wav"></output></label><input type="range" id="wa" min="0" max="80" step="5" value="40"></div>
-      </div>
-      <div class="wstage" id="wstage"><div class="home"></div><div class="tgt" id="wtgt"></div></div>
-      <div class="controls"><button class="play" id="wplay">⏸ Pause</button><span class="note">Le cercle gris marque la position d'origine.</span></div>
-    </div>
-
-    <div class="lab card" id="lab-fusion">
-      <span class="tag">Chap. 12 · Modes de fusion</span>
-      <h3>Les catégories de modes de fusion</h3>
-      <p class="note">Un mode de fusion est un calcul entre le calque et l'image produite par les calques situés en dessous. Le calque du dessus contient quatre bandes (noir, gris foncé, gris clair, blanc) et un fruit jaune. Colonne visible avec <kbd>F4</kbd>.</p>
-      <div class="controls" id="blendbtns"></div>
-      <div class="two">
-        <div class="blend"><div class="boat"></div><div class="toplayer" id="toplayer"><div class="top"><i></i><i></i><i></i><i></i></div><div class="fruit"></div></div></div>
-        <div style="display:flex;flex-direction:column;gap:8px"><h3 id="bname"></h3><p id="bdesc"></p></div>
-      </div>
-    </div>
-
-    <div class="lab card" id="lab-3d">
-      <span class="tag">Chap. 20 et 21 · Caméras et lumières</span>
-      <h3>Caméras et lumières en un coup d'œil</h3>
-      <div class="two" style="align-items:start">
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div class="range"><label for="foc">Focale <output id="focv">50 mm</output></label><input type="range" id="foc" min="0" max="8" value="5" step="1"></div>
-          <svg id="camsvg" viewBox="0 0 300 140" width="100%" aria-label="Angle de champ"></svg>
-          <p class="note" id="focnote"></p>
-        </div>
-        <div class="lights">
-          <div class="light"><h3>Ponctuelle</h3><p>Une ampoule. La plus utilisée. Seulement une position, pas de point ciblé.</p></div>
-          <div class="light"><h3>Concentrée</h3><p>Ponctuelle limitée par un cône, comme une lampe. Se déplace comme une caméra à 2 nœuds.</p></div>
-          <div class="light"><h3>Parallèle</h3><p>Le soleil : rayons parallèles, source infiniment large.</p></div>
-          <div class="light"><h3>Ambiante</h3><p>Débouche les zones non éclairées, en complément des autres.</p></div>
-          <div class="light"><h3>Environnement</h3><p>Ajout récent, avec la 3D avancée : éclaire la scène à partir d'une image HDRI.</p></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="sec" id="glossaire" aria-labelledby="h-gl">
-  <span class="eyebrow">Glossaire</span>
-  <h2 id="h-gl">Le vocabulaire à connaître</h2>
-  <div class="gl-tools"><input id="glq" type="search" placeholder="Chercher un terme…" aria-label="Chercher dans le glossaire"></div>
-  <dl class="glossary" id="glossary"></dl>
-</section>
-
-<section class="sec" id="raccourcis" aria-labelledby="h-sc">
-  <span class="eyebrow">Chap. 23 et compléments · clavier Mac AZERTY (Cmd = Ctrl sur PC)</span>
-  <h2 id="h-sc">Raccourcis clavier</h2>
-  <div class="sc-tools">
-    <input id="q" type="search" placeholder="Chercher : masque, caméra, expression…" aria-label="Filtrer les raccourcis">
-    <div id="cats" class="controls"></div>
-  </div>
-  <div class="tablewrap"><table class="sc">
-    <thead><tr><th>Touche</th><th>Action</th><th>Thème</th></tr></thead>
-    <tbody id="sct"></tbody>
-  </table><div class="empty" id="scempty" hidden>Aucun raccourci ne correspond.</div></div>
-</section>
-
-<section class="sec" id="quiz" aria-labelledby="h-quiz">
-  <span class="eyebrow">Évaluation</span>
-  <h2 id="h-quiz">Quiz final</h2>
-  <div class="quiz card">
-    <h3 id="qq"></h3>
-    <div class="opts" id="qo"></div>
-    <p class="note" id="qe" aria-live="polite"></p>
-    <div class="qfoot"><span class="score" id="qs"></span><button class="next" id="qn">Question suivante</button></div>
-  </div>
-</section>
-
-<footer class="src">
-  <span class="eyebrow">Sources</span>
-  <p>Chapitres 1 à 23 : « Mémo After Effects », Stéphane Prince pour Vidéodesign Formation. Compléments et mises à jour :</p>
-  <ul>
-    <li><a href="https://helpx.adobe.com/fr/after-effects/desktop/what-s-new/whats-new.html" target="_blank" rel="noopener">Adobe, Nouveautés d'After Effects (version 26.5)</a></li>
-    <li><a href="https://helpx.adobe.com/fr/after-effects/desktop/using/whats-new/2023.html" target="_blank" rel="noopener">Adobe, Nouveautés de la version d'octobre 2022</a></li>
-    <li><a href="https://helpx.adobe.com/fr/after-effects/desktop/render-and-export/export-h-264-from-the-after-effects/exporting-h264-from-the-after-effects-render-queue.html" target="_blank" rel="noopener">Adobe, Exporter en H.264 depuis la file d'attente de rendu</a></li>
-    <li><a href="https://helpx.adobe.com/fr/after-effects/desktop/work-with-3d-composition/advanced-3d-renderer/advanced-3d-renderer.html" target="_blank" rel="noopener">Adobe, Système de rendu 3D avancé</a></li>
-    <li><a href="https://helpx.adobe.com/fr/after-effects/desktop/work-with-after-effects-ai-assistant/after-effects-ai-assistant-overview.html" target="_blank" rel="noopener">Adobe, Assistant IA d'After Effects</a></li>
-    <li><a href="https://helpx.adobe.com/fr/after-effects/desktop/get-started/understand-after-effects-workflow/workflows.html" target="_blank" rel="noopener">Adobe, Workflows After Effects</a></li>
-    <li><a href="https://www.dawan.fr/formations/audiovisuel/after-effects/realiser-une-video-en-motion-design-avec-after-effects-accelere.pdf" target="_blank" rel="noopener">Dawan, Réaliser une vidéo en motion design (3 jours)</a></li>
-    <li><a href="https://www.videographe.org/wp-content/uploads/2021_after_effects_eq_plan_cours.pdf" target="_blank" rel="noopener">Vidéographe, Plan de cours After Effects</a></li>
-    <li><a href="https://www.intercariforef.org/formations/after-effects-initiation-et-ou-perfectionnement/modula-formation/formation-02_201303002675_00669833.html" target="_blank" rel="noopener">Modula Formation, After Effects initiation et perfectionnement</a></li>
-  </ul>
-</footer>
+<footer>Asnières-sur-Seine, au fil du temps · scénario de l'immersion 360°</footer>
+</main>
 </div>
-
 <script>
-/* ---------- Données : parties et chapitres ---------- */
-const PARTS=[
- {n:"Les bases",c:"--p1",from:2,to:6},
- {n:"Masques et interpolations",c:"--p2",from:7,to:14},
- {n:"Calques et texte",c:"--p3",from:15,to:32},
- {n:"La 3D",c:"--p4",from:33,to:45},
- {n:"Rendu et raccourcis",c:"--p5",from:46,to:48},
- {n:"Compléments",c:"--p6"}];
-const CH=[
- {k:"m1",p:0,t:"Composition",pg:2,pts:["Deux méthodes : partir de rien (Composition > Nouvelle composition, bouton de création, ou <kbd>Cmd+N</kbd>) et choisir un préréglage, par exemple <b>HDTV 1080 25</b> pour le 1920×1080.","Ou glisser un métrage sur l'icône nouvelle composition du panneau Projet : la compo prend exactement sa taille et sa durée. Idéal pour truquer un plan.","Adapter la durée de la compo à la durée estimée du projet.","Une compo créée depuis un clip de montage reprend son timecode : le ramener à 0 dans les paramètres (<kbd>Cmd+K</kbd>)."],warn:"Le noir et le blanc sont des couleurs « piège » pour l'arrière-plan : on les retrouve partout dans les images. Travaillez avec une autre couleur.",tip:"Si vous ne savez pas quel format choisir, c'est mauvais signe : posez la question au client.",upd:"Depuis la version d'octobre 2022, la liste des préréglages est réorganisée et propose des formats pour les réseaux sociaux (vertical, carré…)."},
- {k:"m2",p:0,t:"Paramètres et images clés",pg:4,pts:["Trois façons de modifier un paramètre : graphiquement dans la fenêtre de composition, par cliquer-glisser sur la valeur (la « glissière »), ou en tapant une valeur.","La première image clé se pose en cliquant sur le <b>chronomètre</b> du paramètre.","Pour les suivantes : 1. se placer à un autre instant ; 2. faire varier à nouveau le paramètre ; 3. une deuxième image clé apparaît.","Déplacer des images clés : les entourer au lasso puis les faire glisser. Une image clé sélectionnée est bleue.","Rapprocher ou étirer un groupe d'images clés de façon proportionnelle : <kbd>Alt</kbd> en déplaçant la première ou la dernière."],warn:"Ne pas sélectionner le paramètre pour poser les images clés suivantes. Et ne pas créer d'images clés sur des paramètres qui ne varient pas : une image clé solitaire est presque toujours inutile."},
- {k:"m3",p:0,t:"Prévisualisation",pg:6,pts:["Régler la zone de travail avec <kbd>B</kbd> et <kbd>N</kbd>.","Barre d'espace : After Effects calcule chaque image et la stocke en mémoire vive. La barre verte avance ; la lecture en temps réel démarre quand tout est en RAM.","Les images passent ensuite dans le cache disque (défini dans les préférences) et restent après la fermeture du projet.","Lecture du son seul : <kbd>,</kbd> du pavé numérique ou <kbd>Ctrl+:</kbd>."],warn:"Le panneau Info affiche la cadence de lecture. Si elle est en rouge, la lecture n'est pas en temps réel."},
- {k:"m4",p:1,t:"Les masques",pg:7,pts:["Un masque est un tracé qui coupe le calque en deux zones : par défaut l'intérieur est opaque, l'extérieur transparent. Un masque non fermé n'a aucun effet.","Outils : plume et formes prédéfinies (rectangle, ellipse, polygone, étoile, touche <kbd>Q</kbd>).","Déplacer un sommet : avec l'outil flèche, l'entourer d'un lasso puis le glisser.","Déformer tout le masque : double-clic sur le tracé pour la boîte de transformation, double-clic ailleurs pour valider.","Pour détourer, travailler dans la fenêtre de calque (double-clic sur le calque), décocher la case Rendu et activer l'affichage des masques."],warn:"Utiliser un outil de forme sans calque sélectionné crée un calque de forme au lieu d'un masque.",upd:"Pour détourer un sujet en mouvement, le roto-pinceau et le cache d'objet optimisé par l'IA (version 26.2, avril 2026) évitent souvent le travail point par point. Voir le complément 7."},
- {k:"m5",p:1,t:"Interpolations spatiales",pg:9,pts:["Concerne la forme de la trajectoire et des masques.","Passer un point clé de linéaire à Bézier (avec tangentes), et inversement : outil flèche, <kbd>Cmd+Alt</kbd> + clic sur le point.","Tangentes symétriques : même combinaison, mais en cliquer-glisser.","Désolidariser les tangentes : cliquer-glisser sur l'extrémité d'une tangente avec <kbd>Cmd+Alt</kbd>.","Simplement déplacer un point ou une tangente : cliquer-glisser avec l'outil flèche."]},
- {k:"m6",p:1,t:"Interpolations temporelles",pg:10,pts:["Elles agissent sur la vitesse entre les images clés.","D'abord régler la <b>vitesse linéaire</b> (écart de valeurs et durée), puis affiner.","Lissage de vitesse <kbd>F9</kbd> : un amorti automatique, pour les images clés de début ou de fin d'animation.","Bézier auto <kbd>Cmd+clic</kbd> : adoucit un changement de vitesse ; vitesses avant et après s'égalisent.","Maintien <kbd>Cmd+Alt+clic</kbd> ou clic droit : verrouille la valeur jusqu'à l'image clé suivante.","Déplacement dans le temps (trajectoires) : sélectionner les points clés, clic droit > Déplacement dans le temps. La vitesse entre les extrêmes ne dépend plus des points intermédiaires."],lab:"lab-interp"},
- {k:"m7",p:1,t:"L'éditeur de graphiques",pg:12,pts:["Pour aller plus loin : il visualise la dynamique d'un paramètre.","Deux types de courbes : la courbe des valeurs et la courbe de vitesse.","Dans la courbe de vitesse, chaque point clé a deux vitesses : <i>approche</i> (arrivée) et <i>éloignement</i> (départ).","Les boutons en bas de l'éditeur reprennent les actions : maintien, linéaire, Bézier auto, lissage (F9)."],lab:"lab-interp"},
- {k:"m8",p:1,t:"Travailler dans l'éditeur",pg:13,pts:["Vitesse constante : droite sur la courbe des valeurs, palier plat sur la courbe de vitesse.","Accélération : courbe des valeurs qui se creuse, vitesse qui monte.","Lissage (F9) : courbe en S, vitesse en cloche.","Une discontinuité de vitesse crée une variation brutale : on l'élimine en égalisant l'approche et l'éloignement (Bézier auto)."],lab:"lab-interp"},
- {k:"m9",p:1,t:"Formes des images clés",pg:14,pts:["Losange : linéaire / linéaire.","Sablier : Bézier / Bézier (lissage).","Carré : maintien / maintien.","Rond : Bézier auto / Bézier auto.","Les formes mixtes combinent l'approche à gauche et l'éloignement à droite.","Résumé : <kbd>Cmd+clic</kbd> linéaire ↔ Bézier auto · <kbd>F9</kbd> lissage · <kbd>Cmd+Alt+clic</kbd> maintien ↔ linéaire."],lab:"lab-formes",upd:"Depuis la version d'octobre 2022, <kbd>Maj+J</kbd> et <kbd>Maj+K</kbd> sautent uniquement entre les images clés des calques et propriétés sélectionnés."},
- {k:"m10",p:2,t:"Importer des multicalques",pg:15,pts:["Pour un fichier Photoshop ou Illustrator à calques.","Importer sous <b>Métrage</b> : tous les calques sont fusionnés, aucun accès individuel.","Importer sous <b>Composition</b> : chaque calque est importé et replacé dans une nouvelle compo.","Option <i>taille du document</i> : chaque calque a la taille du document. Option <i>taille du calque</i> : chaque calque a la taille de l'objet qu'il contient."]},
- {k:"m11",p:2,t:"La précomposition",pg:16,pts:["Calque > Précomposition (<kbd>Cmd+Maj+C</kbd>) remplace un ou plusieurs calques par une composition qui les contient.","Pourquoi ? Pour regrouper des calques (les animer ensemble, leur appliquer des effets globalement) et, très souvent, pour contourner l'ordre de calcul : masques, puis effets, puis transformations.","<b>Deuxième option</b> (transférer tous les attributs), la plus utile : la précompo a le format de la compo principale et garde les modifications.","<b>Première option</b> (laisser tous les attributs) : un seul calque ; la précompo a les caractéristiques du calque.","Double-clic pour entrer dans une précompo ; <kbd>Alt</kbd>+double-clic pour la voir comme calque.","Naviguer entre compos imbriquées : mini-organigramme ou touche <kbd>Tab</kbd>."],lab:"lab-ordre"},
- {k:"m12",p:2,t:"Les modes de fusion",pg:20,pts:["Colonne Mode/Cache de la timeline, affichée par le petit bouton en bas à gauche ou <kbd>F4</kbd>.","Par défaut, le mode <i>Normal</i> n'utilise que la transparence.","Exemple <i>Addition</i> : pour chaque pixel, R = R1+R2, V = V1+V2, B = B1+B2, plafonné à 255 en 8 bits.","Les modes sont rangés par catégories : Produit, Addition, Incrustation, Différence, TSL, Alpha."],lab:"lab-fusion"},
- {k:"m13",p:2,t:"Les calques d'effet",pg:24,pts:["Un calque d'effet applique ses effets à l'image produite par tous les calques situés sous lui.","Transformer un calque en calque d'effet : cocher sa case dans la colonne des options du calque.","Le contenu du calque n'est plus visible, mais ses transparences influent sur le résultat (on voit la silhouette).","Calque > Créer > Calque d'effets fabrique un solide blanc à la taille de la compo, case cochée."]},
- {k:"m14",p:2,t:"Les liens de parenté",pg:25,pts:["Ils relient des calques géométriquement : on choisit le parent avec le « zigouigoui » (icône spirale) ou le menu de la colonne Parent.","Si la colonne est masquée : clic droit sur la barre des colonnes.","Exemple : le triangle enfant du carré pivote quand on fait pivoter le carré.","Quand un calque devient enfant, ses valeurs géométriques changent mais pas son aspect : son repère devient le parent au lieu de la composition.","Astuce courante : utiliser un calque <b>nul</b> (<kbd>Cmd+Alt+Maj+Y</kbd>) comme parent invisible pour piloter plusieurs calques."]},
- {k:"m15",p:2,t:"Les animateurs de texte",pg:26,pts:["Choisir le paramètre dans le menu <i>Animer</i> du calque texte : il s'ajoute dans un groupe <i>Animation 1</i> avec un sélecteur de plage.","Méthode : 1. choisir le paramètre ; 2. régler sa valeur sans image clé ; 3. jouer sur le <b>décalage</b> ; 4. poser les images clés sur le décalage.","Le sélecteur est une courbe : les caractères dans la plage sont dans l'état B, ceux dehors restent dans l'état A, ceux sur la pente sont à mi-chemin.","Lissage à 0 % : plus de pente, effet machine à écrire.","Carré et dégradés font apparaître ou disparaître un texte ; triangle, arrondi et lisse propagent une vague."],warn:"Ne pas mettre d'image clé sur l'Échelle de l'animateur, mais sur le Décalage du sélecteur de plage. Et ne pas confondre avec l'Échelle du groupe Transformation, qui agit sur tout le calque.",lab:"lab-texte"},
- {k:"m16",p:2,t:"Les caches par approche",pg:32,pts:["Colonne Cache/Mode : <kbd>F4</kbd> ou bouton en bas à gauche.","Un cache modifie la transparence d'un autre calque, à partir de sa couche alpha ou de sa luminance (et leurs versions inversées).","Intérêt : agir indépendamment sur le calque et sur sa découpe."],upd:"Le mémo décrit l'ancien fonctionnement : le cache devait être juste au-dessus du calque. Depuis la version d'octobre 2022, on choisit <b>n'importe quel calque</b> comme cache dans le menu <i>Cache de piste</i>, quelle que soit sa place dans la pile, et plusieurs calques peuvent partager le même cache. Le nom officiel est désormais « cache de piste »."},
- {k:"m17",p:3,t:"La 3D d'After Effects",pg:33,pts:["Ce n'est pas de la « fausse 3D » : tout logiciel 3D ne produit que des pixels sur un écran plat.","After Effects est plus rapide que C4D ou Maya et sans équivalent en précision pour le motion design.","Des effets comme Form, Particular, Plexus ou Element 3D simulent de vrais volumes.","En 2D on peut tricher ; en 3D, la moindre caméra révèle les incohérences.","Une vue en perspective trompe (taille et distance se confondent). Les <b>vues de projection</b> (haut, bas, gauche, droite, devant, derrière) donnent des informations fiables, mais une seule ne suffit pas."],upd:"Le mémo cite les moteurs Cinema 4D et Lancé de rayon. Aujourd'hui, on choisit entre <b>3D classique</b>, <b>Cinema 4D</b> et <b>3D avancé</b>. Ce dernier, basé sur le GPU, importe des modèles 3D (GLTF, GLB, OBJ, FBX), extrude texte et formes et éclaire avec des images HDRI."},
- {k:"m18",p:3,t:"Configurer l'espace 3D",pg:36,pts:["Passer en mode <b>2 vues</b> : une vue de projection (vue de haut par exemple) à gauche, la vue Caméra active à droite.","Passer un calque en 3D : cocher sa case 3D (icône cube).","En vue de haut, un calque plat apparaît comme un trait, avec ses trois axes."],warn:"On déplace les calques dans les vues de projection, jamais dans la vue Caméra active."},
- {k:"m19",p:3,t:"Déplacer les calques en 3D",pg:37,pts:["Selon un axe : approcher le curseur d'une flèche de couleur, une lettre apparaît, puis cliquer-glisser.","Calque désélectionné (<kbd>Cmd+Maj+A</kbd>) : on peut le prendre n'importe où et le déplacer librement dans le plan de la vue active.","Pour utiliser l'axe perpendiculaire à la vue, changer de vue."],warn:"Ne pas cliquer au centre du calque quand ses axes sont visibles : c'est « l'axe maudit », perpendiculaire à la vue. Le calque bouge sans que rien ne change à l'écran."},
- {k:"m20",p:3,t:"Les caméras",pg:39,pts:["Calque > Créer > Caméra ou <kbd>Cmd+Alt+Maj+C</kbd>. Deux réglages : le type et la focale.","Focale par défaut <b>50 mm</b>, proche de l'œil humain. Valeurs basses : grand-angle. Valeurs hautes : téléobjectif.","Caméra à 1 nœud : travellings, panoramiques, grue. Elle se manipule comme un calque.","Caméra à 2 nœuds : orientée par sa position et son point ciblé. On ne touche à sa rotation que sur l'axe Z.","Prise selon un axe, elle déplace position et point ciblé ensemble : poser des images clés sur les deux.","Profondeur de champ : l'activer, régler la distance de mise au point, puis l'ouverture (plus elle est grande, plus la zone nette est courte)."],warn:"Ne pas confondre le format de pellicule 35 mm et la focale de 35 mm. Ici, le format de la pellicule, c'est la taille de la composition.",lab:"lab-3d",upd:"Depuis la version 26.3 (juin 2026), le moteur 3D avancé gère aussi la profondeur de champ."},
- {k:"m21",p:3,t:"Les lumières",pg:43,pts:["Calque > Créer > Lumière ou <kbd>Cmd+Alt+Maj+L</kbd>.","Quatre types dans le mémo : ponctuelle, concentrée, parallèle, ambiante.","Atténuation (appelée <i>Retrait</i> dans la timeline) : <i>Lisse</i> éclaire jusqu'au rayon puis s'estompe sur la distance de retrait ; <i>Inverse du carré de la distance</i> s'estompe de façon naturelle.","Une ombre demande trois choses : une lumière, un calque qui projette son ombre et un calque qui la reçoit.","Passer <i>Projette une ombre</i> sur Oui dans les options du calque <b>et</b> dans celles de la lumière."],lab:"lab-3d",upd:"Avec le moteur 3D avancé s'ajoutent les éclairages d'environnement (images HDRI) et, depuis la version 26.2, les ombres portées par les éclairages."},
- {k:"m22",p:4,t:"Les rendus",pg:46,pts:["Menu Fichier > Exporter ou menu Composition. Deux voies : la file d'attente de rendu ou Media Encoder.","File d'attente : destination, paramètres de rendu (calcul des images) et module de sortie (codec, compression).","Le préréglage <i>Rendu optimal</i> suffit le plus souvent. Étendue temporelle par défaut : la zone de travail, à passer en longueur de composition si besoin.","Codec : éviter <i>Animation</i> ; préférer Apple ProRes ou, mieux, DNxHD/DNxHR, multiplateformes.","Rendu transparent : codec compatible (séquence PNG, ProRes 4444, DNxHD) et Couches RVB+A ; parfois activer l'alpha dans les réglages du codec."],upd:"Le mémo réserve le H.264 à Media Encoder. Depuis la version d'octobre 2022, on choisit <b>H.264 directement dans le module de sortie</b> de la file d'attente de rendu, avec encodage matériel possible. Media Encoder reste utile pour exporter en lot ou continuer à travailler pendant l'encodage."},
- {k:"m23",p:4,t:"Raccourcis clavier",pg:48,pts:["Le dernier chapitre du mémo liste les raccourcis essentiels. Ils sont dans le tableau filtrable, avec ceux des compléments."],lab:"raccourcis"},
- /* Compléments */
- {k:"c1",p:5,t:"L'interface et l'espace de travail",pts:["Quatre panneaux principaux : <b>Projet</b> (médias et compos), <b>Composition</b> (l'image), <b>Montage</b> (la timeline, calques et temps) et <b>Effets et paramètres prédéfinis</b>.","Panneaux utiles : Info (couleurs, coordonnées, cadence de lecture), Aperçu, Caractère et Paragraphe pour le texte, Alignement.","Le panneau <b>Propriétés</b>, ajouté récemment, regroupe les réglages importants du calque sélectionné sans déplier la timeline.","Fenêtre > Espace de travail : choisir un espace (Standard, Animation, Texte…) et le réinitialiser s'il est désorganisé.","Dans la timeline, déplier un calque montre ses groupes de propriétés : Transformer, Masques, Effets, Texte."],tip:"Pourquoi ce complément ? Les trois formations comparées commencent par l'interface ; le mémo la suppose connue.",src:"Dawan, Vidéographe, Modula ; aide Adobe"},
- {k:"c2",p:5,t:"Les bases de la vidéo",pts:["<b>Résolution</b> : HD 1920×1080, UHD 4K 3840×2160. Format d'image 16:9 (horizontal), 9:16 (vertical, réseaux sociaux), 1:1 (carré).","<b>Cadence</b> : 25 images/s en France et en Europe, 24 au cinéma, 30 ou 29,97 aux États-Unis. Gardez la même cadence du tournage à l'export.","<b>Pixels</b> : aujourd'hui presque toujours carrés. Les pixels rectangulaires viennent des anciens formats DV.","<b>Profondeur de couleur</b> : 8 bits par couche (256 niveaux) par défaut, 16 ou 32 bits pour les dégradés délicats et les effets lumineux.","<b>Codecs</b> : distinguer les codecs de travail (ProRes, DNxHR : lourds, sans perte visible) des codecs de diffusion (H.264, H.265 : légers, compressés).","<b>Couche alpha</b> : quatrième couche qui code la transparence ; indispensable pour livrer un élément à incruster."],src:"Dawan, Modula"},
- {k:"c3",p:5,t:"Préparer et organiser un projet",pts:["Avant d'ouvrir le logiciel : une idée, un message, une cible, puis un <b>script</b> et un <b>storyboard</b> qui découpe l'animation en plans.","Préparer les visuels dans Photoshop ou Illustrator avec des calques nommés : ils seront importés en composition (chapitre 10).","Dans le panneau Projet, ranger dans des dossiers : médias, compositions, précompositions, solides.","Nommer les calques (touche Entrée sur un calque sélectionné) et leur donner des couleurs d'étiquette.","Enregistrer en versions (projet_v01, v02…) et activer l'enregistrement automatique dans les Préférences.","Fichier > Dépendances > <b>Rassembler les fichiers</b> : copie le projet et tous ses médias dans un dossier, pour archiver ou transmettre."],tip:"L'assistant IA d'After Effects (en bêta) peut ranger, renommer et colorer les éléments d'un projet.",src:"Dawan ; aide Adobe"},
- {k:"c4",p:5,t:"Point d'ancrage, solides et calques de forme",pts:["Le <b>point d'ancrage</b> est le centre des rotations et des mises à l'échelle. Le déplacer avec l'outil Déplacement arrière <kbd>Y</kbd>, ou le recentrer sur le contenu avec <kbd>Cmd+Alt+Origine</kbd>.","Les cinq transformations de tout calque : point d'ancrage <kbd>A</kbd>, position <kbd>P</kbd>, échelle <kbd>S</kbd>, rotation <kbd>R</kbd>, opacité <kbd>T</kbd>.","<b>Solide</b> (<kbd>Cmd+Y</kbd>) : un aplat de couleur, support de masques et d'effets.","<b>Calque de forme</b> : dessiné avec les outils de forme sans calque sélectionné. Vectoriel, net à toute taille, avec fond, contour et opérateurs (Répéteur, Réduire les tracés, Décaler les tracés).","Orientation automatique (<kbd>Cmd+Alt+O</kbd>) : un calque suit la direction de sa trajectoire."],warn:"Un point d'ancrage mal placé fait tourner un objet autour d'un mauvais centre. Placez-le avant d'animer.",src:"Dawan, Vidéographe, Modula"},
- {k:"c5",p:5,t:"Principes d'animation et flou de mouvement",pts:["Les principes de l'animation classique s'appliquent au motion design. Les plus utiles :","<b>Ralentir en entrée et en sortie</b> : c'est le lissage de vitesse (F9).","<b>Compression et étirement</b> : déformer un objet à l'impact pour lui donner du poids.","<b>Anticipation</b> : un petit mouvement inverse avant l'action principale.","<b>Décalage et chevauchement</b> : ne pas tout faire démarrer à la même image ; décaler les calques de quelques images.","<b>Trajectoires en arc</b> : préférer des trajectoires Bézier courbes aux lignes droites (chapitre 5).","<b>Flou de mouvement</b> : cocher l'interrupteur du calque <b>et</b> activer le bouton du flou de mouvement en haut de la timeline."],tip:"Règle du mémo à garder en tête : régler d'abord le timing (la vitesse linéaire), ensuite seulement les courbes.",src:"Dawan, Modula ; principes de l'animation"},
- {k:"c6",p:5,t:"Les expressions",pts:["Une expression est un petit programme (JavaScript) qui calcule la valeur d'une propriété. On l'ajoute avec <kbd>Alt</kbd>+clic sur le chronomètre.","<code>wiggle(2, 30)</code> : tremblement aléatoire, 2 fois par seconde, jusqu'à 30 unités d'écart.","<code>loopOut(\"cycle\")</code> : répète en boucle les images clés existantes ; <code>\"pingpong\"</code> les joue en aller-retour.","<code>time * 90</code> sur une rotation : 90° par seconde, sans aucune image clé.","Lier deux propriétés : faire glisser le « zigouigoui » de l'expression vers une autre propriété.","Les <b>options pour expressions</b> (Paramètre glissière, Case à cocher…) créent des réglages simples pour piloter une expression."],tip:"L'assistant IA d'After Effects (bêta) peut expliquer une expression, en écrire une à partir d'une description, ou trouver la cause d'une erreur.",lab:"lab-expr",src:"Vidéographe ; aide Adobe"},
- {k:"c7",p:5,t:"Suivi, stabilisation et détourage",pts:["<b>Suivi de mouvement</b> (panneau Suivi) : enregistrer le mouvement d'un point de l'image pour y attacher un texte ou un calque.","<b>Stabilisation</b> : l'effet Stabilisation de déformation corrige un plan tremblé.","<b>Suivi de la caméra 3D</b> : reconstruit le mouvement de la caméra de tournage pour poser des éléments 3D dans le plan.","<b>Roto-pinceau</b> (<kbd>Alt+W</kbd>) : détoure un sujet en peignant dessus ; la sélection se propage d'image en image.","<b>Cache de l'objet</b> optimisé par l'IA (version 26.2) : détoure un objet entier en quelques clics.","<b>Incrustation</b> sur fond vert ou bleu : effet Keylight, puis affinage du cache.","<b>Remplissage d'après le contenu</b> : supprime un objet indésirable de la vidéo."],src:"Vidéographe, Modula ; aide Adobe"},
- {k:"c8",p:5,t:"Livrer et collaborer",pts:["Vérifier avant export : bonne composition, longueur, cadence, son présent, aucun calque masqué oublié.","H.264 depuis la file d'attente de rendu pour la diffusion web ; ProRes 4444 ou séquence PNG avec RVB+A pour un élément transparent.","<b>Modèles d'animations graphiques</b> (fichiers .mogrt) : dans le panneau Animations graphiques essentielles, exposer quelques réglages (texte, couleur) pour qu'un monteur les modifie dans Premiere Pro.","<b>Dynamic Link</b> : utiliser une composition After Effects dans Premiere Pro sans faire de rendu intermédiaire.","Archiver avec Rassembler les fichiers (complément 3)."],src:"Dawan ; aide Adobe"}
-];
-const IDX=Object.fromEntries(CH.map((c,i)=>[c.k,i]));
-const label=i=>CH[i].k[0]==='m'?'Chap. '+CH[i].k.slice(1):'Complément '+CH[i].k.slice(1);
-const shortLabel=i=>CH[i].k[0]==='m'?CH[i].k.slice(1):'C'+CH[i].k.slice(1);
-
-/* ---------- Parcours ---------- */
-const MODS=[
- {t:"Avant de commencer",obj:"Se repérer dans l'interface, comprendre les bases de la vidéo et démarrer un projet bien organisé.",ch:["c1","c2","c3"],
-  tp:{t:"Préparer un projet propre",s:["Créer un projet et l'enregistrer sous « exercice_v01 ».","Créer quatre dossiers dans le panneau Projet : Médias, Compos, Précomps, Solides.","Importer deux ou trois images et une vidéo, puis les ranger.","Créer une composition HDTV 1080 25 de 10 secondes avec un fond gris foncé, pas noir.","Choisir l'espace de travail Standard puis le réinitialiser."]},
-  ok:["Je reconnais les panneaux Projet, Composition, Montage et Effets.","Je sais quelle cadence et quelle résolution choisir pour une vidéo web en France.","Je range mon projet en dossiers et j'enregistre en versions."]},
- {t:"Les bases de l'animation",obj:"Créer une composition, poser et manipuler des images clés, prévisualiser.",ch:["m1","m2","m3","c4"],
-  tp:{t:"La balle qui roule",s:["Créer une composition de 4 secondes.","Dessiner un cercle (calque de forme) avec un motif pour voir la rotation.","Vérifier que le point d'ancrage est au centre (<kbd>Cmd+Alt+Origine</kbd>).","Poser des images clés de position et de rotation au début et à la fin.","Régler la zone de travail avec B et N, puis prévisualiser avec la barre d'espace.","Étirer l'animation avec Alt pour la ralentir."]},
-  ok:["Je crée une composition par les deux méthodes du mémo.","Je pose des images clés sans resélectionner le paramètre.","Je déplace et j'étire un groupe d'images clés.","Je place le point d'ancrage au bon endroit avant d'animer."]},
- {t:"Maîtriser le mouvement",obj:"Contrôler trajectoires et vitesses pour obtenir un mouvement naturel.",ch:["m5","m6","m7","m8","m9","c5"],
-  tp:{t:"Le rebond",s:["Faire tomber une balle du haut de l'image et la faire rebondir trois fois, de plus en plus bas.","Régler d'abord le timing en linéaire, sans toucher aux courbes.","Courber la trajectoire en arc avec des tangentes de Bézier.","Dans l'éditeur de graphiques, faire accélérer la balle à la chute et ralentir au sommet.","Écraser la balle à chaque impact avec l'échelle (compression et étirement).","Activer le flou de mouvement (calque et timeline)."]},
-  ok:["Je passe un point de trajectoire de linéaire à Bézier.","J'applique lissage, Bézier auto et maintien, et je reconnais leurs formes.","Je lis une courbe de vitesse dans l'éditeur de graphiques.","J'active le flou de mouvement."]},
- {t:"Composer avec les calques",obj:"Combiner images et vidéos : masques, précompositions, modes de fusion, caches, parenté.",ch:["m4","m10","m11","m12","m13","m14","m16","c7"],
-  tp:{t:"La carte postale animée",s:["Importer un fichier Photoshop en composition, taille du calque.","Faire défiler des nuages et parenter le soleil et un oiseau à un calque nul.","Ajouter une ombre portée en mode Produit et un reflet en mode Écran.","Faire apparaître un titre à travers un cache de piste sur une vidéo.","Étalonner l'ensemble avec un calque d'effet.","Précomposer le paysage et lui appliquer un effet Écho pour vérifier l'ordre de calcul."]},
-  ok:["Je détoure avec un masque dans la fenêtre de calque.","Je choisis la bonne option de précomposition et je connais l'ordre de calcul.","Je choisis un mode de fusion selon sa catégorie.","J'utilise un calque d'effet, une parenté et un cache de piste."]},
- {t:"Texte et expressions",obj:"Animer un texte caractère par caractère et automatiser avec des expressions.",ch:["m15","c6"],
-  tp:{t:"Le générique",s:["Écrire un titre et le faire apparaître façon machine à écrire (opacité, lissage 0 %).","Faire grandir puis rétrécir un sous-titre en vague (sélecteur triangle).","Poser les images clés uniquement sur le décalage.","Ajouter <code>wiggle(3, 15)</code> sur la position d'un élément décoratif.","Faire tourner un logo en continu avec <code>time * 45</code>.","Boucler une animation avec <code>loopOut(\"pingpong\")</code>."]},
-  ok:["J'anime un texte avec le décalage du sélecteur de plage.","Je choisis la forme de sélecteur adaptée.","J'écris wiggle, loopOut et time.","Je lie deux propriétés avec le zigouigoui."]},
- {t:"La 3D",obj:"Disposer des calques dans l'espace, les filmer et les éclairer.",ch:["m17","m18","m19","m20","m21"],
-  tp:{t:"La rue en profondeur",s:["Découper trois façades et un ciel dans une photo et les passer en 3D.","En mode 2 vues (haut et caméra active), les éloigner sur l'axe Z.","Créer une caméra à 2 nœuds de 50 mm et faire un travelling.","Activer la profondeur de champ et faire la mise au point sur la façade du milieu.","Ajouter une lumière ponctuelle et une ombre portée sur un sol."]},
-  ok:["Je travaille en 2 vues et je déplace selon un axe sans prendre l'axe maudit.","Je choisis entre caméra à 1 ou 2 nœuds.","Je règle la profondeur de champ.","J'obtiens une ombre (les trois conditions)."]},
- {t:"Exporter et livrer",obj:"Produire les bons fichiers et transmettre un projet complet.",ch:["m22","m23","c8"],
-  tp:{t:"Livrer le projet",s:["Exporter le générique en H.264 depuis la file d'attente de rendu.","Exporter le logo seul en ProRes 4444 avec couche alpha (RVB+A).","Vérifier la transparence en réimportant le fichier.","Rassembler les fichiers du projet dans un dossier de livraison."]},
-  ok:["J'exporte en H.264 depuis la file d'attente de rendu.","J'exporte une vidéo transparente.","J'archive un projet avec Rassembler les fichiers."]}
-];
-let state={};try{state=JSON.parse(localStorage.getItem('ae-memo-checks')||'{}')}catch(e){state={}}
-function save(){try{localStorage.setItem('ae-memo-checks',JSON.stringify(state))}catch(e){}}
-let curMod=0;
-const modtabs=document.getElementById('modtabs'),modEl=document.getElementById('module');
-function modDone(i){return MODS[i].ok.filter((_,j)=>state[i+'-'+j]).length}
-function renderProgress(){const tot=MODS.reduce((a,m)=>a+m.ok.length,0),done=MODS.reduce((a,_,i)=>a+modDone(i),0);
- document.getElementById('gbar').style.width=(done/tot*100)+'%';document.getElementById('gtext').textContent=`${done} / ${tot} compétences validées`;
- [...modtabs.children].forEach((b,i)=>{b.querySelector('.mini i').style.width=(modDone(i)/MODS[i].ok.length*100)+'%'})}
-MODS.forEach((m,i)=>{const b=document.createElement('button');b.className='modtab';b.setAttribute('role','tab');b.innerHTML=`<span class="mn">Module ${i}</span><span class="mt">${m.t}</span><span class="mini"><i></i></span>`;b.onclick=()=>showMod(i);modtabs.appendChild(b)});
-function showMod(i){curMod=i;const m=MODS[i];[...modtabs.children].forEach((b,j)=>b.setAttribute('aria-selected',i===j));
- modEl.innerHTML=`<div class="col"><span class="eyebrow">Module ${i} · objectif</span><h3>${m.t}</h3><p>${m.obj}</p>
- <span class="eyebrow">À lire</span><div class="links">${m.ch.map(k=>{const c=CH[IDX[k]];return `<button class="lk" data-k="${k}"><span class="d" style="background:var(${PARTS[c.p].c})"></span>${shortLabel(IDX[k])} · ${c.t}${c.upd?' <span class="badge b-upd">à jour</span>':''}${c.k[0]==='c'?' <span class="badge b-add">ajout</span>':''}</button>`}).join('')}</div>
- <div class="tp"><span class="eyebrow">Exercice · ${m.tp.t}</span><ol>${m.tp.s.map(s=>`<li>${s}</li>`).join('')}</ol></div></div>
- <div class="col"><span class="eyebrow">Je sais faire</span><div class="checks">${m.ok.map((o,j)=>`<label><input type="checkbox" id="ck-${i}-${j}" ${state[i+'-'+j]?'checked':''}><span>${o}</span></label>`).join('')}</div></div>`;
- modEl.querySelectorAll('.lk').forEach(b=>b.onclick=()=>{curPart=-1;showCh(IDX[b.dataset.k]);document.getElementById('chdetail').scrollIntoView({behavior:smooth()})});
- modEl.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.onchange=()=>{const id=cb.id.slice(3);if(cb.checked)state[id]=1;else delete state[id];save();renderProgress()});
- renderProgress()}
-document.getElementById('greset').onclick=()=>{state={};save();showMod(curMod)};
-function smooth(){return matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}
-showMod(0);
-
-/* ---------- Explorateur ---------- */
-let curPart=-1,curCh=0;
-const partsEl=document.getElementById('parts'),addbtn=document.getElementById('addbtn'),chlist=document.getElementById('chlist'),chdetail=document.getElementById('chdetail');
-PARTS.slice(0,5).forEach((p,i)=>{const b=document.createElement('button');const n=p.to-p.from+1;b.style.flex=n;b.style.background=`var(${p.c})`;b.innerHTML=`<span class="pl">${p.n}</span><span class="pp">${n} p.</span>`;b.title=`${p.n} · p. ${p.from} à ${p.to}`;b.onclick=()=>selPart(i);partsEl.appendChild(b)});
-addbtn.onclick=()=>selPart(5);
-function selPart(i){curPart=curPart===i?-1:i;const f=CH.findIndex(c=>curPart<0||c.p===curPart);showCh(f)}
-function renderList(){[...partsEl.children].forEach((b,i)=>b.setAttribute('aria-pressed',curPart<0||curPart===i));addbtn.setAttribute('aria-pressed',curPart<0||curPart===5);
- chlist.innerHTML='';CH.forEach((c,i)=>{if(curPart>=0&&c.p!==curPart)return;const b=document.createElement('button');b.className='ch';b.setAttribute('role','tab');b.setAttribute('aria-selected',i===curCh);b.innerHTML=`<span class="dot" style="background:var(${PARTS[c.p].c})"></span><span class="num">${shortLabel(i)}</span><span class="nm">${c.t}</span>${c.upd?'<span class="flag" title="Mis à jour"></span>':''}`;b.onclick=()=>showCh(i);chlist.appendChild(b)})}
-function showCh(i){curCh=i;const c=CH[i];renderList();
- const meta=c.k[0]==='m'?`${label(i)} · p. ${c.pg}`:`${label(i)} · <span class="badge b-add">ajout</span>`;
- chdetail.innerHTML=`<div class="chhead"><span class="eyebrow" style="color:var(${PARTS[c.p].c})">${PARTS[c.p].n}</span><span class="pg">${meta}</span></div><h2>${c.t}</h2><ul class="pts">${c.pts.map(p=>`<li>${p}</li>`).join('')}</ul>${c.warn?`<div class="box warn"><b>Attention</b><span>${c.warn}</span></div>`:''}${c.upd?`<div class="box upd"><b>Mise à jour</b><span>${c.upd}</span></div>`:''}${c.tip?`<p class="quote">${c.tip}</p>`:''}${c.src?`<p class="note">Notion présente dans : ${c.src}.</p>`:''}${c.lab?`<button class="golab" data-lab="${c.lab}">${c.lab==='raccourcis'?'Voir le tableau':"Voir l'atelier"} ↓</button>`:''}<div class="chnav"><button ${i===0?'disabled':''} data-go="${i-1}">← Précédent</button><button ${i===CH.length-1?'disabled':''} data-go="${i+1}">Suivant →</button></div>`;
- chdetail.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{const n=+b.dataset.go;if(curPart>=0&&CH[n].p!==curPart)curPart=-1;showCh(n)});
- const g=chdetail.querySelector('.golab');if(g)g.onclick=()=>{const el=document.getElementById(g.dataset.lab);el&&el.scrollIntoView({behavior:smooth()})}}
-showCh(0);
-
-/* ---------- Comparaison ---------- */
-const SRC=["Mémo","Dawan","Vidéographe","Modula"];
-const SRCC=["--accent","--p2","--p3","--p4"];
-const ROWS=[ /* 2 traité, 1 partiel, 0 absent ; gap = complément ajouté */
- ["Interface et espaces de travail",[0,2,2,2],1],
- ["Bases de la vidéo (formats, pixels, codecs)",[1,2,0,2],1],
- ["Conception, script, storyboard",[0,2,0,0],1],
- ["Compositions",[2,2,2,2]],
- ["Point d'ancrage",[1,2,2,2],1],
- ["Images clés et interpolations",[2,2,2,2]],
- ["Éditeur de graphiques",[2,2,2,0]],
- ["Masques",[2,2,0,2]],
- ["Calques de forme et solides",[1,2,2,0],1],
- ["Import Photoshop / Illustrator",[2,2,0,0]],
- ["Précomposition",[2,0,0,0]],
- ["Modes de fusion",[2,0,0,2]],
- ["Caches, alpha, luminance",[2,0,0,2]],
- ["Parenté et calques nuls",[2,1,0,2]],
- ["Animation de texte",[2,2,0,0]],
- ["Expressions",[0,0,2,0],1],
- ["Suivi de mouvement",[0,0,2,2],1],
- ["Rotoscopie et détourage",[1,0,0,2],1],
- ["Flou de mouvement, principes d'animation",[0,0,0,1],1],
- ["3D, caméras, lumières",[2,2,2,0]],
- ["Export, codecs, transparence",[2,2,0,0]]
-];
-const SYM=['<span class="n">○</span>','<span class="p">◐</span>','<span class="y">●</span>'];
-document.getElementById('cmp').innerHTML=`<thead><tr><th>Notion</th>${SRC.map(s=>`<th>${s}</th>`).join('')}</tr></thead><tbody>${ROWS.map(r=>`<tr class="${r[2]?'gap':''}"><td>${r[0]}</td>${r[1].map((v,j)=>`<td class="${j===0?'mem':''}" aria-label="${['absent','partiel','traité'][v]}">${SYM[v]}</td>`).join('')}</tr>`).join('')}</tbody>`;
-const max=ROWS.length*2;
-document.getElementById('cov').innerHTML='<span class="eyebrow">Couverture des 21 notions (traité = 1 point, partiel = ½)</span>'+SRC.map((s,j)=>{const v=ROWS.reduce((a,r)=>a+r[1][j],0)/2;return `<div class="covrow"><span>${s}</span><div class="covbar"><i style="width:${v/ROWS.length*100}%;background:var(${SRCC[j]})"></i></div><span class="v">${String(v).replace('.',',')}</span></div>`}).join('')+(()=>{const v=ROWS.length;return `<div class="covrow"><span><b>Ce support</b></span><div class="covbar"><i style="width:100%;background:var(--ok)"></i></div><span class="v">${v}</span></div>`})();
-const UPD=[
- ["Oct. 2022 · v23.0","Caches de piste","N'importe quel calque peut servir de cache, sans être placé juste au-dessus. Plusieurs calques peuvent partager le même cache.","Mémo, chap. 16 : le cache devait être le calque immédiatement au-dessus.","m16"],
- ["Oct. 2022 · v23.0","H.264 dans la file d'attente","Le format H.264 est proposé directement dans le module de sortie, avec encodage matériel.","Mémo, chap. 22 : passer par Media Encoder pour le H.264.","m22"],
- ["2023 et après","Moteur 3D avancé","Nouveau moteur GPU : modèles 3D importés, texte et formes extrudés, éclairage HDRI ; profondeur de champ depuis la v26.3.","Mémo, chap. 17 : moteurs Cinema 4D et Lancé de rayon.","m17"],
- ["Oct. 2022 · v23.0","Préréglages de composition","Liste réorganisée, avec des formats pour les réseaux sociaux.","Mémo, chap. 1 : liste centrée sur les formats télévision.","m1"],
- ["Avr. 2026 · v26.2","Cache de l'objet IA","Détourage d'un objet entier en quelques clics, en plus du roto-pinceau.","Mémo, chap. 4 : détourage au masque, point par point.","m4"],
- ["Bêta","Assistant IA","Range le projet, explique ou écrit des expressions, génère des images avec Firefly.","Absent du mémo.","c6"]
-];
-document.getElementById('updlist').innerHTML=UPD.map(u=>`<div class="updcard"><span class="ver">${u[0]}</span><h3>${u[1]}</h3><p>${u[2]}</p><p class="was">${u[3]}</p><button class="lk" data-k="${u[4]}" style="align-self:flex-start">Ouvrir ${shortLabel(IDX[u[4]])}</button></div>`).join('');
-document.querySelectorAll('#updlist .lk').forEach(b=>b.onclick=()=>{curPart=-1;showCh(IDX[b.dataset.k]);chdetail.scrollIntoView({behavior:smooth()})});
-
-/* ---------- Atelier interpolations ---------- */
-const EASES={lin:{f:t=>t,n:"Linéaire : vitesse constante, départ et arrêt brusques. C'est la vitesse « moyenne » à régler en premier."},
- ease:{f:t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,n:"Lissage de vitesse (F9) : un amorti automatique au départ et à l'arrivée. Sur les images clés de début ou de fin d'animation."},
- auto:{f:t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2,n:"Bézier auto (Cmd+clic) : adoucit les changements de vitesse ; la vitesse juste avant et juste après l'image clé s'égalisent."},
- hold:{f:t=>t<1?0:1,n:"Maintien (Cmd+Alt+clic) : la valeur reste figée jusqu'à l'image clé suivante, puis saute. Aucune interpolation."}};
-let cur='lin',raf=null;const ball=document.getElementById('ball'),cv=document.getElementById('graph'),ctx=cv.getContext('2d');
-function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
-function drawGraph(){const W=cv.width,H=cv.height,p=26,f=EASES[cur].f;ctx.clearRect(0,0,W,H);ctx.strokeStyle=css('--line');ctx.lineWidth=1;
- for(let i=0;i<=4;i++){const y=p+i*(H-2*p)/4;ctx.beginPath();ctx.moveTo(p,y);ctx.lineTo(W-p,y);ctx.stroke()}
- ctx.fillStyle=css('--muted');ctx.font='13px JetBrains Mono, monospace';ctx.fillText('courbe de vitesse',p,16);ctx.fillText('temps →',W-p-62,H-6);
- const N=160,sp=[];let mx=0;for(let i=0;i<=N;i++){const t=i/N,a=Math.max(0,t-.001),b=Math.min(1,t+.001);const d=cur==='hold'?0:(f(b)-f(a))/(b-a);sp.push(d);mx=Math.max(mx,d)}
- ctx.strokeStyle=css('--accent');ctx.lineWidth=3;ctx.beginPath();sp.forEach((d,i)=>{const x=p+i/N*(W-2*p),y=H-p-(mx?d/mx:0)*(H-2*p)*.9;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke();
- ctx.fillStyle=css('--key');[p,W-p].forEach(x=>{ctx.save();ctx.translate(x,H-p);ctx.rotate(Math.PI/4);ctx.fillRect(-6,-6,12,12);ctx.restore()})}
-function setEase(e){cur=e;document.querySelectorAll('[data-e]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.e===e));document.getElementById('enote').textContent=EASES[e].n;drawGraph()}
-document.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>{setEase(b.dataset.e);play()});
-function play(){cancelAnimationFrame(raf);const st=performance.now(),D=1600,f=EASES[cur].f,mx=ball.parentElement.clientWidth-58;
- (function tick(now){let t=Math.min(1,(now-st)/D);if(cur==='hold')t=t<1?0:1;ball.style.left=(12+f(t)*mx)+'px';if(now-st<D)raf=requestAnimationFrame(tick)})(st)}
-document.getElementById('play').onclick=play;setEase('lin');
-
-/* ---------- Atelier formes ---------- */
-const HALF={lin:"M0,-22 L-22,0 L0,22 Z",bez:"M0,-12 L-20,-20 Q-9,0 -20,20 L0,12 Z",hold:"M0,-18 L-18,-18 L-18,18 L0,18 Z",auto:"M0,-19 A19,19 0 0 0 0,19 Z"};
-const KN={lin:"Linéaire",bez:"Bézier",hold:"Maintien",auto:"Bézier auto"};let ka='lin',kb='lin';
-function kfBtns(id,get,set){const el=document.getElementById(id);el.innerHTML='';Object.keys(KN).forEach(k=>{const b=document.createElement('button');b.className='chip';b.textContent=KN[k];b.setAttribute('aria-pressed',get()===k);b.onclick=()=>{set(k);drawKF()};el.appendChild(b)})}
-function drawKF(){kfBtns('kfA',()=>ka,v=>ka=v);kfBtns('kfB',()=>kb,v=>kb=v);document.getElementById('kfsvg').innerHTML=`<line x1="0" y1="-30" x2="0" y2="30" stroke="var(--line)" stroke-width="1"/><path d="${HALF[ka]}" fill="var(--key)"/><path d="${HALF[kb]}" fill="var(--key)" transform="scale(-1,1)"/>`}
-drawKF();
-
-/* ---------- Atelier sélecteur de plage ---------- */
-const LET="BANANE".split(''),ban=document.getElementById('banane'),selsvg=document.getElementById('selsvg');
-LET.forEach(l=>{const s=document.createElement('span');s.textContent=l;ban.appendChild(s)});
-const NOTES={carre:"Carré (par défaut) : décalage de 0 à 100 % ou de 0 à −100 %. Les caractères changent d'état l'un après l'autre.",haut:"Dégradé du haut : décalage de −100 à 100 %. Les caractères se transforment ensemble et progressivement.",bas:"Dégradé du bas : décalage de −100 à 100 %. Transformation d'ensemble, progressive.",tri:"Triangle : ne fait ni apparaître ni disparaître le texte, mais propage une vague le long des caractères.",arr:"Arrondi : propage une vague plus douce.",lisse:"Lisse : vague très douce, en cloche."};
-function selVal(x,o,sm,shape){const a=o,b=100+o,w=Math.max(.001,sm/100*16.7),m=(a+b)/2,h=50;let v;
- if(shape==='carre')v=Math.min((x-a)/w+.5,(b-x)/w+.5);else if(shape==='haut')v=(b-x)/100;else if(shape==='bas')v=(x-a)/100;
- else{const t=(x-m)/h;if(Math.abs(t)>=1)v=0;else v=shape==='tri'?1-Math.abs(t):shape==='arr'?Math.sqrt(1-t*t):(Math.cos(Math.PI*t)+1)/2}
- return Math.max(0,Math.min(1,v))}
-function drawSel(){const o=+document.getElementById('off').value,sm=+document.getElementById('smo').value,sh=document.getElementById('shape').value;
- document.getElementById('offv').textContent=o+' %';document.getElementById('smov').textContent=sm+' %';document.getElementById('shapenote').textContent=NOTES[sh];
- const X=x=>40+(x+100)/300*560;let d='';for(let i=0;i<=300;i++){const x=-100+i;d+=(i?'L':'M')+X(x).toFixed(1)+','+(96-selVal(x,o,sm,sh)*66).toFixed(1)}
- let t=`<line x1="40" y1="96" x2="600" y2="96" stroke="var(--line)"/><line x1="40" y1="30" x2="600" y2="30" stroke="var(--line)" stroke-dasharray="4 4"/><text x="4" y="100" font-size="11" fill="var(--muted)">État A</text><text x="4" y="34" font-size="11" fill="var(--muted)">État B</text><rect x="${X(0)}" y="104" width="${X(100)-X(0)}" height="4" fill="var(--track)"/><text x="${X(0)-4}" y="118" font-size="10" fill="var(--muted)">0%</text><text x="${X(100)-14}" y="118" font-size="10" fill="var(--muted)">100%</text><path d="${d}" fill="none" stroke="var(--bad)" stroke-width="2.5"/>`;
- LET.forEach((l,i)=>{const x=(i+.5)/6*100,v=selVal(x,o,sm,sh);t+=`<circle cx="${X(x)}" cy="${96-v*66}" r="4" fill="var(--accent)"/><text x="${X(x)-4}" y="${86-v*66}" font-size="11" font-weight="700" fill="var(--ink)">${l}</text>`;
-  const s=ban.children[i];s.style.transform=`scale(${1+v})`;s.style.color=`color-mix(in srgb, var(--accent) ${Math.round(v*100)}%, var(--ink))`});
- selsvg.innerHTML=t}
-['off','smo','shape'].forEach(id=>document.getElementById(id).addEventListener('input',drawSel));drawSel();
-
-/* ---------- Atelier wiggle ---------- */
-function noise1(seed){const r=[];let s=seed;for(let i=0;i<400;i++){s=(s*9301+49297)%233280;r.push(s/233280*2-1)}return t=>{const i=Math.floor(t)%399,f=t-Math.floor(t),u=f*f*(3-2*f);return r[i]*(1-u)+r[i+1]*u}}
-const nx=noise1(7),ny=noise1(91),wtgt=document.getElementById('wtgt'),wst=document.getElementById('wstage');let wrun=!matchMedia('(prefers-reduced-motion: reduce)').matches,wt0=performance.now(),wfr=null,wtime=0;
-function wcode(){const f=+document.getElementById('wf').value,a=+document.getElementById('wa').value;document.getElementById('wfv').textContent=String(f).replace('.',',')+' / s';document.getElementById('wav').textContent=a+' px';document.getElementById('exprcode').textContent=`wiggle(${String(f)}, ${a})`;return [f,a]}
-function wdraw(){const [f,a]=wcode();const w=wst.clientWidth,h=wst.clientHeight;const t=wtime*f;wtgt.style.left=(w/2+nx(t)*a)+'px';wtgt.style.top=(h/2+ny(t)*a)+'px'}
-function wloop(now){wtime+=(now-wt0)/1000;wt0=now;wdraw();if(wrun)wfr=requestAnimationFrame(wloop)}
-document.getElementById('wplay').onclick=e=>{wrun=!wrun;e.currentTarget.textContent=wrun?'⏸ Pause':'▶ Lire';if(wrun){wt0=performance.now();wfr=requestAnimationFrame(wloop)}};
-['wf','wa'].forEach(id=>document.getElementById(id).addEventListener('input',wdraw));
-document.getElementById('wplay').textContent=wrun?'⏸ Pause':'▶ Lire';wdraw();if(wrun)wfr=requestAnimationFrame(wloop);
-
-/* ---------- Atelier fusion ---------- */
-const BL=[["Normal","normal","Les images se superposent selon leur transparence. Mode par défaut."],
- ["Produit","multiply","Catégorie Produit : garde les noirs, fait disparaître les blancs et assombrit l'ensemble. Idéal pour poser des ombres."],
- ["Addition","plus-lighter","Catégorie Addition : garde les blancs, fait disparaître les noirs et éclaircit l'image. Pour faire éclater les blancs."],
- ["Écran","screen","Variante plus douce de la catégorie Addition, idéale pour les reflets."],
- ["Incrustation","overlay","Mélange harmonieux des deux images. Le mode de fusion de la texture par excellence."],
- ["Différence","difference","Compare deux images : les pixels identiques deviennent noirs. Idéal pour caler deux images en géométrie ou en couleur."],
- ["Couleur (TSL)","color","Catégorie TSL : applique la teinte, la saturation ou la luminosité du calque du dessus. Couleur = teinte + saturation. Peu utilisé."]];
-const bb=document.getElementById('blendbtns'),tl=document.getElementById('toplayer');
-function setBlend(i){[...bb.children].forEach((b,j)=>b.setAttribute('aria-pressed',i===j));tl.style.mixBlendMode=BL[i][1];if(BL[i][1]==='plus-lighter'&&!CSS.supports('mix-blend-mode','plus-lighter'))tl.style.mixBlendMode='lighten';document.getElementById('bname').textContent=BL[i][0];document.getElementById('bdesc').textContent=BL[i][2]}
-BL.forEach((b,i)=>{const e=document.createElement('button');e.className='chip';e.textContent=b[0];e.onclick=()=>setBlend(i);bb.appendChild(e)});setBlend(0);
-
-/* ---------- Atelier caméra ---------- */
-const FOC=[15,20,24,28,35,50,80,135,200];
-function drawCam(){const f=FOC[+document.getElementById('foc').value];document.getElementById('focv').textContent=f+' mm';
- const ang=2*Math.atan(36/(2*f)),L=230,hw=Math.min(66,Math.tan(ang/2)*L);
- document.getElementById('camsvg').innerHTML=`<rect x="10" y="56" width="34" height="28" rx="4" fill="var(--ink)"/><polygon points="44,64 56,58 56,82 44,76" fill="var(--ink)"/><polygon points="56,70 ${56+L},${70-hw} ${56+L},${70+hw}" fill="color-mix(in srgb, var(--accent) 22%, transparent)" stroke="var(--accent)" stroke-width="1.5"/><text x="60" y="134" font-size="11" fill="var(--muted)">angle de champ horizontal ≈ ${Math.round(ang*180/Math.PI)}°</text>`;
- document.getElementById('focnote').textContent=f<50?'Grand-angle : le champ s’ouvre, les perspectives s’exagèrent.':f>50?'Téléobjectif : le champ se resserre, les plans s’écrasent.':'50 mm : la focale par défaut, proche de l’œil humain. Sauf bonne raison, c’est celle à garder.'}
-document.getElementById('foc').addEventListener('input',drawCam);drawCam();
-try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',drawGraph);new MutationObserver(drawGraph).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}
-
-/* ---------- Glossaire ---------- */
-const GL=[["Composition","Le conteneur d'une animation : format, cadence, durée, et une pile de calques. L'équivalent d'une séquence de montage."],
-["Calque","Un élément empilé dans une composition : métrage, texte, forme, solide, nul, caméra, lumière, précomposition."],
-["Métrage","Tout fichier importé : vidéo, image, son, fichier Photoshop ou Illustrator."],
-["Solide","Calque d'aplat de couleur, support de masques et d'effets."],
-["Calque nul","Calque invisible au rendu, utilisé comme parent pour piloter d'autres calques."],
-["Précomposition","Composition imbriquée dans une autre, qui regroupe des calques et contourne l'ordre de calcul."],
-["Image clé","Valeur d'une propriété fixée à un instant. Entre deux images clés, After Effects interpole."],
-["Interpolation","Calcul des valeurs entre deux images clés : spatiale (forme de la trajectoire) ou temporelle (vitesse)."],
-["Lissage de vitesse","Interpolation qui ralentit à l'arrivée et au départ d'une image clé (F9)."],
-["Approche / éloignement","Les deux vitesses d'une image clé : à l'arrivée et au départ."],
-["Point d'ancrage","Centre autour duquel un calque tourne et se met à l'échelle."],
-["Masque","Tracé qui rend une partie d'un calque transparente."],
-["Cache de piste","Calque dont l'alpha ou la luminance découpe un autre calque. Le mémo dit « cache par approche »."],
-["Couche alpha","Quatrième couche d'une image, qui code sa transparence."],
-["Mode de fusion","Calcul qui combine un calque avec l'image des calques du dessous."],
-["Calque d'effet","Calque qui applique ses effets à tout ce qui est en dessous."],
-["Parenté","Lien géométrique : l'enfant suit les transformations du parent."],
-["Sélecteur de plage","Courbe qui fait passer les caractères d'un texte de l'état A à l'état B."],
-["Expression","Petit programme qui calcule la valeur d'une propriété (wiggle, loopOut, time…)."],
-["Zone de travail","Portion de la timeline prévisualisée et, par défaut, rendue (B et N)."],
-["Cadence","Nombre d'images par seconde : 25 en Europe, 24 au cinéma."],
-["Codec","Méthode de compression d'une vidéo : ProRes, DNxHR, H.264…"],
-["Vue de projection","Vue 3D sans perspective (haut, devant, droite…) pour placer les calques de façon fiable."],
-["Focale","Distance qui règle l'angle de champ de la caméra. 50 mm par défaut."],
-["Profondeur de champ","Zone de netteté de la caméra, réglée par la mise au point et l'ouverture."],
-["Suivi de mouvement","Enregistrement du mouvement d'un point d'une vidéo pour y attacher un autre élément."],
-["Rotoscopie","Détourage d'un sujet image par image ; le roto-pinceau l'automatise."],
-["Flou de mouvement","Flou qui imite celui d'une caméra sur un objet rapide ; interrupteur du calque et bouton de la timeline."],
-["Modèle d'animations graphiques","Fichier .mogrt qui expose quelques réglages d'une animation pour Premiere Pro."]];
-const glq=document.getElementById('glq');
-function renderGL(){const q=norm(glq.value);document.getElementById('glossary').innerHTML=GL.filter(g=>norm(g[0]+' '+g[1]).includes(q)).map(g=>`<div class="term"><dt>${g[0]}</dt><dd>${g[1]}</dd></div>`).join('')||'<p class="note">Aucun terme ne correspond.</p>'}
-glq.oninput=renderGL;
-
-/* ---------- Raccourcis ---------- */
-const SC=[["P / R / S / T / A","Afficher position, rotation, échelle, opacité, point d'ancrage","Propriétés"],["U","Afficher les images clés des calques sélectionnés","Propriétés"],["UU","Afficher les paramètres modifiés","Propriétés"],["E","Afficher les effets des calques sélectionnés","Propriétés"],
-["M","Paramètre Tracé de masque","Masques"],["F","Paramètre Contour progressif","Masques"],["MM","Tous les paramètres des masques","Masques"],["Q","Outils de forme (masques)","Masques"],["Alt+W","Outil Roto-pinceau","Masques"],
-["Espace / 0","Prévisualisation","Lecture"],["B / N","Début et fin de la zone de travail","Lecture"],[", (pavé num.) / Ctrl+:","Lecture du son seul","Lecture"],["I / O","Tête de lecture au début ou à la fin du calque","Lecture"],["J / K","Point clé précédent ou suivant","Lecture"],["Maj+J / Maj+K","Point clé précédent ou suivant des calques sélectionnés","Lecture"],["Cmd+← / Cmd+→","Une image en arrière ou en avant","Lecture"],
-["ù / $","Caler le début ou la fin du calque sur la tête de lecture","Calques"],["Alt+ù / Alt+$","Couper le début ou la fin du calque à la tête de lecture","Calques"],["* / Ctrl+8","Placer un repère sur un calque ou la timeline","Calques"],["Cmd+Maj+C","Précomposition","Calques"],["Cmd+Y","Nouveau solide","Calques"],["Cmd+Alt+Maj+Y","Nouvel objet nul","Calques"],["Cmd+Alt+Maj+T","Nouveau calque de texte","Calques"],["F4","Alterner colonnes Mode/Cache et options","Calques"],["Tab","Mini-organigramme des compositions","Calques"],
-["Y","Outil Déplacement arrière (point d'ancrage)","Transformations"],["Cmd+Alt+Origine","Centrer le point d'ancrage sur le contenu","Transformations"],["Cmd+Alt+O","Orientation automatique","Transformations"],
-["F9","Lissage de vitesse","Images clés"],["Cmd+clic","Linéaire ↔ Bézier auto","Images clés"],["Cmd+Alt+clic","Maintien ↔ linéaire","Images clés"],["Alt+clic chronomètre","Ajouter une expression","Images clés"],
-["Cmd+N","Nouvelle composition","Projet"],["Cmd+K","Paramètres de composition","Projet"],["Cmd+I","Importer un fichier","Projet"],["Cmd+M","Ajouter à la file d'attente de rendu","Projet"],
-["Cmd+Alt+Maj+C","Nouvelle caméra","3D"],["Cmd+Alt+Maj+L","Nouvelle lumière","3D"],["Cmd+Maj+A","Tout désélectionner","3D"]];
-const cats=["Tous",...new Set(SC.map(s=>s[2]))];let cat="Tous";
-const catsEl=document.getElementById('cats');cats.forEach(c=>{const b=document.createElement('button');b.className='chip';b.textContent=c;b.onclick=()=>{cat=c;renderSC()};catsEl.appendChild(b)});
-const qi=document.getElementById('q');qi.oninput=renderSC;
-function norm(s){return s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'')}
-function renderSC(){const q=norm(qi.value);[...catsEl.children].forEach(b=>b.setAttribute('aria-pressed',b.textContent===cat));
- const rows=SC.filter(s=>(cat==="Tous"||s[2]===cat)&&norm(s[0]+' '+s[1]+' '+s[2]).includes(q));
- document.getElementById('sct').innerHTML=rows.map(s=>`<tr><td>${s[0].split(' / ').map(k=>`<kbd>${k}</kbd>`).join(' / ')}</td><td>${s[1]}</td><td class="cat">${s[2]}</td></tr>`).join('');
- document.getElementById('scempty').hidden=rows.length>0}
-renderSC();renderGL();
-
-/* ---------- Quiz ---------- */
-const QZ=[["Dans quel ordre After Effects calcule-t-il un calque ?",["Transformations, effets, masques","Masques, effets, transformations","Effets, masques, transformations","Dans l'ordre où on a travaillé"],1,"Masques, puis effets, puis transformations. D'où l'intérêt de la précomposition pour l'effet Écho."],
-["Quelles couleurs d'arrière-plan le mémo conseille-t-il d'éviter ?",["Le bleu et le vert","Le rouge","Le noir et le blanc","Le gris"],2,"Le noir et le blanc sont des couleurs piège, présentes dans beaucoup d'images."],
-["Quelle cadence choisir pour une vidéo diffusée en France ?",["24 images/s","25 images/s","30 images/s","60 images/s"],1,"25 images/s est la norme européenne ; 24 pour le cinéma, 30 ou 29,97 aux États-Unis."],
-["Avec quel outil déplace-t-on le point d'ancrage ?",["Sélection (V)","Main (H)","Déplacement arrière (Y)","Plume (G)"],2,"L'outil Déplacement arrière, touche Y. Cmd+Alt+Origine le recentre sur le contenu."],
-["Pour animer un texte avec un animateur, on pose les images clés sur…",["l'Échelle de l'animateur","le Décalage du sélecteur de plage","l'Échelle du groupe Transformation","la Position"],1,"On règle le paramètre sans image clé, puis on anime le Décalage."],
-["Que fait la catégorie Produit ?",["Garde les blancs, supprime les noirs","Garde les noirs, supprime les blancs","Compare deux images","Applique la teinte"],1,"Elle assombrit l'image : idéale pour les ombres."],
-["Dans After Effects 2026, le calque qui sert de cache de piste…",["doit être juste au-dessus du calque découpé","peut être n'importe quel calque de la composition","doit être une précomposition","doit être un calque nul"],1,"Depuis la version d'octobre 2022, on le choisit dans le menu Cache de piste, où qu'il soit dans la pile."],
-["Quelle option de précomposition est la plus utile ?",["La première (laisser tous les attributs)","La deuxième (transférer tous les attributs)","Les deux se valent","Aucune"],1,"La deuxième groupe les calques dans une compo au format de la compo principale."],
-["Que fait l'expression wiggle(2, 30) ?",["Une rotation de 2 tours en 30 s","Un tremblement aléatoire, 2 fois par seconde, jusqu'à 30 unités","Une boucle de 2 images clés","Un fondu de 30 images"],1,"Fréquence 2 par seconde, amplitude 30."],
-["Pour obtenir du flou de mouvement, il faut…",["seulement cocher l'interrupteur du calque","seulement activer le bouton de la timeline","l'interrupteur du calque et le bouton de la timeline","appliquer l'effet Flou directionnel"],2,"Les deux sont nécessaires."],
-["Dans quelle vue ne faut-il jamais déplacer les calques 3D ?",["Vue de haut","Vue de droite","Vue Caméra active","Vue de devant"],2,"On déplace dans les vues de projection ; la vue caméra est en perspective."],
-["Quelle focale garder par défaut pour une caméra ?",["15 mm","35 mm","50 mm","200 mm"],2,"50 mm, proche de l'œil humain, comme la caméra par défaut."],
-["Comment exporter en H.264 dans After Effects aujourd'hui ?",["Uniquement via Media Encoder","Directement dans le module de sortie de la file d'attente de rendu, ou via Media Encoder","Avec le codec Animation","C'est impossible"],1,"Depuis la version d'octobre 2022, H.264 est proposé dans la file d'attente de rendu."],
-["Quel raccourci passe une image clé de linéaire à Bézier auto ?",["F9","Cmd+clic","Cmd+Alt+clic","Alt+double-clic"],1,"Cmd+clic (Ctrl+clic sur PC). F9 applique le lissage de vitesse."],
-["À quoi sert Rassembler les fichiers ?",["À fusionner des calques","À copier le projet et tous ses médias dans un dossier","À importer un PSD","À vider le cache"],1,"Fichier > Dépendances > Rassembler les fichiers, pour archiver ou transmettre un projet."],
-["Combien de choses faut-il pour obtenir une ombre en 3D ?",["Une : une lumière","Deux : une lumière et un sol","Trois : une lumière, un calque qui projette, un calque qui reçoit","Quatre, avec une caméra"],2,"Et activer Projette une ombre dans le calque et dans la lumière."]];
-let qn=0,score=0,answered=0;
-function renderQ(){const [q,o,c,e]=QZ[qn];document.getElementById('qq').textContent=`${qn+1}/${QZ.length} · ${q}`;document.getElementById('qe').textContent='';
- const box=document.getElementById('qo');box.innerHTML='';delete box.dataset.done;o.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.textContent=t;b.onclick=()=>{if(box.dataset.done)return;box.dataset.done=1;answered++;if(i===c)score++;
- [...box.children].forEach((x,j)=>{if(j===c)x.classList.add('right');else if(j===i)x.classList.add('wrong')});document.getElementById('qe').textContent=(i===c?'Exact. ':'Pas tout à fait. ')+e;renderS()};box.appendChild(b)});renderS()}
-function renderS(){document.getElementById('qs').textContent=`Score : ${score} / ${answered}`}
-document.getElementById('qn').onclick=()=>{qn=(qn+1)%QZ.length;if(qn===0){score=0;answered=0}renderQ()};
-renderQ();
+const links=[...document.querySelectorAll('nav a')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));}}),{rootMargin:'0px 0px -70% 0px'});
+document.querySelectorAll('main h2[id]').forEach(h=>io.observe(h));
 </script>
-
-</body></html>
+</body>
+</html>
